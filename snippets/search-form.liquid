@@ -1,0 +1,25 @@
+{% comment %}
+    Renders a search form
+
+    Usage:
+    {% include 'search-form' %}
+{% endcomment %}
+
+
+        <form action="{{ routes.search_url }}" method="get" class="custom-search search" role="search">
+            <div class="input-group">
+                <input class="search-header__input search__input"
+                type="search"
+                name="q"
+                placeholder="{{ 'general.search.placeholder' | t }}"
+                aria-label="{{ 'general.search.placeholder' | t }}">
+              <button class="btn" type="submit">
+                Buscar
+              </button>
+          
+            </div>
+           
+          </form>
+
+
+

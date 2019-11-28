@@ -1,0 +1,141 @@
+
+
+ <div data-section-id="{{ section.id }}" data-section-type="custom-collection-list" class="custom-collection-list-section">
+        <div class="flex-group-personalizado header-custom-collection-list">
+           <div class="flex-item-personalizado heading-custom-collection-list">
+              <h2> {{section.settings.heading}} </h2> 
+           </div>
+           <div class="flex-item-personalizado subheading-custom-collection-list">
+               {{section.settings.subheading}} 
+           </div>
+       </div>
+
+ 
+       <div class="list-collections-custom list-collections-flex-custom ">
+         
+               {%for block in section.blocks%}
+               <div class="flex-collection-vertical coleccion_color_item div-class-collection">
+               {%assign class = "zx"%}
+               {%assign image = block.settings.collection_image%}
+
+               {%if forloop.index == 1 or forloop.index == section.blocks.size%}
+               {%assign size_img = '585X250'%}
+               {%else%}
+               {%assign size_img = '250X250'%}
+               {%endif%}
+           
+               <div class="">
+                    
+                     <img id="{{ img_id }}"
+                          class="feature-row__image lazyload"
+                          src="{{ image | img_url: size_img }}"
+                          data-src="{{ img_url }}"
+                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                          data-aspectratio="{{ image.aspect_ratio }}"
+                          data-sizes="auto"
+                          alt="{{ image.alt | escape }}">
+                          
+                   </div>
+                            <div class="custom-collection-title" >
+                               {{block.settings.collection_id | capitalize | replace: "-", " " }}
+                           </div> 
+                         </div>
+                                 
+                                 
+            
+               {%endfor%}
+          </div>
+        
+    </div>
+ 
+    
+   
+    
+ 
+
+{% schema %}
+{
+    "name":
+    {
+       "en": "custom-collection-list",
+       "es": "colleción-personalizada"  
+    },
+     "class": "custom-collection-list",
+     "max_blocks": 6,
+     "settings":
+     [
+     {
+       "type":"text",
+       "id": "heading",
+       "label": {
+           "en":"Heading",
+           "es": "Título"
+       },
+       "info": {
+          "en":"Add title",
+          "es": "Agrege titulo"
+       }
+     },
+     {
+       "type": "richtext",
+       "id": "subheading",
+       "label": {
+           "en":"Subheading",
+           "es":"subtítulo"
+       },
+       "info": {
+           "en":"Add subtitle",
+           "es": "Agregue subtitulo"
+       }
+     }
+     ],
+     "blocks": [
+     {
+       "type": "image",
+       "name": 
+       {
+          "en": "collection",
+          "es": "Colección" 
+       },
+       "settings": [
+        {
+           "type": "image_picker",
+           "id": "collection_image",
+           "label": {
+           "en": "collection image",
+           "es": "Imagen de colección"
+           } 
+        },
+        {
+           "type": "collection",
+           "id": "collection_id",
+           "label": {
+              "en": "Collection",
+              "es": "Colección" 
+           }
+   
+        }
+        
+       ]
+     }
+     ],
+     "presets" : [
+     {
+      "name" : {
+       "en": "Custom collection list",
+       "es": "Lista de colleciones"
+      } ,
+      "category": {
+         "en": "custom",
+         "es": "custom" 
+      },
+      "blocks": [
+      {
+       "type": "image"
+      }
+
+      ]
+     }
+     ]
+   }
+{% endschema %}

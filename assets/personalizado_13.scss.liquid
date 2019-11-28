@@ -1,0 +1,944 @@
+/*================ Global Variables ================*/
+$charcoal-grey: #2b2d2f; 
+$lipstick: #ce1f34;
+$dark: #1b1326;
+$ice-blue-two:#eef0f0;
+/*================ Minix  ================*/
+@mixin bg-color-param($color)
+{
+ 
+    background-color:$color;
+
+}
+@mixin grid-position($first-column, $last-column, $first-row,$last-row)
+{
+@if $last-column
+{
+  grid-column: column $first-column / span $last-column;  
+  
+}
+@else
+{
+  grid-column: column $first-column;
+}
+@if $last-row
+{
+  grid-row: row $first-row / span $last-row;
+}
+@else
+{
+ grid-row: row $first-row;
+}
+}
+
+/*================ Global Selectors================*/
+.btn-13{
+background-color: $lipstick;
+width:60%;
+margin: 10px;
+}
+.btn-13-label{
+  font-family: 'Asap';
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.22;
+  letter-spacing: normal;
+  text-align: center;
+  color: '#fffff';
+}
+.flex-group-personalizado{
+display:flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.flex-align-right{
+justify-content: flex-start;
+}
+.flex-wrap{
+  flex-wrap: nowrap;
+}
+
+.flex-carrousel
+{
+    flex-direction: row;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+}
+.flex-footer{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.flex-group-generic{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.flex-column{
+    flex-direction: column;
+}
+
+.grid-item{
+margin: 20px;
+}
+.a{
+  grid-row: 1 ;
+  grid-column:  1 / span 2;
+  
+}
+.b{
+  grid-row: 1 ;
+  grid-column:  3;
+
+}
+.c{
+  grid-row: 1 ;
+  grid-column:  4;
+
+}
+.d{
+  grid-row: 2;
+  grid-column: 1;
+
+}
+.e{
+  grid-row: 2 ;
+  grid-column: 2;
+
+}
+.f{
+  grid-row: 2;
+  grid-column:  3 / span 4;
+
+}
+
+.prueba_grid{
+  @include  bg-color-param(#223349)
+}
+.prueba{
+  position: absolute;
+  top:0%;
+  @include  bg-color-param(#333333)
+}
+.prueba1{
+  @include  bg-color-param(#555555)
+}
+.prueba2{
+  @include  bg-color-param(#999999)
+}
+
+.grid-group-personalizado{
+display: grid;
+position:absolute;
+grid-template-columns: 25% 25% 25% 25% ;
+@include bg-color-param(#00ffff);
+grid-template-rows: 50% 50%;
+grid-gap: 0;
+  height:100%;
+  width:100%;
+  .custom-collection-bg-image
+  {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+}
+
+.grid-item-one-column{
+    
+
+}
+.grid-item-two-columns{
+ grid-column: 1 / span 2;
+}
+
+.flex-item-personalizado{
+
+}
+
+.img-arrow-size{
+  width:32px;
+  height:32px;
+}
+.button-left-right{
+  width:50px;
+  height:50px;
+  background-color: $lipstick;
+}
+
+.btn-right{
+width:18px;
+height:18px;
+img{
+ position:relative;
+ width:100%;
+ height:100%;
+}
+}
+.btn-padding{
+  padding: 0;
+}
+.btn-margin{
+  margin-left: 18px;
+}
+.btn-right-top-margin{
+  margin-top: 19px;
+}
+.border-right-button-menu{
+  border-right:0;
+}
+
+.arrow-lipstick{
+  img{
+    filter: hue-rotate(355deg) saturate(74%) brightness(46%);
+  }
+}
+
+/*================ Slideshow ================*/
+
+/*================ Header  ================*/
+
+.item-mobile-menu-container{
+position:relative;
+width: 100%;
+display: flex;
+justify-content: space-between;
+}
+.btn-right-mobile-menu{
+margin-right:20px;
+margin-top:15px;
+}
+.btn_menu_size{
+width:18px;
+height:18px;
+}
+
+.dropdown-content{
+  margin-top: -20px;
+  margin-left: -52px;
+  position: absolute;
+  z-index: 1;
+display:none;
+background-color: white;
+}
+
+.dropdown:hover{
+.drop-menu-item-title{
+color: $lipstick;
+}
+.dropdown-content{
+  display:flex;
+}
+.dropdown.content:hover{
+display:flex;
+}
+
+
+}
+.collection-info-drop{
+  width:300px;
+  height:400px;
+
+}
+.drop-menu-item-header{
+margin: 0 25px;
+
+}
+
+.drop-menu-item-title{
+  padding: 0.8rem 2rem 0.8rem 0;
+  font-family: 'Asap';
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  text-transform: none;
+  color: $charcoal-grey;
+}
+
+.drop-collection-title{
+  font-family: 'Asap';
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: $charcoal-grey;
+}
+.drop-collection-url{
+  a{
+    font-family: 'Asap';
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: $lipstick;
+  }
+ 
+}
+
+.collection-nested-items{
+  width:342px;
+  height:400px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  background-color: $ice-blue-two;
+}
+
+.flex-drop-down{
+  display:flex;
+  flex-wrap: nowrap;
+}
+.collection-drop-image{
+  position:relative;
+  width:100%;
+  height: 73%;
+
+  img{
+    position:relative;
+    width:100%;
+    height:100%;
+  }
+}
+.collection-drop-description{
+position:relative;
+display:flex;
+flex-direction: column;
+justify-content: center;
+width:100%;
+height:27%;
+
+}
+.drop-description-item{
+  margin:2.5px;
+}
+.dropdown-link-item{
+a{
+  margin: 10px 0 10px 35px;
+  font-family: 'Asap';
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color:$charcoal-grey;
+}
+}
+
+.dropdown-link-item:hover{
+  a{
+    color:$lipstick;
+    text-decoration: none;
+  }
+}
+
+
+.drop-down-content-mobil{
+display:flex;
+position: relative;
+width:100%;
+}
+
+/*================ Variables slideshow ================*/
+$slide-font-family: 'Asap';
+$slide-font-weight: bold;
+$slide-title-font-size-mobile: 40px ;
+$slide-title-font-size-desktop: 26px;
+$slide-subtitle-font-size-mobile: 26px ;
+$slide-subtitle-font-size-desktop: 22px;
+
+
+.slide-text
+{
+font-family: $slide-font-family;
+font-weight: $slide-font-weight;
+}
+.slideshow__controls
+{
+    display:none;
+}
+.slide-desktop-title
+{
+font-size: $slide-title-font-size-desktop;
+
+}
+.slide-mobile-title
+{
+font-size: $slide-title-font-size-mobile;
+}
+
+.slide-mobile-subtitle
+{
+font-size: $slide-subtitle-font-size-mobile;
+}
+.slide-desktop-subtitle
+{
+font-size: $slide-subtitle-font-size-desktop;
+}
+
+.btn-slide-mobile
+{
+
+}
+/*================Custom collection list================*/
+/*================ Variables slideshow ================*/
+$custom-collection-list-font-family: 'asap';
+$custom-collection-list-heading-font-weight: bold;
+$custom-collection-list-heading-font-size-desktop: 1.25em;
+$custom-collection-list-subheading-font-size-desktop: 17px;
+$custom-collection-list-subheading-font-weight: normal;
+$custom-collection-list-subheading-color: $charcoal-grey;
+$custom-collection-list-subheading-mark: $lipstick;
+
+.custom-collection-list-section{
+width: 90%;
+margin: 12px;
+}
+.custom-collection-list{
+  margin:12px;
+}
+
+.list-collections-custom{
+  
+    position:relative;
+    height: 65%;
+    width: 100%;
+    margin:10px;
+    
+}
+.flex-collection-vertical{
+  display:flex;
+  flex-direction: column;
+  margin:10px;
+}
+.list-collections-flex-custom{
+  display:flex;
+  flex-wrap: wrap;
+}
+.header-custom-collection-list{
+   font-family: $custom-collection-list-font-family;
+   margin-bottom:5%;
+   position: relative;
+   height:20%;
+   width:100%;
+}
+
+.heading-custom-collection-list{
+    
+    font-family: 'Asap';
+    font-size: 26px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.08;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.subheading-custom-collection-list{
+    margin: 20px 0px 20px 0px;
+    width: 715px;
+    height: 22px;
+    font-family: 'Asap';
+    font-size: 17px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    text-align: center;
+    color: $charcoal-grey;
+    strong{
+    color: $lipstick;
+    }
+
+}
+.flex-container-item
+{
+  margin: 10px;  
+}
+
+.custom-collection-image
+{
+  display:flex;
+  align-items: center;
+
+  height:50%;
+  width:50%;
+  .custom-collection-bg-image
+  {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+}
+
+.custom-collection-item{
+  position: relative;
+  width:325px;
+  height:368px;
+}
+/*================Debut collection list================*/
+.section-subtitle
+{
+  margin: 20px 0px 20px 0px;
+  width: 715px;
+  height: 22px;
+  font-family: 'Asap';
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: center;
+  color: $charcoal-grey;
+  strong{
+    color: $lipstick;
+  }
+}
+.section-title-13
+{
+  font-family: 'Asap';
+  font-size: 26px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.08;
+  letter-spacing: normal;
+  text-align: center;
+  color:#000000;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.collection-name-title{
+  width: 304.2px;
+  height: 28px;
+  font-family: 'Asap';
+  font-size: 26px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.08;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--white);
+
+}
+
+/*================Debut Text columns with text================*/
+.title-column {
+  font-family: 'Asap';
+  font-size: 19px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.26;
+  letter-spacing: normal;
+  text-align: center;
+  color:$dark;
+}
+.text-column {
+  font-family: 'Asap';
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: center;
+  color: $charcoal-grey;
+}
+.img_size{
+  width:140px;
+  height:140px;
+}
+.column-item-size{
+  position: relative;
+  width:23%;
+  height:100%;
+  margin:1%;
+}
+.div-text-size{
+  position:relative;
+  width:100%;
+}
+
+/*================Carrousel================*/
+
+// start_carrousel_BS
+.multi-item-carousel{
+  .carousel-inner{
+    > .item{
+      transition: 500ms ease-in-out left;
+    }
+    .active{
+      &.left{
+        left:-33%;
+      }
+      &.right{
+        left:33%;
+      }
+    }
+    .next{
+      left: 33%;
+    }
+    .prev{
+      left: -33%;
+    }
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      > .item{
+        // use your favourite prefixer here
+        transition: 500ms ease-in-out left;
+        transition: 500ms ease-in-out all;
+        backface-visibility: visible;
+        transform: none!important;
+      }
+    }
+  }
+  .carouse-control{
+    &.left, &.right{
+      background-image: none;
+    }
+  }
+}
+
+// end_carrousel_BS
+.carousel-inner-size{
+position: relative;
+//flex-direction: row;
+display: block;
+//flex-wrap: nowrap;
+align-items: center;
+overflow: hidden;
+width:100%;
+}
+
+
+
+.product_carrousel_item{
+position: relative;
+height:100%;
+margin:1%
+}
+
+.col{
+  flex:0.25;
+}
+.title-item-carousel{
+
+  font-family: 'Asap';
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.22;
+  letter-spacing: normal;
+  color: $dark;
+}
+.price-item-carousel{
+  
+  font-family: 'Asap';
+  font-size: 19px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.16;
+  letter-spacing: normal;
+  text-align: center;
+  color: $lipstick;
+}
+.vendor-item-carousel{
+
+  font-family: 'Asap';
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.18;
+  letter-spacing: normal;
+  color: $charcoal-grey;
+}
+.carrousel_product_image
+{
+  position:relative;
+  width:65%;
+}
+.logo_item_size{
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  max-width:16%;
+  margin:0.15%
+}
+
+.item{
+  position:relative;
+  width:100%;
+}
+/*================Footer================*/
+.Footer{
+  margin:5rem;
+}
+.footer-custom{
+ 
+}
+.menu-item-custom-footer {
+
+margin: 1.625rem;
+position:relative;
+width: 200px;
+}
+.custom-menu-title{
+  font-family: 'Asap';
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  color:$dark;
+}
+.capitalize-text{
+
+}
+.custom-menu-link{
+  font-family: 'Asap';
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: $dark;
+}
+.custom-footer-contact{
+width: 200px;
+}
+
+.img-logo-footer{
+position: relative;
+width:15%;
+}
+.contact-info-footer{
+  position: relative;
+  width:85%; 
+}
+.flex-nowrap{
+  flex-wrap: nowrap;
+}
+
+.footer-contact-form{
+  width:50%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-left: 0px;
+  padding: 0 1.5rem;
+
+}
+.footer-social-logo{
+width: 80%;
+padding-bottom: 0px;
+}
+.text-center{
+  text-align: center;
+}
+.suscribir-label{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.new-setting-text{
+  margin:0 12px;
+  font-family: 'Asap';
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $dark;
+  text-transform: uppercase;
+}
+.margin-0{
+  flex-wrap: wrap;
+  margin: 0;
+}
+.footer-social-logo{
+  width:30%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  padding-left: 0px;
+  padding: 0 1.5rem;
+}
+.siguenos-label{
+
+ 
+  font-family: 'Asap';
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color:$dark;
+}
+.inline-logos{
+  display: flex;
+  flex-wrap: wrap;
+  width:90%;
+  justify-content: space-between;
+  flex-direction: row;
+  padding-left: 0px;
+  padding: 0 1.5rem;
+}
+.inline-logos-item{
+  margin: 0 5.5px;
+}
+
+.logo-size{
+  min-width: 24px;
+  min-height: 24px;
+}
+
+
+//carrousel prueba
+.carousel{
+  padding: 0 30px;
+}
+.carousel__button--prev, .carousel__button--next{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.carousel__button--prev{
+  left: 0;
+}
+.carousel__button--next{
+  right: 0;
+}
+.carousel__container {
+  overflow: hidden;
+  height: 250px;
+}
+.carousel__list{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.carousel__list.unwrap{
+  flex-wrap: nowrap;
+}
+.carousel__item{
+  flex: 1 0 250px;
+/*  max-width: 300px; */
+  height: 100%;
+  text-align: center;
+  line-height: 100px;
+  border: 1px solid #fff;
+}
+
+
+.coleccion_color_item{
+
+}
+
+.index-section--slideshow{
+  margin: 40px;
+}
+
+.div-class-collection{
+  width: 277px;
+  height:320px;
+}
+.div-class-collection:first-of-type {
+  width: 568px;
+  height:320px;
+  
+}
+.div-class-collection:last-of-type {
+  width: 568px;
+  height:320px;
+  
+}
+.custom-collection-title{
+  font-family: 'Asap';
+  font-size: 26px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.08;
+  letter-spacing: normal;
+  text-align: center;
+  color: $dark;
+}
+
+/*================collection template================*/
+.color-header-group-flex{
+  display:flex;
+  flex-wrap:nowrap;
+  flex-direction: column;
+  justify-content: flex-end;
+
+}
+.prueba_centrar{
+  position:relative;
+  margin: 35%;
+}
+.color-header-collection-title{
+  background-color: $lipstick;
+  color:white;
+  margin-bottom:20px;
+  height:220px;
+  h1{
+    font-family: 'Asap',sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+  }
+}
+
+.main-padding-top{
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+.header-collection-title-container{
+}

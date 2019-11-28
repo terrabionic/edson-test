@@ -1,0 +1,216 @@
+<div class="footer-custom flex-footer flex-nowrap">
+
+ 
+  {% for block in section.blocks %}
+
+     {%assign menu_name = block.settings.selected_menu%}
+     {%assign menu = linklists[menu_name]%}
+     {%if forloop.index < section.blocks.size%}
+     <div class="menu-item-custom-footer site-footer__item--one-quarter ">
+        <h3 class="custom-menu-title">{{menu.title}}</h3>
+      <ul>
+      {%for link in menu.links%}
+      <li class="custom-menu-link capitalize-text">
+        <a href="{{link.url}}">{{link.title}}</a></li>
+      {% endfor %}
+      </ul>
+     </div>
+     {%else%}
+     <div class="menu-item-custom-footer site-footer__item--one-quarter">
+        <h3 class="custom-menu-title">{{block.settings.contact_title}}</h3>
+        <div class="contact-phone flex-footer">
+          {%assign logo_phone = 'icon-phone_2x.png'  | asset_img_url: '24X24'  %}
+
+            <div class="img-logo-footer" >
+                <img id="{{ img_id }}"
+                     class="lazyload"
+                     src="{{ logo_phone }}"
+                     data-src="{{ img_url }}"
+                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                     data-aspectratio="{{ logo_phone.aspect_ratio }}"
+                     data-sizes="auto"
+                     alt="{{ logo_phone.alt | escape }}">
+              </div>
+         <div class="contact-info-footer custom-menu-link">
+            {{block.settings.phone_number}}
+         </div>
+         
+           
+        </div>
+        <div class="contact-email flex-footer">
+            {%assign logo_email = 'email_2x.png'  | asset_img_url: '24X24'  %}
+
+            
+            <div class="img-logo-footer">
+                <img id="{{ img_id }}"
+                class="lazyload"
+                src="{{ logo_email }}"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ logo_email.aspect_ratio }}"
+                data-sizes="auto"
+                alt="{{ logo_email.alt | escape }}">
+            </div>
+                
+            <div class="contact-info-footer custom-menu-link">
+                {{block.settings.email}}
+             </div>
+        </div>
+
+
+        <div class="contact-address flex-footer">
+            {%assign logo_direccion = 'marcador_2x.png'  | asset_img_url: '24X24'  %}
+
+            <div  class="img-logo-footer">
+                <img id="{{ img_id }}"
+                     class="lazyload"
+                     src="{{ logo_direccion }}"
+                     data-src="{{ img_url }}"
+                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                     data-aspectratio="{{ logo_direccion.aspect_ratio }}"
+                     data-sizes="auto"
+                     alt="{{ logo_direccion.alt | escape }}">
+              </div>
+
+              <div class="contact-info-footer custom-menu-link">
+                  {{block.settings.address}}
+               </div>
+       </div>
+    </div>
+
+     {%endif%}
+   {% endfor %}
+
+  </div>
+
+   <div class="grid__item one_half small--one-whole page-width flex-group-generic flex-wrap">
+      <div class="footer-contact-form"> 
+        <div class="suscribir-label"> 
+            <h4 class="new-setting-text custom-menu-title" >suscríbete</h4>
+        </div>   
+        <div class="form flex-group-generic">
+          <input type="email margin-0"> 
+          <div class="btn margin-0">
+          ENVIAR
+          </div>
+        </div>
+          
+      </div>
+      <div class="grid__item one_half small--one-whole  footer-social-logo">
+        <div class="footer-social-logo-item">
+        <h4 class="siguenos-label">Síguenos</h4>
+        </div>
+        <div class="inline-logos footer-social-logo-item">
+            {%assign logo_facebook = 'facebook_2x.png'  | asset_img_url: '24X24'  %}
+        <div class="inline-logos-item logo-size">
+            <img id="{{ img_id }}"
+                 class="lazyload"
+                 src="{{ logo_facebook }}"
+                 data-src="{{ img_url }}"
+                 data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                 data-aspectratio="{{ logo_direccion.aspect_ratio }}"
+                 data-sizes="auto"
+                 alt="{{ logo_direccion.alt | escape }}">
+          </div>
+          {%assign logo_instagram = 'instagram_2x.png'  | asset_img_url: '24X24'  %}
+          <div class="inline-logos-item logo-size" >
+              <img id="{{ img_id }}"
+                   class="lazyload"
+                   src="{{ logo_instagram }}"
+                   data-src="{{ img_url }}"
+                   data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                   data-aspectratio="{{ logo_direccion.aspect_ratio }}"
+                   data-sizes="auto"
+                   alt="{{ logo_direccion.alt | escape }}">
+            </div>
+        </div>
+    
+    
+      </div>
+        
+    </div>
+
+
+
+    {% schema %}
+    {
+  "name": {
+      "en": "Custom footer",
+      "es": "Footer personalizado"
+  },
+  "class": "Footer section",
+  "max_blocks": 4,
+  "blocks": [
+  {
+    "type": "link_list",
+    "name": {
+        "en": "Menu",
+        "es": "Menú"
+    },
+    "settings": [
+    {
+    "type": "text",
+    "id": "menu_title",
+    "label": {
+       "en": "Menu title",
+       "es": "Titulo de menú"
+    }
+    },
+    {
+     "type": "link_list",
+     "id": "selected_menu",
+     "label": {
+
+        "en": "Menu",
+        "es": "Menú"
+     }
+
+    }
+    ]
+  },
+  {
+    "type": "text",
+    "name": {
+      "en": "Contact info",
+      "es": "Información de contacto"
+    },
+    "settings": [
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": {
+        "en": "Contact title",
+        "es": "Título de contacto"
+      }
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": {
+        "en": "Phone number",
+        "es": "Numero de teléfono"
+      }
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": {
+        "en": "Email",
+        "es": "Correo electrónico"
+      }
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": {
+        "en": "Address",
+        "es": "Dirección"
+      }
+    }
+
+    ]
+  }
+  ]
+
+}
+{% endschema %}

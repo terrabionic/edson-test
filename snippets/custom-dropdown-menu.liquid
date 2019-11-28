@@ -1,0 +1,148 @@
+<ul class="site-nav list--inline{% if wrapper_class != blank %} {{ wrapper_class }}{% endif %}" id="SiteNav">
+    {% for link_list_lv1 in linklist.links %}
+    <li class="drop-menu-item-header">
+            <div class="dropdown" id="dropdown{{forloop.index}}">
+              
+             <h3 class="drop-menu-item-title">{{link_list_lv1.title}}</h3> 
+                  
+                    {%assign menu_handler = link_list_lv1.title | handleize%}
+
+                    {%assign link_list_lv2 = linklists[menu_handler]%}
+
+                    {%assign collection = link_list_lv1.object%}
+
+
+                    {%assign collection_image = collection.image | img_url: '300X290'%}
+
+
+                    <div class=" dropdown-content" id="drop-content{{forloop.index}}">
+
+                      <div class="collection-info-drop">
+                     
+                      <div class="collection-drop-image">
+                          <img id="{{ img_id }}"
+                          class="feature-row__image lazyload"
+                          src="{{ collection_image}}"
+                          data-src="{{ collection_image }}"
+                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                          data-aspectratio="{{ collection_image.aspect_ratio }}"
+                          data-sizes="fit"
+                          alt="{{ collection_image.alt | escape }}">
+                      </div>
+
+                      <div class="collection-drop-description">
+
+                        <div class="drop-collection-title drop-description-item">
+
+                            {{collection.title}} 
+
+                        </div>
+
+                        <div class="drop-collection-url drop-descripcion-item">
+                       
+                        <a href="{{collection.url}}">Ver todo</a>
+
+                        </div>
+
+                      </div>
+
+                      </div>
+
+                      <div class="collection-nested-items">
+
+                          {%for link in link_list_lv2.links%}
+
+                          <div class="dropdown-link-item">
+                            <a href="{{link.url}}">{{link.title | capitalize}}</a>
+                          </div>
+                          {%endfor%}
+
+                      </div>
+
+                    </div>
+                  </div>
+    </li>
+    
+    {%endfor%}
+</ul>
+
+
+  {%comment%}
+<ul class="drop-down-content-mobil" id="SiteNavMobile">
+    {% for link_list_lv1 in linklist.links %}
+
+   
+        <li class="drop-menu-item-header">
+        <h3 class="drop-menu-item-title">{{link_list_lv1.title}}</h3> 
+        </li>
+
+
+    <li class="drop-menu-item-header">
+            <div class="dropdown" id="dropdown{{forloop.index}}">
+              
+             <h3 class="drop-menu-item-title">{{link_list_lv1.title}}</h3> 
+            
+                  
+                    {%assign menu_handler = link_list_lv1.title | handleize%}
+
+                    {%assign link_list_lv2 = linklists[menu_handler]%}
+
+                    {%assign collection = link_list_lv1.object%}
+
+                    {%assign collection_image = collection.image | img_url: '300X290'%}
+
+                  
+
+                    <div class=" dropdown-content" id="drop-content{{forloop.index}}">
+
+                      <div class="collection-info-drop">
+                     
+                      <div class="collection-drop-image">
+                          <img id="{{ img_id }}"
+                          class="feature-row__image lazyload"
+                          src="{{ collection_image}}"
+                          data-src="{{ collection_image }}"
+                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                          data-aspectratio="{{ collection_image.aspect_ratio }}"
+                          data-sizes="fit"
+                          alt="{{ collection_image.alt | escape }}">
+                      </div>
+
+                      <div class="collection-drop-description">
+
+                        <div class="drop-collection-title drop-description-item">
+
+                            {{collection.title}} 
+
+                        </div>
+
+                        <div class="drop-collection-url drop-descripcion-item">
+                       
+                        <a href="{{collection.url}}">Ver todo</a>
+
+                        </div>
+
+                      </div>
+
+                      </div>
+
+                      <div class="collection-nested-items">
+
+                          {%for link in link_list_lv2.links%}
+
+                          <div class="dropdown-link-item">
+                            <a href="{{link.url}}">{{link.title | capitalize}}</a>
+                          </div>
+                          {%endfor%}
+
+                      </div>
+
+                    </div>
+
+                  
+                  </div>
+    </li>
+    
+    {%endfor%}
+</ul>
+  {%endcomment%}

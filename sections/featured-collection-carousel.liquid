@@ -1,0 +1,200 @@
+<div data-section-id="{{ section.id }}" data-section-type="featured-collection-carousel" class="featured-collection-corousel-section">
+    <div class="flex-group-personalizado header-custom-collection-list">
+     <div class="flex-item-personalizado heading-custom-collection-list">
+        <h2> {{section.settings.title}} </h2> 
+     </div>
+     <div class="flex-item-personalizado section-subtitle">
+        <p>  {{section.settings.subtitle}}  </p>  
+     </div>
+ </div>
+
+ <div class="carousel js-carousel">
+    <div class="carousel__container js-carousel-container">
+      <div class="carousel__list js-carousel-list">
+          {%assign collection=collections[section.settings.c_id].products%}
+          {%for product in collection limit:8 %}
+    
+       
+    
+              <div class=" carousel__item js-carousel-item  product_carrousel_item flex-group-personalizado">
+                {%assign image_url = product.featured_image  %}
+              
+               
+                <div class="carrousel_product_image">
+                    <img id="{{ img_id }}"
+                    class="feature-row__image carrousel_product_image lazyload"
+                    src="{{ image_url| img_url: '300X300' }}"
+                    data-src="{{ img_url }}"
+                    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                    data-aspectratio="{{ image_url.aspect_ratio }}"
+                    data-sizes="auto"
+                    alt="{{ image_url.alt | escape }}">
+                </div>
+                
+               
+                  <div class="title-item-carousel">
+                  {{product.title}}
+                  </div>
+                  <div class="price-item-carousel">
+                  {{product.price |  money_with_currency}}
+                  </div>
+                  <div class="vendor-item-carousel">
+                   {{product.vendor}}
+                  </div>
+                  
+                </div>
+          {%endfor%}
+    
+   
+    
+      </div>
+    </div>
+    <div class="carousel__nav">
+      <button class="carousel__button--prev js-carousel-button" data-dir="prev">&lt;</button>
+      <button class="carousel__button--next js-carousel-button" data-dir="next">&gt;</button>
+    </div>
+  </div>
+
+  {%comment%}
+<div class=" carousel slide " id="theCarousel" data-ride="carousel"> 
+    <ol class="carousel-indicators">
+        <li data-target="#theCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#theCarousel" data-slide-to="1"></li>
+        <li data-target="#theCarousel" data-slide-to="2"></li>
+        <li data-target="#theCarousel" data-slide-to="3"></li>
+        <li data-target="#theCarousel" data-slide-to="4"></li>
+        <li data-target="#theCarousel" data-slide-to="5"></li>
+        <li data-target="#theCarousel" data-slide-to="6"></li>
+        <li data-target="#theCarousel" data-slide-to="7"></li>
+      </ol>
+
+
+  <div class="flex-carrousel carousel-inner">
+  
+      
+  </div>
+  {%assign image_left = 'arrow-left_2x.png' | asset_img_url: '32X32'  %}
+  {%assign image_right = 'arrow-right_2x.png' | asset_img_url: '32X32'  %}
+  
+  
+<a class="left carousel-control" href="#theCarousel" data-slide="prev">
+  <div class="btn button-left-right">
+      <div class="img-arrow-size">
+          <img id="{{ img_id }}"
+          class="feature-row__image carrousel_product_image lazyload"
+          src="{{ image_left }}"
+          data-src="{{ img_url }}"
+          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+          data-aspectratio="{{ image_left.aspect_ratio }}"
+          data-sizes="auto"
+          alt="{{ image_left.alt | escape }}">
+      </div>
+  </div>
+
+    
+</a>
+<a class="right carousel-control" href="#theCarousel" data-slide="next">
+  <div class="btn button-left-right">
+      <div class="img-arrow-size">
+          <img id="{{ img_id }}"
+          class="feature-row__image carrousel_product_image lazyload"
+          src="{{ image_right }}"
+          data-src="{{ img_url }}"
+          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+          data-aspectratio="{{ image_right.aspect_ratio }}"
+          data-sizes="auto"
+          alt="{{ image_right.alt | escape }}">
+      </div>
+  </div>
+
+
+</a>
+
+</div>
+
+{%endcomment%}
+
+
+
+</div>
+
+{% schema %}
+{
+"name": {
+
+"en": "Collection-carousel",
+"es": "Carrusel de colecciones"
+
+},
+"settings" : [
+{
+"type": "text",
+"id": "title",
+"label": {
+"de": "Titel",
+"en": "Heading",
+"es": "Título",
+"fr": "En-tête",
+"it": "Heading",
+"ja": "見出し",
+"pt-BR": "Título"
+},
+"default": {
+
+"en": "Title",
+"es": "Título"
+
+}
+},
+{
+"type": "text",
+"id": "subtitle",
+"label": {
+"de": "Untertitel",
+"en": "Subheading",
+"es": "Subtítulo",
+"fr": "Sous-titre",
+"it": "Sottotitolo",
+"ja": "小見出し",
+"pt-BR": "Subtítulo"
+},
+"default": {
+
+"en": "Subtitle",
+"es": "Subtítulo"
+
+}
+},
+{ 
+"type": "collection",
+"id" : "c_id",
+"label" : {
+"en": "select collection",
+"es": "seleccione colección"
+}
+},
+{
+"type": "checkbox",
+"id": "check_vendor",
+"label" : {
+"en":"Show product vendors",
+"es": "Mostrar marcas de producto"
+},
+"default": true
+}
+
+],
+"presets" : [
+{
+"name": {
+"en": "featured-collection-carousel",
+"es": "Colección carrusel" 
+},
+"category": {
+"en": "Collections",
+"es": "Collecciones"
+}
+}
+]
+}
+{% endschema %}
