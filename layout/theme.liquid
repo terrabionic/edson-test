@@ -7,6 +7,8 @@
   <meta name="theme-color" content="{{ settings.color_button }}">
   <link rel="canonical" href="{{ canonical_url }}">
 
+ 
+
   {%- if settings.favicon != blank -%}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {%- endif -%}
@@ -104,6 +106,8 @@
 
 <body class="template-{{ request.page_type | handle }}">
 
+  
+
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
   <div id="SearchDrawer" class="search-bar drawer drawer--top" role="dialog" aria-modal="true" aria-label="{{ 'general.search.placeholder' | t }}">
@@ -134,14 +138,17 @@
   
   {% section 'header' %}
 
+
+
   <div id="slideshow-info" class="visually-hidden" aria-hidden="true">
       {{- 'sections.slideshow.navigation_instructions' | t -}}
     </div>
-
+    <h2>{{template}}</h2>
   <div class="page-container" id="PageContainer">
 
     <main class="main-content js-focus-hidden" id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}
+   
     </main>
 
     {% section 'custom-footer' %}

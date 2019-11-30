@@ -43,7 +43,7 @@
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
     </dt>
     <dd>
-      <span class="price-item price-item--regular" data-regular-price>
+      <span class="price-item price-item--regular product-price product-price-sale" data-regular-price>
         {{ money_price }}
       </span>
     </dd>
@@ -53,18 +53,18 @@
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
     </dt>
     <dd>
-      <s class="price-item price-item--regular" data-regular-price>
+      <s class="price-item price-item--regular product-price " data-regular-price>
         {{ compare_at_price | money }}
       </s>
     </dd>
     <dt>
-      <span class="visually-hidden visually-hidden--inline">{{ 'products.product.sale_price' | t }}</span>
+      <span class="visually-hidden visually-hidden--inline product-price-sale">{{ 'products.product.sale_price' | t }}</span>
     </dt>
     <dd>
-      <span class="price-item price-item--sale" data-sale-price>
+      <span class="price-item price-item--sale product-price product-price-sale" data-sale-price>
         {{ money_price }}
       </span>
-      <span class="price-item__label price-item__label--sale" aria-hidden="true">{{ 'products.product.on_sale' | t }}</span>
+      <span class="price-item__label price-item__label--sale visually-hidden" aria-hidden="true">{{ 'products.product.on_sale' | t }}</span>
     </dd>
   </div>
   <div class="price__unit">
