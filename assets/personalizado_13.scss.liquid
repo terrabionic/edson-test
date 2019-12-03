@@ -402,8 +402,17 @@ padding-bottom: 0;
 
 //breadcrumb
 .breadcrumb-list{
- 
-  :nth-child(n){
+  li:nth-last-child(-n+2), li:nth-last-child(-n+2):hover{
+    a{
+      color:$lipstick;
+      cursor:text;
+    }
+    color: $lipstick;
+    cursor:text;
+
+   
+  }
+  li:nth-child(n){
     display:inline-block;
     font-family: 'Asap';
     font-size: 14px;
@@ -412,15 +421,24 @@ padding-bottom: 0;
     font-style: normal;
     line-height: 1.29;
     letter-spacing: normal;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+  }
+  li:nth-child(n){
+    a:hover{
+      text-decoration: none;
+    }
+  
+  }
+  li:not(:nth-last-child(-n+2),:nth-last-child(-n+2):hover)
+  {
     color: #322e42;
   }
-  &:last-child{
-    color:$lipstick;
-  }
-
 
 
 }
+
+
 
 
 /*================ Variables slideshow ================*/
