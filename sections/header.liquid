@@ -308,11 +308,8 @@
     </nav>
 
   </header>
-  <nav class="small--hide border-bottom" id="AccessibleNav" role="navigation">
-    {% include 'custom-dropdown-menu', linklist: linklists.custom-main-menu, wrapper_class: 'site-nav--centered' %}
-    <div>
-      <h1>nav</h1>
-    </div>
+  <nav class="small--hide border-bottom padding-nav" id="AccessibleNav" role="navigation">
+    {% include 'custom-dropdown-menu', linklist: linklists.custom-main-menu %}
   </nav>
 </div>
 
@@ -736,17 +733,17 @@
       }
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "e-mail",
       "label": {
      
         "en": "E-mail",
         "es": "Correo electrónico"
       },
-      "default": {
+      "info": {
         
-        "en": "Example@gmail.com",
-        "es": "ejemplo@gmail.com"
+        "en": "Write email",
+        "es": "Ingrese correo"
       }
     },
     {
