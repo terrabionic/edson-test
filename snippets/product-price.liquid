@@ -28,14 +28,33 @@
 >
 
   {% if show_vendor and product %}
-    <div class="price__vendor">
-      <dt>
-        <span class="visually-hidden">{{ 'products.product.vendor' | t }}</span>
-      </dt>
-      <dd>
-        {{ product.vendor }}
-      </dd>
-    </div>
+   <div class="product-attributes">
+   <div class="product-sku-vendor">
+      <div class="price__vendor">
+          <dt>
+            <span class="visually-hidden">{{ 'products.product.vendor' | t }}</span>
+          </dt>
+          <dd class="product-vendor-sku-text">
+            {{ product.vendor }}
+          </dd>
+        </div>
+        <div class="divisor">
+        </div>
+        <div class="price__sku">
+            <dt>
+              <span class="visually-hidden">{{ 'products.product.selected_or_first_available_variant.sku' | t }}</span>
+            </dt>
+            <dd class="product-vendor-sku-text">
+            {{ product.selected_or_first_available_variant.sku }}
+            </dd>
+          </div>
+   </div>
+   <div>
+
+   </div class="product-reviews-badge">
+  <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+   </div>
+   
   {% endif %}
 
   <div class="price__regular">

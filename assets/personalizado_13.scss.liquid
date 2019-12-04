@@ -74,6 +74,7 @@ justify-content: flex-start;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
+
 .flex-group-generic{
     display:flex;
     flex-wrap: wrap;
@@ -83,7 +84,6 @@ justify-content: flex-start;
 .flex-column{
     flex-direction: column;
 }
-
 .grid-item{
 margin: 20px;
 }
@@ -499,6 +499,25 @@ margin: 12px;
 .custom-collection-list{
   margin:12px;
 }
+.custom-collection-image-585{
+width: 585px;
+height: 250px;
+@media (max-width: 505px) {
+  position:relative;
+ width: 250px;
+ height:250px;
+}
+}
+
+.custom-collection-image-250{
+  width: 250px;
+  height: 250px;
+  @media (max-width: 505px) {
+    position:relative;
+   width: 250px;
+   height:250px;
+  }
+  }
 
 .list-collections-custom{
   
@@ -956,6 +975,8 @@ padding-bottom: 0px;
 }
 
 
+
+
 .coleccion_color_item{
 
 }
@@ -967,15 +988,31 @@ padding-bottom: 0px;
 .div-class-collection{
   width: 277px;
   height:320px;
+  @media(max-width: 505px)
+  {
+    padding-left:40px;
+  }
 }
 .div-class-collection:first-of-type {
   width: 568px;
   height:320px;
+  @media(max-width: 505px)
+  {
+    margin-left:40px;
+    width: 277px;
+    height:320px;
+  }
   
 }
 .div-class-collection:last-of-type {
   width: 568px;
   height:320px;
+  @media(max-width: 505px)
+  {
+    margin-left:20px;
+    width: 277px;
+    height:320px;
+  }
   
 }
 .custom-collection-title{
@@ -1073,4 +1110,97 @@ white-space:normal;
 .money-price-item{
 
 
+}
+
+/*================Product template================*/
+
+.product-attributes{
+  display:flex;
+  background-color: #00ffff;
+  justify-content:flex-start;
+  position:relative;
+  width:100%;
+  
+}
+.product-sku-vendor{
+  display:flex;
+  position: relative;
+  width:50%;
+  & div{
+    max-width:70px;
+  }
+
+}
+
+
+.flex-image-product{
+  display:flex;
+  flex-direction: row;
+}
+.gallery-product-image-custom{
+  display: inline-block;
+  max-width: 130px;
+  height:100%;
+}
+.product-image-size{
+ width:100%;
+}
+.product-image-carousel-container{
+  overflow: hidden;
+  position: relative;
+  width:100%;
+}
+.product-button-carousel-size{
+  width:18px;
+  height:18px;
+}
+.carousel-item-size{
+  position: relative;
+  width: 100%;
+}
+.product-image-js-carousel{
+position:relative;
+width:100%;
+}
+.product-image-js-carousel-list{
+position:relative;
+width:100%;
+}
+.js-carrousel-image{
+  width:100px;
+  height:100px;
+}
+
+.product-title-template{
+  font-family: 'Asap';
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.07;
+  letter-spacing: normal;
+  color:$dark;
+}
+.product-vendor-sku-text{
+  font-family: 'Asap';
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.18;
+  letter-spacing: normal;
+  color: $charcoal-grey;
+}
+.price__sku{
+padding-top:0.3rem;
+}
+.divisor{
+  display:block;
+  margin-top:0.4rem;
+  margin-left:0.5rem;
+  margin-right: 0.8rem;
+  background-color: $lipstick;
+  width: 2px;
+  height: 16px;
+  border: solid 1px $lipstick;
 }
