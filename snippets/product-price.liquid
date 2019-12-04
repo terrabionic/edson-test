@@ -8,6 +8,12 @@
     Usage:
     {% include 'product-price', variant: current_variant, product: product %}
 {% endcomment %}
+{%if template == 'product'%}
+{%assign price_style = 'product-price-template-product'%}
+{%else%}
+{%assign price_style = 'product-price'%}
+{%endif%}
+
 {% if variant.title %}
   {%- assign compare_at_price = variant.compare_at_price -%}
   {%- assign price = variant.price -%}
@@ -62,34 +68,36 @@
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
     </dt>
     <dd>
-      <span class="price-item price-item--regular product-price product-price-sale" data-regular-price>
+      <span class=" price-item price-item--regular  {{price_style}} product-price-sale" data-regular-price>
         {{ money_price }}
       </span>
     </dd>
   </div>
   <div class="price__sale flex-price">
     <div class="compare-at-price-item">
+   
         <dt>
             <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
           </dt>
           <dd>
-            <s class="price-item price-item--regular product-price " data-regular-price>
+            <s class="price-item price-item--regular {{price_style}}" data-regular-price>
               {{ compare_at_price | money }}
             </s>
           </dd>
     </div>
     <div class="money-price-item">
         <dt>
-            <span class="visually-hidden visually-hidden--inline product-price-sale">{{ 'products.product.sale_price' | t }}</span>
+            <span class="visually-hidden visually-hidden--inline  product-price-sale">{{ 'products.product.sale_price' | t }}</span>
           </dt>
           <dd>
-            <span class="price-item price-item--sale product-price product-price-sale" data-sale-price>
+            <span class="   price-item price-item--sale {{price_style}} product-price-sale" data-sale-price>
               {{ money_price }}
             </span>
             <span class="price-item__label price-item__label--sale visually-hidden" aria-hidden="true">{{ 'products.product.on_sale' | t }}</span>
           </dd>
     </div>
    
+    
 
   </div>
   <div class="price__unit">
@@ -111,7 +119,7 @@
         </span>
       {%- endcapture -%}
 
-     <span data-unit-price>PU {{ variant.unit_price | money }}</span>{{- unit_price_separator -}}{{- unit_price_base_unit -}}
+     <span data-unit-price> {{ variant.unit_price | money }}</span>{{- unit_price_separator -}}{{- unit_price_base_unit -}}
     </dd>
   </div>
   <div class="price__availability">
@@ -124,4 +132,9 @@
       </span>
     </dd>
   </div>
+  <div class="product-inventor">
+      ¡{{variant.inventory_quantity}} {{variant.inventory_quantity  | pluralize: 'Disponible', 'Disponibles'}}!
+     </div>
 </dl>
+
+

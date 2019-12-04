@@ -1,3 +1,24 @@
+<script>
+
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace(" tab-title-item-active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+      evt.currentTarget.className += " tab-title-item-active";
+
+    }
+    </script>
+   
+
 <div class="product-template__container page-width"
   id="ProductSection-{{ section.id }}"
   data-section-id="{{ section.id }}"
@@ -186,6 +207,10 @@
             {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
           </div>
 
+       
+
+
+
           {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
             <div class="product__policies rte" data-product-policies>
               {%- if shop.taxes_included -%}
@@ -202,10 +227,12 @@
           {%- endcapture %}
 
           {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
-            {% unless product.has_only_default_variant %}
-              <div class="product-form__controls-group">
+          <div class="selector-quantity-group">
+              {% unless product.has_only_default_variant %}
+              <div class="product-form__controls-group select-form-size">
+                
                 {% for option in product.options_with_values %}
-                  <div class="selector-wrapper js product-form__item">
+                  <div class="selector-wrapper js product-form__item select-form-item-flex">
                     <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
                       {{ option.name }}
                     </label>
@@ -218,6 +245,20 @@
                 {% endfor %}
               </div>
             {% endunless %}
+            {% if section.settings.show_quantity_selector %}
+              <div class="product-form__controls-group">
+              
+                <div class="product-form__item">
+                  <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+                  <input type="number" id="Quantity-{{ section.id }}"
+                    name="quantity" value="1" min="1" pattern="[0-9]*"
+                    class="product-form__input product-form__input--quantity" data-quantity-input
+                  >
+                </div>
+              </div>
+            {% endif %}
+          </div>
+            
 
             <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
               {% for variant in product.variants %}
@@ -231,17 +272,7 @@
               {% endfor %}
             </select>
 
-            {% if section.settings.show_quantity_selector %}
-              <div class="product-form__controls-group">
-                <div class="product-form__item">
-                  <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
-                  <input type="number" id="Quantity-{{ section.id }}"
-                    name="quantity" value="1" min="1" pattern="[0-9]*"
-                    class="product-form__input product-form__input--quantity" data-quantity-input
-                  >
-                </div>
-              </div>
-            {% endif %}
+            
 
             <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %}" data-error-message-wrapper role="alert">
               <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
@@ -250,26 +281,12 @@
             </div>
 
             <div class="product-form__controls-group product-form__controls-group--submit">
+              
               <div class="product-form__item product-form__item--submit
                     {%- if section.settings.enable_payment_button %} product-form__item--payment-button {%- endif -%}
                     {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}"
               >
-                <button type="submit" name="add"
-                  {% unless current_variant.available %} aria-disabled="true"{% endunless %}
-                  aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
-                  class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"
-                  data-add-to-cart>
-                  <span data-add-to-cart-text>
-                    {% unless current_variant.available %}
-                      {{ 'products.product.sold_out' | t }}
-                    {% else %}
-                      {{ 'products.product.add_to_cart' | t }}
-                    {% endunless %}
-                  </span>
-                  <span class="hide" data-loader>
-                    {% include 'icon-spinner' %}
-                  </span>
-                </button>
+              
                 {% if section.settings.enable_payment_button %}
                   {{ form | payment_button }}
                 {% endif %}
@@ -277,6 +294,10 @@
             </div>
           {% endform %}
         </div>
+
+        {% if section.settings.show_share_buttons %}
+        {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+      {% endif %}
 
         {%- comment -%}
           Live region for announcing updated price and availability to screen readers
@@ -302,13 +323,55 @@
    
         
 
-        {% if section.settings.show_share_buttons %}
-          {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
-        {% endif %}
+       
         <h2>end product description</h2>
     </div>
   </div>
 </div>
+
+{%comment%}
+{%for block in section.blocks%}
+  <div class="tab-item">
+  <h2 class="title-tab-style">{{block.settings.tab_title}}</h2>
+
+  <div class=" content-tab-style">
+  {{block.settings.tab_content}}
+  </div>
+  </div>
+{%endfor%}
+{%endcomment%}
+<div class="tab-container">
+    <div class="tabs-product tab-products-flex">
+        {%for block in section.blocks%}
+        {%if forloop.index == 1%}
+        {%assign active_class = 'tab-title-item-active'%}
+        {%else%}
+        {%assign active_class = ''%}
+         {%endif%}
+
+        <div id="{{block.settings.tab_title}}-header" class="tablinks  tab-title-item  {{active_class}}" onclick="openCity(event,'{{block.settings.tab_title}}')">
+          <div class="title-tab-style">
+            {{block.settings.tab_title }}
+          </div>
+        </div>
+        {%endfor%}
+        </div>
+        
+        {%for block in section.blocks%}
+        
+        {%if forloop.index == 1%}
+        {%assign active_class = 'tab-content-active'%}
+        {%else%}
+        {%assign active_class = 'tab-content-inactive'%}
+         {%endif%}
+        <div id="{{block.settings.tab_title}}" class="tabcontent content-tab-style {{active_class}}">
+            {{block.settings.tab_content}}
+            </div>
+        {%endfor%}
+</div>
+
+
+
 
 {% unless product == empty %}
   <script type="application/json" id="ProductJson-{{ section.id }}">
@@ -643,6 +706,51 @@
       },
       "default": true
     }
+  ],
+  "blocks": [
+  {
+    "type": "text",
+    "name": "Text tab description",
+    "settings" :[
+    {
+      "type": "text",
+      "id": "tab_title",
+      "label": {
+        "en": "Tab Heading",
+        "es": "Título de pestaña"
+      }
+    },
+    {
+      "type": "richtext",
+      "id": "tab_content",
+      "label": {
+        "en": "Tab Content",
+        "es": "Contenido  de pestaña"
+      }
+    }
+    ]
+
+  }
+  ],
+  "presets": [
+  {
+    "name": {
+      "en": "Tab product",
+      "es": "Pestaña de producto"
+    },
+    "category" : {
+      "en": "tabs",
+      "es": "tabs"
+    },
+    "blocks" : [
+    {
+      "type": "text"
+    }
+    
+    ]
+
+    
+  }
   ]
 }
 {% endschema %}

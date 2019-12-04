@@ -5190,4 +5190,3 @@ $(".js-carousel").each(function(){
 	$carouselButton.on("click", slide);
 });
 
-

@@ -33,9 +33,12 @@ $ice-blue-two:#eef0f0;
 
 /*================ Global Selectors================*/
 .btn-13{
-background-color: $lipstick;
+
 width:60%;
 margin: 10px;
+}
+.btn-13-color{
+  background-color: $lipstick;
 }
 .btn-13-label{
   font-family: 'Asap';
@@ -1057,10 +1060,10 @@ padding-bottom: 0px;
   font-style: normal;
   line-height: 1.5;
   letter-spacing: normal;
-  color: var(--dark);
+  color: $dark;
 }
 .product-price-sale{
-  color: $lipstick;
+  color: $lipstick!important; //cambio pendiente
 }
 
 .image-overflow{
@@ -1203,4 +1206,123 @@ padding-top:0.3rem;
   width: 2px;
   height: 16px;
   border: solid 1px $lipstick;
+}
+.product-price-template-product{
+  font-family: 'Asap';
+  font-size: 26px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.85;
+  letter-spacing: normal;
+  color: $dark;
+}
+.spr-badge-caption{
+  padding-left: 0.4rem;
+  font-family: 'Asap';
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  color: $charcoal-grey;
+}
+.product-inventor{
+  font-family: 'Asap';
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.22;
+  letter-spacing: normal;
+  color: $dark;
+}
+.selector-quantity-group{
+display: flex;
+}
+.select-form-size{
+  position:relative;
+  width:80%;
+}
+.select-form-item-flex{
+  flex: 1 1 0px;
+}
+.title-tab-style{
+  font-family: 'Asap';
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.22;
+  letter-spacing: normal;
+  text-align: center;
+  color: $charcoal-grey;
+}
+
+.content-tab-style{
+  font-family: 'Asap';
+  font-size: 17px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.18;
+  letter-spacing: normal;
+  color: $charcoal-grey;
+  ul {
+    list-style: none; /* Remove default bullets */
+  }
+  ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: $lipstick; /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+  a,a:hover{
+    color: $lipstick;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+}
+
+.tab-container{
+  position:relative;
+  margin-left:10rem;
+  width:80%;
+}
+.tab-products-flex{
+  display:flex;
+  max-width: 995px;
+  min-height:60px;
+}
+.tab-title-item{
+  flex: 1 1 0px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  margin: 0 0.15rem;
+}
+
+.tab-title-item-active{
+background-color: $lipstick;
+.title-tab-style{
+  color: white;
+}
+}
+
+.tab-content-active{
+  display:block;
+}
+.tab-content-inactive{
+  display:none;
+}
+.content-tab-style {
+
+margin: 3.5rem 2.8rem;
+position:relative;
+width:80%;
 }
