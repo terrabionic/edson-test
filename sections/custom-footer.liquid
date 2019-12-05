@@ -1,134 +1,332 @@
-<div class="footer-custom flex-footer flex-nowrap">
+<script>
+
+    function showDiv(evt, divName) {
+   
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("menu-content");
+     
+
+      var divChange =  document.getElementById(divName);
+      var imageMas = document.getElementById(divName+'-mas')
+      var imageMenos= document.getElementById(divName+'-menos')
+
+      alert("class image minus before"+ imageMenos.classList);
+
+      var classList = String(divChange.classList);
+   if (classList.includes('menu-links-mobile-inactive'))
+   {
+    divChange.classList.remove("menu-links-mobile-inactive");
+    imageMas.classList.remove("menu-links-mobile-active");
+    imageMenos.classList.remove("menu-links-mobile-inactive");
+
+    divChange.classList.add("menu-links-mobile-active");
+    imageMas.classList.add("menu-links-mobile-inactive");
+    imageMenos.classList.add("menu-links-mobile-active");
+   }
+   else{
+    divChange.classList.remove("menu-links-mobile-active");
+    imageMas.classList.remove("menu-links-mobile-inactive");
+    imageMenos.classList.remove("menu-links-mobile-active");
+
+    divChange.classList.add("menu-links-mobile-inactive");
+    imageMas.classList.add("menu-links-mobile-active");
+    imageMenos.classList.add("menu-links-mobile-inactive");
+   }
+   alert("class image minus after"+ imageMenos.classList);
+ 
+
+  
+     // evt.currentTarget.className += " active";
+      //evt.currentTarget.className += " tab-title-item-active";
+
+    }
+    </script>
+
+<nav class="desktop-custom-footer">
+    <div class="footer-custom flex-footer flex-nowrap">
 
  
-  {% for block in section.blocks %}
-
-     {%assign menu_name = block.settings.selected_menu%}
-     {%assign menu = linklists[menu_name]%}
-     {%if forloop.index < section.blocks.size%}
-     <div class="menu-item-custom-footer site-footer__item--one-quarter ">
-        <h3 class="custom-menu-title">{{menu.title}}</h3>
-      <ul>
-      {%for link in menu.links%}
-      <li class="custom-menu-link capitalize-text">
-        <a href="{{link.url}}">{{link.title}}</a></li>
-      {% endfor %}
-      </ul>
-     </div>
-     {%else%}
-     <div class="menu-item-custom-footer site-footer__item--one-quarter">
-        <h3 class="custom-menu-title">{{block.settings.contact_title}}</h3>
-        <div class="contact-phone flex-footer">
-          {%assign logo_phone = 'icon-phone_2x.png'  | asset_img_url: '24X24'  %}
-
-            <div class="img-logo-footer" >
-                <img id="{{ img_id }}"
-                     class="lazyload"
-                     src="{{ logo_phone }}"
-                     data-src="{{ img_url }}"
-                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                     data-aspectratio="{{ logo_phone.aspect_ratio }}"
-                     data-sizes="auto"
-                     alt="{{ logo_phone.alt | escape }}">
-              </div>
-         <div class="contact-info-footer custom-menu-link">
-            {{block.settings.phone_number}}
-         </div>
-         
-           
-        </div>
-        <div class="contact-email flex-footer">
-            {%assign logo_email = 'email_2x.png'  | asset_img_url: '24X24'  %}
-
-            
-            <div class="img-logo-footer">
-                <img id="{{ img_id }}"
-                class="lazyload"
-                src="{{ logo_email }}"
-                data-src="{{ img_url }}"
-                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                data-aspectratio="{{ logo_email.aspect_ratio }}"
-                data-sizes="auto"
-                alt="{{ logo_email.alt | escape }}">
-            </div>
-                
-            <div class="contact-info-footer custom-menu-link">
-                {{block.settings.email}}
-             </div>
-        </div>
-
-
-        <div class="contact-address flex-footer">
-            {%assign logo_direccion = 'marcador_2x.png'  | asset_img_url: '24X24'  %}
-
-            <div  class="img-logo-footer">
-                <img id="{{ img_id }}"
-                     class="lazyload"
-                     src="{{ logo_direccion }}"
-                     data-src="{{ img_url }}"
-                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                     data-aspectratio="{{ logo_direccion.aspect_ratio }}"
-                     data-sizes="auto"
-                     alt="{{ logo_direccion.alt | escape }}">
-              </div>
-
-              <div class="contact-info-footer custom-menu-link">
-                  {{block.settings.address}}
+        {% for block in section.blocks %}
+      
+           {%assign menu_name = block.settings.selected_menu%}
+           {%assign menu = linklists[menu_name]%}
+           {%if forloop.index < section.blocks.size%}
+           <div class="menu-item-custom-footer site-footer__item--one-quarter ">
+              <h3 class="custom-menu-title">{{menu.title}}</h3>
+            <ul>
+            {%for link in menu.links%}
+            <li class="custom-menu-link capitalize-text">
+              <a href="{{link.url}}">{{link.title}}</a></li>
+            {% endfor %}
+            </ul>
+           </div>
+           {%else%}
+           <div class="menu-item-custom-footer site-footer__item--one-quarter">
+              <h3 class="custom-menu-title">{{block.settings.contact_title}}</h3>
+              <div class="contact-phone flex-footer">
+                {%assign logo_phone = 'icon-phone_2x.png'  | asset_img_url: '24X24'  %}
+      
+                  <div class="img-logo-footer" >
+                      <img id="{{ img_id }}"
+                           class="lazyload"
+                           src="{{ logo_phone }}"
+                           data-src="{{ img_url }}"
+                           data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                           data-aspectratio="{{ logo_phone.aspect_ratio }}"
+                           data-sizes="auto"
+                           alt="{{ logo_phone.alt | escape }}">
+                    </div>
+               <div class="contact-info-footer custom-menu-link">
+                  {{block.settings.phone_number}}
                </div>
-       </div>
-    </div>
-
-     {%endif%}
-   {% endfor %}
-
-  </div>
-
-   <div class="grid__item one_half small--one-whole page-width flex-group-generic flex-wrap">
-      <div class="footer-contact-form"> 
-        <div class="suscribir-label"> 
-            <h4 class="new-setting-text custom-menu-title" >suscríbete</h4>
-        </div>   
-        <div class="form flex-group-generic">
-          <input type="email margin-0"> 
-          <div class="btn margin-0">
-          ENVIAR
+               
+                 
+              </div>
+              <div class="contact-email flex-footer">
+                  {%assign logo_email = 'email_2x.png'  | asset_img_url: '24X24'  %}
+      
+                  
+                  <div class="img-logo-footer">
+                      <img id="{{ img_id }}"
+                      class="lazyload"
+                      src="{{ logo_email }}"
+                      data-src="{{ img_url }}"
+                      data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                      data-aspectratio="{{ logo_email.aspect_ratio }}"
+                      data-sizes="auto"
+                      alt="{{ logo_email.alt | escape }}">
+                  </div>
+                      
+                  <div class="contact-info-footer custom-menu-link">
+                      {{block.settings.email}}
+                   </div>
+              </div>
+      
+      
+              <div class="contact-address flex-footer">
+                  {%assign logo_direccion = 'marcador_2x.png'  | asset_img_url: '24X24'  %}
+      
+                  <div  class="img-logo-footer">
+                      <img id="{{ img_id }}"
+                           class="lazyload"
+                           src="{{ logo_direccion }}"
+                           data-src="{{ img_url }}"
+                           data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                           data-aspectratio="{{ logo_direccion.aspect_ratio }}"
+                           data-sizes="auto"
+                           alt="{{ logo_direccion.alt | escape }}">
+                    </div>
+      
+                    <div class="contact-info-footer custom-menu-link">
+                        {{block.settings.address}}
+                     </div>
+             </div>
           </div>
+      
+           {%endif%}
+         {% endfor %}
+      
         </div>
-          
-      </div>
-      <div class="grid__item one_half small--one-whole  footer-social-logo">
-        <div class="footer-social-logo-item">
-        <h4 class="siguenos-label">Síguenos</h4>
-        </div>
-        <div class="inline-logos footer-social-logo-item">
-            {%assign logo_facebook = 'facebook_2x.png'  | asset_img_url: '24X24'  %}
-        <div class="inline-logos-item logo-size">
-            <img id="{{ img_id }}"
-                 class="lazyload"
-                 src="{{ logo_facebook }}"
-                 data-src="{{ img_url }}"
-                 data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                 data-aspectratio="{{ logo_direccion.aspect_ratio }}"
-                 data-sizes="auto"
-                 alt="{{ logo_direccion.alt | escape }}">
-          </div>
-          {%assign logo_instagram = 'instagram_2x.png'  | asset_img_url: '24X24'  %}
-          <div class="inline-logos-item logo-size" >
-              <img id="{{ img_id }}"
-                   class="lazyload"
-                   src="{{ logo_instagram }}"
-                   data-src="{{ img_url }}"
-                   data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                   data-aspectratio="{{ logo_direccion.aspect_ratio }}"
-                   data-sizes="auto"
-                   alt="{{ logo_direccion.alt | escape }}">
+      
+         <div class="grid__item one_half small--one-whole page-width flex-group-generic flex-wrap">
+            <div class="footer-contact-form"> 
+              <div class="suscribir-label"> 
+                  <h4 class="new-setting-text custom-menu-title" >suscríbete</h4>
+              </div>   
+              <div class="form flex-group-generic">
+                <input type="email margin-0"> 
+                <div class="btn margin-0">
+                ENVIAR
+                </div>
+              </div>
+                
             </div>
+            <div class="grid__item one_half small--one-whole  footer-social-logo">
+              <div class="footer-social-logo-item">
+              <h4 class="siguenos-label">Síguenos</h4>
+              </div>
+              <div class="inline-logos footer-social-logo-item">
+                  {%assign logo_facebook = 'facebook_2x.png'  | asset_img_url: '24X24'  %}
+              <div class="inline-logos-item logo-size">
+                  <img id="{{ img_id }}"
+                       class="lazyload"
+                       src="{{ logo_facebook }}"
+                       data-src="{{ img_url }}"
+                       data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                       data-aspectratio="{{ logo_direccion.aspect_ratio }}"
+                       data-sizes="auto"
+                       alt="{{ logo_direccion.alt | escape }}">
+                </div>
+                {%assign logo_instagram = 'instagram_2x.png'  | asset_img_url: '24X24'  %}
+                <div class="inline-logos-item logo-size" >
+                    <img id="{{ img_id }}"
+                         class="lazyload"
+                         src="{{ logo_instagram }}"
+                         data-src="{{ img_url }}"
+                         data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                         data-aspectratio="{{ logo_direccion.aspect_ratio }}"
+                         data-sizes="auto"
+                         alt="{{ logo_direccion.alt | escape }}">
+                  </div>
+              </div>
+          
+          
+            </div>
+              
+          </div>
+</nav>
+
+
+
+    <nav class="mobile-custom-footer " role="navigation">
+      <h2>nav class</h2>
+      {%for block in section.blocks%}
+        {%if forloop.index < section.blocks.size%}
+
+        {%assign menu_name = block.settings.selected_menu%}
+        {%assign menu = linklists[menu_name]%}
+        <div class="menu-item-custom-footer-mobile">
+          <div class="menu-title-mobile " onclick="showDiv(event,'{{menu_name}}')">
+              <h3 class="custom-menu-title ">{{menu.title}}</h3>
+              {%assign logo_mas = 'mas_2x.png'  | asset_img_url: '30X30'  %}
+              {%assign logo_menos = 'menos-active_2x.png'  | asset_img_url: '30X30'  %}
+
+              <div id="{{menu_name}}-mas" class="img-logo-footer-margin" >
+                  <img id="{{ img_id }}"
+                       class="lazyload"
+                       src="{{ logo_mas}}"
+                       data-src="{{ img_url }}"
+                       data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                       data-aspectratio="{{ logo_mas.aspect_ratio }}"
+                       data-sizes="auto"
+                       alt="{{ logo_mas.alt | escape }}">
+                </div>
+
+                <div id="{{menu_name}}-menos" class="img-logo-footer-margin  menu-links-mobile-inactive" >
+                    <img id="{{ img_id }}"
+                         class="lazyload"
+                         src="{{ logo_menos }}"
+                         data-src="{{ img_url }}"
+                         data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                         data-aspectratio="{{ logo_mas.aspect_ratio }}"
+                         data-sizes="auto"
+                         alt="{{ logo_mas.alt | escape }}">
+                  </div>
+
+          </div>
+          <div id="{{menu_name}}" class="menu-content menu-links-mobile-inactive">
+              {%for link in menu.links%}
+              <li class="custom-menu-link capitalize-text">
+                <a href="{{link.url}}">{{link.title}}</a></li>
+              {% endfor %}
+              </ul>
+          </div>
+         <ul>
+       
         </div>
+        {%else%}
+        <div class="menu-item-custom-footer-mobile">
+              <div  class="menu-title-mobile " onclick="showDiv(event,'{{block.settings.contact_title}}')">
+                  <h3 class="custom-menu-title">{{block.settings.contact_title}}</h3>
+                  {%assign logo_mas = 'mas_2x.png'  | asset_img_url: '30X30'  %}
+                  {%assign logo_menos = 'menos-active_2x.png'  | asset_img_url: '30X30'  %}
+
+                  <div id="{{block.settings.contact_title}}-mas" class="img-logo-footer-margin" >
+                      <img id="{{ img_id }}"
+                           class="lazyload"
+                           src="{{ logo_mas }}"
+                           data-src="{{ img_url }}"
+                           data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                           data-aspectratio="{{ logo_mas.aspect_ratio }}"
+                           data-sizes="auto"
+                           alt="{{ logo_mas.alt | escape }}">
+                    </div>
+
+                    <div id="{{block.settings.contact_title}}-menos" class="img-logo-footer-margin menu-links-mobile-inactive" >
+                        <img id="{{ img_id }}"
+                             class="lazyload"
+                             src="{{ logo_menos }}"
+                             data-src="{{ img_url }}"
+                             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                             data-aspectratio="{{ logo_menos.aspect_ratio }}"
+                             data-sizes="auto"
+                             alt="{{ logo_menos.alt | escape }}">
+                      </div>
+
+
+              </div>
+          
+            <div id="{{block.settings.contact_title}}" class="menu-content menu-links-mobile-inactive" >
+                <div class="contact-phone flex-footer">
+                    {%assign logo_phone = 'icon-phone_2x.png'  | asset_img_url: '24X24'  %}
+          
+                      <div class="img-logo-footer-margin" >
+                          <img id="{{ img_id }}"
+                               class="lazyload"
+                               src="{{ logo_phone }}"
+                               data-src="{{ img_url }}"
+                               data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                               data-aspectratio="{{ logo_phone.aspect_ratio }}"
+                               data-sizes="auto"
+                               alt="{{ logo_phone.alt | escape }}">
+                        </div>
+                   <div class="contact-info-footer custom-menu-link">
+                      {{block.settings.phone_number}}
+                   </div>
+                   
+                     
+                  </div>
+                  <div class="contact-email flex-footer">
+                      {%assign logo_email = 'email_2x.png'  | asset_img_url: '24X24'  %}
+          
+                      
+                      <div class="img-logo-footer-margin">
+                          <img id="{{ img_id }}"
+                          class="lazyload"
+                          src="{{ logo_email }}"
+                          data-src="{{ img_url }}"
+                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                          data-aspectratio="{{ logo_email.aspect_ratio }}"
+                          data-sizes="auto"
+                          alt="{{ logo_email.alt | escape }}">
+                      </div>
+                          
+                      <div class="contact-info-footer custom-menu-link">
+                          {{block.settings.email}}
+                       </div>
+                  </div>
+                  <div class="contact-address flex-footer">
+                      {%assign logo_direccion = 'marcador_2x.png'  | asset_img_url: '24X24'  %}
+          
+                      <div  class="img-logo-footer-margin">
+                          <img id="{{ img_id }}"
+                               class="lazyload"
+                               src="{{ logo_direccion }}"
+                               data-src="{{ img_url }}"
+                               data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                               data-aspectratio="{{ logo_direccion.aspect_ratio }}"
+                               data-sizes="auto"
+                               alt="{{ logo_direccion.alt | escape }}">
+                        </div>
+          
+                        <div class="contact-info-footer custom-menu-link">
+                            {{block.settings.address}}
+                         </div>
+                 </div>
+            </div>
+            
+          
     
     
-      </div>
+         
+        </div>
+         {%endif%}        
+         
+         
+         
+      {%endfor%}
         
-    </div>
+    </nav>
 
 
 
