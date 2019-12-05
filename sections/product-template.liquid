@@ -1,6 +1,7 @@
 <script>
 
     function openCity(evt, cityName) {
+  
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("tabcontent");
       for (i = 0; i < tabcontent.length; i++) {
@@ -316,14 +317,6 @@
           role="alert"
           aria-hidden="true"
         >{{ 'products.product.loader_label' | t }}</p>
-
-        <div class="product-single__description rte">
-          {{ product.description }}
-        </div>
-   
-        
-
-       
         <h2>end product description</h2>
     </div>
   </div>
@@ -342,11 +335,31 @@
 {%endcomment%}
 <div class="tab-container">
     <div class="tabs-product tab-products-flex">
+
+     
+        
+        <div id="descripcion-header" class="tablinks  tab-title-item " onclick="openCity(event,'descripcion')">
+            <div class="title-tab-style">
+              Descripción
+            </div>
+          </div>
+
         {%for block in section.blocks%}
         {%if forloop.index == 1%}
         {%assign active_class = 'tab-title-item-active'%}
         {%else%}
         {%assign active_class = ''%}
+         {%endif%}
+         
+         {%if forloop.index == section.blocks.size%}
+          
+         <div id="comentarios-header" class="tablinks  tab-title-item " onClick="openCity(event,'comentarios')">
+            <div class="title-tab-style">
+              Comentarios
+            </div>
+          </div>
+       
+        
          {%endif%}
 
         <div id="{{block.settings.tab_title}}-header" class="tablinks  tab-title-item  {{active_class}}" onclick="openCity(event,'{{block.settings.tab_title}}')">
@@ -355,7 +368,18 @@
           </div>
         </div>
         {%endfor%}
-        </div>
+   
+        
+
+      </div>
+
+        <div id="descripcion" class="tabcontent content-tab-style ">
+            {{product.description}}
+            </div>
+
+            <div id="comentarios" class="tabcontent content-tab-style ">
+                <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+                </div>
         
         {%for block in section.blocks%}
         
@@ -368,6 +392,9 @@
             {{block.settings.tab_content}}
             </div>
         {%endfor%}
+
+
+      
 </div>
 
 
