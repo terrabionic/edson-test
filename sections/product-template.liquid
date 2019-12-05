@@ -338,18 +338,14 @@
 
      
         
-        <div id="descripcion-header" class="tablinks  tab-title-item " onclick="openCity(event,'descripcion')">
+        <div id="descripcion-header" class="tablinks  tab-title-item tab-title-item-active" onclick="openCity(event,'descripcion')">
             <div class="title-tab-style">
               Descripción
             </div>
           </div>
 
         {%for block in section.blocks%}
-        {%if forloop.index == 1%}
-        {%assign active_class = 'tab-title-item-active'%}
-        {%else%}
-        {%assign active_class = ''%}
-         {%endif%}
+     
          
          {%if forloop.index == section.blocks.size%}
           
@@ -362,7 +358,7 @@
         
          {%endif%}
 
-        <div id="{{block.settings.tab_title}}-header" class="tablinks  tab-title-item  {{active_class}}" onclick="openCity(event,'{{block.settings.tab_title}}')">
+        <div id="{{block.settings.tab_title}}-header" class="tablinks  tab-title-item " onclick="openCity(event,'{{block.settings.tab_title}}')">
           <div class="title-tab-style">
             {{block.settings.tab_title }}
           </div>
@@ -377,25 +373,22 @@
             {{product.description}}
             </div>
 
-            <div id="comentarios" class="tabcontent content-tab-style ">
+            <div id="comentarios" class="tabcontent content-tab-style tab-content-inactive">
                 <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
                 </div>
         
         {%for block in section.blocks%}
         
-        {%if forloop.index == 1%}
-        {%assign active_class = 'tab-content-active'%}
-        {%else%}
-        {%assign active_class = 'tab-content-inactive'%}
-         {%endif%}
-        <div id="{{block.settings.tab_title}}" class="tabcontent content-tab-style {{active_class}}">
+    
+        <div id="{{block.settings.tab_title}}" class="tabcontent content-tab-style tab-content-inactive">
             {{block.settings.tab_content}}
             </div>
         {%endfor%}
-
-
-      
 </div>
+
+
+
+
 
 
 

@@ -8,6 +8,9 @@
     Usage:
     {% include 'product-price', variant: current_variant, product: product %}
 {% endcomment %}
+
+
+
 {%if template == 'product'%}
 {%assign price_style = 'product-price-template-product'%}
 {%else%}
@@ -33,34 +36,39 @@
   data-price
 >
 
+
   {% if show_vendor and product %}
+  {%if  current_section != 'product-recomendations'%}
    <div class="product-attributes">
-   <div class="product-sku-vendor">
-      <div class="price__vendor">
-          <dt>
-            <span class="visually-hidden">{{ 'products.product.vendor' | t }}</span>
-          </dt>
-          <dd class="product-vendor-sku-text">
-            {{ product.vendor }}
-          </dd>
-        </div>
-        <div class="divisor">
-        </div>
-        <div class="price__sku">
-            <dt>
-              <span class="visually-hidden">{{ 'products.product.selected_or_first_available_variant.sku' | t }}</span>
-            </dt>
-            <dd class="product-vendor-sku-text">
-            {{ product.selected_or_first_available_variant.sku }}
-            </dd>
-          </div>
-   </div>
+ 
+      <div class="product-sku-vendor">
+          <div class="price__vendor">
+              <dt>
+                <span class="visually-hidden">{{ 'products.product.vendor' | t }}</span>
+              </dt>
+              <dd class="product-vendor-sku-text">
+                {{ product.vendor }}
+              </dd>
+            </div>
+            <div class="divisor">
+            </div>
+            <div class="price__sku">
+                <dt>
+                  <span class="visually-hidden">{{ 'products.product.selected_or_first_available_variant.sku' | t }}</span>
+                </dt>
+                <dd class="product-vendor-sku-text">
+                {{ product.selected_or_first_available_variant.sku }}
+                </dd>
+              </div>
+       </div>
+   
+
    <div>
 
-   </div class="product-reviews-badge">
+   </div>
   <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
    </div>
-   
+   {%endif%}
   {% endif %}
 
   <div class="price__regular">
@@ -132,9 +140,24 @@
       </span>
     </dd>
   </div>
+  {%if template == 'product' %}
   <div class="product-inventor">
-      ¡{{variant.inventory_quantity}} {{variant.inventory_quantity  | pluralize: 'Disponible', 'Disponibles'}}!
-     </div>
+    ¡{{variant.inventory_quantity}} {{variant.inventory_quantity  | pluralize: 'Disponible', 'Disponibles'}}!
+   </div>
+  {%endif%}
+
+  {%if current_section == 'product-recomendations'%}
+  <div class="price__vendor">
+      <dt>
+        <span class="visually-hidden">{{ 'products.product.vendor' | t }}</span>
+      </dt>
+      <dd class="product-vendor-sku-text">
+        {{ product.vendor }}
+      </dd>
+    </div>
+    
+  {%endif%}
+
 </dl>
 
 
