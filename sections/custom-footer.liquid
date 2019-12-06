@@ -10,7 +10,7 @@
       var imageMas = document.getElementById(divName+'-mas')
       var imageMenos= document.getElementById(divName+'-menos')
 
-      alert("class image minus before"+ imageMenos.classList);
+    
 
       var classList = String(divChange.classList);
    if (classList.includes('menu-links-mobile-inactive'))
@@ -32,12 +32,6 @@
     imageMas.classList.add("menu-links-mobile-active");
     imageMenos.classList.add("menu-links-mobile-inactive");
    }
-   alert("class image minus after"+ imageMenos.classList);
- 
-
-  
-     // evt.currentTarget.className += " active";
-      //evt.currentTarget.className += " tab-title-item-active";
 
     }
     </script>
@@ -179,7 +173,7 @@
 
 
     <nav class="mobile-custom-footer " role="navigation">
-      <h2>nav class</h2>
+   
       {%for block in section.blocks%}
         {%if forloop.index < section.blocks.size%}
 

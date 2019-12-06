@@ -1289,13 +1289,17 @@ display: flex;
 
 .tab-container{
   position:relative;
-  margin-left:10rem;
+  margin: 0 10% 0 10%;
   width:80%;
 }
-.tab-products-flex{
+.header-tab-products{
   display:flex;
   max-width: 995px;
   min-height:60px;
+  @media(max-width: 750px){
+  display:block;
+
+  }
 }
 .tab-title-item{
   flex: 1 1 0px;
@@ -1304,6 +1308,13 @@ display: flex;
   justify-content: center;
   background-color: white;
   margin: 0 0.15rem;
+  @media(max-width: 750px){
+  flex-direction:row;
+   position:relative;
+   align-items: center;
+   width:100%;
+   min-height:60px;
+  }
 }
 
 .tab-title-item-active{
@@ -1369,14 +1380,43 @@ display: block;
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
+  border-bottom: 2px solid #dfe3e9;
+  
+
 }
 
 .menu-links-mobile-inactive{
   display:none;
 }
 
-.menu-links-mobile-active{
+.menu-links-mobile-active{ //sustituir por nuevos
   display:block;
+}
+
+.desktop-display{
+  display:blocK;
+  @media(max-width:750){
+ display:none;
+  }
+}
+
+.desktop-mobile{
+display:none;
+@media(max-width:750){
+display:block;
+}
+}
+
+.plus-minus-mobile{
+  display:none;
+  @media(max-width: 750px){
+  position:absolute;
+  display:block;
+  right: 0;
+  top: 16px;
+  bottom: 0;
+
+  }
 }
 
 
