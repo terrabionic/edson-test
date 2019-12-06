@@ -122,52 +122,7 @@
       
         </div>
       
-         <div class="grid__item one_half small--one-whole page-width flex-group-generic flex-wrap">
-            <div class="footer-contact-form"> 
-              <div class="suscribir-label"> 
-                  <h4 class="new-setting-text custom-menu-title" >suscríbete</h4>
-              </div>   
-              <div class="form flex-group-generic">
-                <input type="email margin-0"> 
-                <div class="btn margin-0">
-                ENVIAR
-                </div>
-              </div>
-                
-            </div>
-            <div class="grid__item one_half small--one-whole  footer-social-logo">
-              <div class="footer-social-logo-item">
-              <h4 class="siguenos-label">Síguenos</h4>
-              </div>
-              <div class="inline-logos footer-social-logo-item">
-                  {%assign logo_facebook = 'facebook_2x.png'  | asset_img_url: '24X24'  %}
-              <div class="inline-logos-item logo-size">
-                  <img id="{{ img_id }}"
-                       class="lazyload"
-                       src="{{ logo_facebook }}"
-                       data-src="{{ img_url }}"
-                       data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                       data-aspectratio="{{ logo_direccion.aspect_ratio }}"
-                       data-sizes="auto"
-                       alt="{{ logo_direccion.alt | escape }}">
-                </div>
-                {%assign logo_instagram = 'instagram_2x.png'  | asset_img_url: '24X24'  %}
-                <div class="inline-logos-item logo-size" >
-                    <img id="{{ img_id }}"
-                         class="lazyload"
-                         src="{{ logo_instagram }}"
-                         data-src="{{ img_url }}"
-                         data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                         data-aspectratio="{{ logo_direccion.aspect_ratio }}"
-                         data-sizes="auto"
-                         alt="{{ logo_direccion.alt | escape }}">
-                  </div>
-              </div>
-          
-          
-            </div>
-              
-          </div>
+       
 </nav>
 
 
@@ -321,6 +276,59 @@
       {%endfor%}
         
     </nav>
+
+    <div class="flex-suscribe">
+        <div class="footer-contact-form"> 
+          <div class="suscribir-label footer-contact-form-item"> 
+              <h4 class="new-setting-text custom-menu-title" >suscríbete</h4>
+          </div>   
+           <div class="footer-contact-form-item"> 
+              <input type="email" class=" margin-0 input-suscribe-size "> 
+           </div>
+            <div class="footer-contact-form-item">
+                <div class="btn margin-0">
+                    ENVIAR
+                    </div>
+            </div>
+           
+          
+            
+        </div>
+
+        <div class="footer-social-logo">
+            <div class="footer-social-logo-item">
+            <h4 class="siguenos-label">Síguenos</h4>
+            </div>
+            <div class="inline-logos footer-social-logo-item">
+                {%assign logo_facebook = 'facebook_2x.png'  | asset_img_url: '24X24'  %}
+            <div class="inline-logos-item logo-size">
+                <img id="{{ img_id }}"
+                     class="lazyload"
+                     src="{{ logo_facebook }}"
+                     data-src="{{ img_url }}"
+                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                     data-aspectratio="{{ logo_direccion.aspect_ratio }}"
+                     data-sizes="auto"
+                     alt="{{ logo_direccion.alt | escape }}">
+              </div>
+              {%assign logo_instagram = 'instagram_2x.png'  | asset_img_url: '24X24'  %}
+              <div class="inline-logos-item logo-size" >
+                  <img id="{{ img_id }}"
+                       class="lazyload"
+                       src="{{ logo_instagram }}"
+                       data-src="{{ img_url }}"
+                       data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                       data-aspectratio="{{ logo_direccion.aspect_ratio }}"
+                       data-sizes="auto"
+                       alt="{{ logo_direccion.alt | escape }}">
+                </div>
+            </div>
+        
+        
+          </div>   
+      </div>
+
+  
 
 
 

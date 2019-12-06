@@ -1,6 +1,6 @@
 
-
 <div class="page-width">
+<h2>esto es logo bar</h2>
     {% if section.settings.title != blank %}
     <div class="flex-group-personalizado header-custom-collection-list">
         <div class="flex-item-personalizado section-title-13">
@@ -15,7 +15,7 @@
     {% endif %}
   
     {% if section.blocks.size > 0 %}
-      <ul class="logo-bar{% if section.settings.title_enable %} logo-bar--large{% endif %}">
+      <ul class="logo-bar-list">
         {% for block in section.blocks %}
           <li class=" logo_item_size logo-bar__item{% if section.settings.title_enable %} logo-bar__item--large{% endif %} " {{ block.shopify_attributes }}>
             {% if block.settings.link != blank %}
