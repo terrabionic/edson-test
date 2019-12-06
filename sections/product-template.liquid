@@ -18,11 +18,10 @@
 
     }
 
-    function showDiv(evt, divName) {
+    function showDivMobile(evt, divName) {
    
    var i, tabcontent, tablinks;
    tabcontent = document.getElementsByClassName("menu-content");
-  
 
    var divChange =  document.getElementById(divName);
    var imageMas = document.getElementById(divName+'-mas')
@@ -30,26 +29,49 @@
 
  
 
-   var classList = String(divChange.classList);
-if (classList.includes('menu-links-mobile-inactive'))
-{
- divChange.classList.remove("menu-links-mobile-inactive");
- imageMas.classList.remove("menu-links-mobile-active");
- imageMenos.classList.remove("menu-links-mobile-inactive");
+ 
 
- divChange.classList.add("menu-links-mobile-active");
- imageMas.classList.add("menu-links-mobile-inactive");
- imageMenos.classList.add("menu-links-mobile-active");
+   var classList = String(divChange.classList);
+
+   var currentTarget = evt.currentTarget
+     
+   console.log('current='+currentTarget.id);
+   console.log('image-mas'+imageMas.id);
+   console.log('image-menos'+imageMenos.id);
+
+
+   var classListCurrentTarget = String(currentTarget.classList);
+
+ if (classListCurrentTarget.includes('tab-title-item-active')){
+  currentTarget.classList.remove('tab-title-item-active');
+  currentTarget.classList.add('tab-title-item-inactive');
+ }
+ else
+ {
+  currentTarget.classList.remove('tab-title-item-inactive');
+  currentTarget.classList.add('tab-title-item-active');
+ }
+  
+if (classList.includes('tab-content-inactive'))
+{
+ divChange.classList.remove("tab-content-inactive");  
+ imageMas.classList.remove("tab-content-active"); 
+ imageMenos.classList.remove("tab-content-inactive"); 
+
+ divChange.classList.add("tab-content-active"); 
+ imageMas.classList.add("tab-content-inactive");
+ imageMenos.classList.add("tab-content-active"); 
 }
 else{
- divChange.classList.remove("menu-links-mobile-active");
- imageMas.classList.remove("menu-links-mobile-inactive");
- imageMenos.classList.remove("menu-links-mobile-active");
+ divChange.classList.remove("tab-content-active"); 
+ imageMas.classList.remove("tab-content-inactive"); 
+ imageMenos.classList.remove("tab-content-active"); 
 
- divChange.classList.add("menu-links-mobile-inactive");
- imageMas.classList.add("menu-links-mobile-active");
- imageMenos.classList.add("menu-links-mobile-inactive");
+ divChange.classList.add("tab-content-inactive"); 
+ imageMas.classList.add("tab-content-active"); 
+ imageMenos.classList.add("tab-content-inactive"); 
 }
+
 
  }
     </script>
@@ -368,8 +390,8 @@ else{
   </div>
 {%endfor%}
 {%endcomment%}
-<div class="tab-container">
-  <div class="desktop-display">
+<div class="tab-container desktop-display">
+<h2>display desktop</h2>
       <div class="tabs-product header-tab-products">
 
      
@@ -391,32 +413,7 @@ else{
               <div class="title-tab-style">
                 Comentarios
               </div>
-              <div class="plus-minus-mobile">
-                  {%assign logo_mas = 'mas-red_2x.png'  | asset_img_url: '30X30'  %}
-                  {%assign logo_menos = 'menos-white_2x.png'  | asset_img_url: '30X30'  %}
-    
-                  <div id="comentarios-mas" class="img-logo-footer-margin" >
-                      <img id="{{ img_id }}"
-                           class="lazyload"
-                           src="{{ logo_mas}}"
-                        
-                           data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                           data-aspectratio="{{ logo_mas.aspect_ratio }}"
-                           data-sizes="auto"
-                           alt="{{ logo_mas.alt | escape }}">
-                    </div>
-    
-                    <div id="comentarios-menos" class="img-logo-footer-margin menu-links-mobile-inactive " >
-                        <img id="{{ img_id }}"
-                             class="lazyload"
-                             src="{{ logo_menos }}"
-                        
-                             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                             data-aspectratio="{{ logo_mas.aspect_ratio }}"
-                             data-sizes="auto"
-                             alt="{{ logo_mas.alt | escape }}">
-                      </div>
-              </div>
+            
             
             </div>
          
@@ -430,10 +427,8 @@ else{
           </div>
           {%endfor%}
         </div>
-  </div>
+ 
   
-    
-
         <div id="descripcion" class="tabcontent content-tab-style ">
             {{product.description}}
             </div>
@@ -452,7 +447,90 @@ else{
 </div>
 
 
+<nav class="tab-container display-mobile">
+  <h2>display mobile</h2>
+      <div class="tabs-product header-tab-products">
 
+     
+        
+          <div id="descripcion-header-mobile" class="tablinks  tab-title-item tab-title-item-active" onclick="showDivMobile(event,'descripcion-mobile')">
+              <div class="title-tab-style">
+                Descripción
+              </div>
+              {%include 'plus-minus-buttons', id_parent: 'descripcion-mobile', is_first: true%}
+            </div>
+
+            <div id="descripcion-mobile" class="tabcontent content-tab-style ">
+              {{product.description}}
+              </div>
+
+          
+  
+          {%for block in section.blocks%}
+       
+           
+           {%if forloop.index == section.blocks.size%}
+            
+           <div id="comentarios-header-mobile" class="tablinks  tab-title-item " onClick="showDivMobile(event,'comentarios-mobile')">
+              <div class="title-tab-style">
+                Comentarios
+              </div>
+              {%include 'plus-minus-buttons', id_parent: 'comentarios-mobile'%}
+            </div>
+
+            <div id="comentarios-mobile" class="tabcontent content-tab-style tab-content-inactive">
+              <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+              </div>
+         
+          
+           {%endif%}
+  
+          <div id="{{block.settings.tab_title}}-header-mobile" class="tablinks  tab-title-item " onclick="showDivMobile(event,'{{block.settings.tab_title}}-mobile')">
+            <div class="title-tab-style">
+              {{block.settings.tab_title }}
+            </div>
+            {%assign id_parent_param = block.settings.tab_title | append:'-mobile' %}
+            {%include 'plus-minus-buttons', id_parent: id_parent_param%}
+          </div>
+
+          <div id="{{block.settings.tab_title}}-mobile" class="tabcontent content-tab-style tab-content-inactive">
+            {{block.settings.tab_content}}
+            </div>
+
+
+          {%endfor%}
+        </div>
+  
+          </nav>
+
+{%comment%}
+<div class="plus-minus-mobile">
+  {%assign logo_mas = 'mas-red_2x.png'  | asset_img_url: '30X30'  %}
+  {%assign logo_menos = 'menos-white_2x.png'  | asset_img_url: '30X30'  %}
+
+  <div id="comentarios-mas" class="img-logo-footer-margin" >
+      <img id="{{ img_id }}"
+           class="lazyload"
+           src="{{ logo_mas}}"
+        
+           data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+           data-aspectratio="{{ logo_mas.aspect_ratio }}"
+           data-sizes="auto"
+           alt="{{ logo_mas.alt | escape }}">
+    </div>
+
+    <div id="comentarios-menos" class="img-logo-footer-margin menu-links-mobile-inactive " >
+        <img id="{{ img_id }}"
+             class="lazyload"
+             src="{{ logo_menos }}"
+        
+             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+             data-aspectratio="{{ logo_mas.aspect_ratio }}"
+             data-sizes="auto"
+             alt="{{ logo_mas.alt | escape }}">
+      </div>
+</div>
+{%endcomment%}
 
 
 

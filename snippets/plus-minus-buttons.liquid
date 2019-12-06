@@ -1,0 +1,34 @@
+<div class="plus-minus-mobile">
+        {%assign logo_mas = 'mas-red_2x.png'  | asset_img_url: '30X30'  %}
+        {%assign logo_menos = 'menos-white_2x.png'  | asset_img_url: '30X30'  %}
+
+        {%if is_first == true%}
+        {%assign class_plus = 'tab-content-inactive'%}
+        {%assign class_minus = 'tab-content-active'%}
+        {%else%}
+        {%assign class_plus = 'tab-content-active'%}
+        {%assign class_minus = 'tab-content-inactive'%}
+        {%endif%}
+      
+        <div id="{{id_parent}}-mas" class="img-logo-footer-margin {{class_plus}}" >
+            <img id="{{ img_id }}"
+                 class="lazyload"
+                 src="{{ logo_mas}}"
+              
+                 data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                 data-aspectratio="{{ logo_mas.aspect_ratio }}"
+                 data-sizes="auto"
+                 alt="{{ logo_mas.alt | escape }}">
+          </div>
+      
+          <div id="{{id_parent}}-menos" class="img-logo-footer-margin {{class_minus}}" >
+              <img id="{{ img_id }}"
+                   class="lazyload"
+                   src="{{ logo_menos }}"
+              
+                   data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                   data-aspectratio="{{ logo_mas.aspect_ratio }}"
+                   data-sizes="auto"
+                   alt="{{ logo_mas.alt | escape }}">
+            </div>
+      </div>
