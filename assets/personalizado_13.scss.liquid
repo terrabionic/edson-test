@@ -1470,48 +1470,74 @@ display:block;
 }
 
 .copyright-payment-group{
-min-height: 74px;
-display:flex;
-flex-wrap: nowrap;
-justify-content: space-between;
-align-items: center;
-position: relative;
-width:100%;
-margin-top:22px;
-background-color: $grape-purple;
-}
-
-.copyright{
+  min-height: 74px;
   display:flex;
-  min-width:280px;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.copyright-text{
-  font-family: 'Asap';
-  padding-top:13px;
-  font-size: 14px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.29;
-  letter-spacing: normal;
-  color: white;
-}
-.payment-logos{
-  display: flex;
-  max-width: 470px;
-  min-height:40px;
   flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width:100%;
+  margin-top:22px;
+  background-color: $grape-purple;
+  }
+  
+  .copyright{
+    display:flex;
+    min-width:280px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .copyright-text{
+    font-family: 'Asap';
+    padding-top:13px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    color: white;
+  }
+  .payment-logos{
+    display: flex;
+    max-width: 470px;
+    min-height:40px;
+    flex-wrap: nowrap;
+  }
+  
+  .payment-logo-size{
+    width: 56px;
+    height: 36px;
+  }
+
+  .collection-grid-item-mobile{
+  @media(max-width: 520px){
+   position:relative;
+   width:100%;
+  }
+  }
+
+  .collection-grid-desktop{
+ 
+  @media(max-width: 520px){
+display:none;
+  }
+  }
+
+  .collection-grid-mobile{
+display: none;
+@media(max-width: 520px){
+display: block;
 }
+  }
 
-.payment-logo-size{
-  width: 56px;
-  height: 36px;
+.collection_grid_item_mobile{
+  position: relative;
+  width: 85%;
+  margin-left: 7.5%;
+  margin-right:7.5%;
 }
-
-
-
-
+  
+  
