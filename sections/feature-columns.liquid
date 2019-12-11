@@ -26,7 +26,7 @@
       {% else %}
         {%- assign column_width = grid_item_width -%}
       {% endif %}
-      <div class="grid__item {{ column_width }} text-{{ section.settings.align_text }} column-item-size" {{ block.shopify_attributes }}>
+      <div class="grid__item {{ column_width }} text-{{ section.settings.align_text }} column-item-size text-column-with-image-mobile" {{ block.shopify_attributes }}>
         {% if block.settings.enable_image %}
           {% if block.settings.image != blank %}
             {% capture img_id %}TextColumnImage-{{ block.id }}{% endcapture %}
@@ -83,6 +83,7 @@
             {{- block.settings.button_label | escape -}}
           </a>
         {% endif %}
+        
       </div>
     {% endfor %}
   </div>
