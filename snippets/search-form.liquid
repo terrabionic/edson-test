@@ -8,6 +8,14 @@
 
         <form action="{{ routes.search_url }}" method="get" class="custom-search search" role="search">
             <div class="input-group">
+                {%assign logo_search= 'search_2x.png'  | asset_img_url: '30X30'  %}
+      
+                <div class="search-div search-position" >
+                    <img
+                         src="{{ logo_search }}"
+                         data-aspectratio="{{ logo_search.aspect_ratio }}"
+                         alt="{{ logo_search.alt | escape }}">
+                  </div>
                 <input class="search-header__input search__input"
                 type="search"
                 name="q"

@@ -1605,10 +1605,32 @@ display: block;
   }
 }
 
+.search-position{
+  position:absolute;
+  left:42px;
+  top:5px;
+}
+
+.search-div{
+  width:30px;
+  height: 30px;
+ 
+  img{
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+}
+
 .margin-search-group{
   position:absolute;
   left: 300px;
   top: 30px;
+  @media(max-width: 990px){
+ position:absolute;
+  left:150px;
+
+  }
 }
 
 .margin-search-size{
@@ -1619,4 +1641,19 @@ display: block;
 .site-header__search{
   position:relative;
   width: 80%;
+  @media(max-width: 990px){
+    width:0;
+  }
+
 }
+
+.icon-group{
+  position: relative;
+  display: flex;
+  @media(max-width: 990px){
+
+  }
+
+}
+
+
