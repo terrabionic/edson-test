@@ -3272,7 +3272,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 .custom-search
 {
-  width: 474px;
+  width: 584px;
   height: 45px;
   display:flex;
   position: relative;
@@ -4574,7 +4574,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   &.site-header__icon {
     display: none;
 
-    @include media-query($widescreen) {
+    @include media-query($no-mobile) {
       display: block;
     }
   }
@@ -4583,7 +4583,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 .site-header__search-toggle {
   display: block;
 
-  @include media-query($widescreen) {
+  @include media-query($no-mobile) {
     display: none;
   }
 }
