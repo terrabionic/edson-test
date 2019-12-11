@@ -1,6 +1,10 @@
 
 
-{%include 'contact-info'%}
+
+
+
+
+
 
 {% if section.settings.message %}
   <style>
@@ -44,15 +48,33 @@
         }
       </style>
 
-      
-      {% if section.settings.message_link == blank %}
-    
-      {% else %}
-        </a>
-      {% endif %}
+{% if section.settings.message_link == blank %}
+<div class="announcement-bar  bar-group">
+{% else %}
+<a href="{{ section.settings.message_link }}" class="announcement-bar announcement-bar--link">
+{% endif %}
+<div>
+    <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+</div>
 
-    {% endif %}
-  {% endif %}
+
+{%if section.settings.button_text != blank%}
+ <div class="btn  btn-13-color button-group-margin button-padding">
+  <a>  <p class="button-bar-text">{{section.settings.button_text}}</p></a>
+ </div>
+{%endif%}
+
+{% if section.settings.message_link == blank %}
+</div>
+{% else %}
+</a>
+{% endif %}
+
+{% endif %}
+{% endif %}  
+
+{%include 'contact-info'%}
+     
 
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
@@ -733,6 +755,31 @@
       }
     },
     {
+      "type": "text",
+      "id": "button_text",
+      "label": {
+        "en": "Button text",
+        "es": "Texto de botón"
+      }
+      
+    },
+    {
+      "type": "url",
+      "id": "link_button",
+      "label" : {
+        "en": "Button link",
+        "es": "Enlace del botón"
+      }
+    },
+    {
+      "type": "color",
+      "id": "color_button",
+      "label": {
+        "en": "Color Button",
+        "es": "Color de botón"
+      }
+    },
+    {
       "type": "richtext",
       "id": "e-mail",
       "label": {
@@ -812,6 +859,7 @@
       },
       "default": "#fff"
     }
+   
   ]
 }
 {% endschema %}

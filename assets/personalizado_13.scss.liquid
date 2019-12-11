@@ -1551,3 +1551,46 @@ display: block;
  
 }
   
+
+.button-bar-text{
+  font-family: 'Asap';
+  font-size: 17px;
+  font-weight: 600;
+  font-stretch: normal;
+  text-transform: none;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+}
+
+.custom-button{
+  display:block;
+  width: 140px;
+  height: 30px;
+
+}
+
+.bar-group{
+  padding:10px;
+  display:flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  @media(max-width: 570px){
+   flex-direction: column;
+  }
+}
+
+.button-group-margin{
+  @media(max-width: 570px){
+    margin-top: -15px;
+    margin-bottom: 20px;
+   }
+}
+
+.button-padding{
+  padding:5px;
+}
+
