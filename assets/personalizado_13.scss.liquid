@@ -1258,6 +1258,13 @@ width:100%;
   letter-spacing: normal;
   color:#464250;
 }
+
+.grid_item_tablet_size{
+@media(min-width: 505px){
+width:50%;
+}
+}
+
 .price__sku{
 //padding-top:0.3rem;
 }
@@ -1292,7 +1299,7 @@ width:100%;
   letter-spacing: normal;
   color: $charcoal-grey;
 }
-.product-inventor{
+.product-store{
   font-family: 'Asap';
   font-size: 18px;
   font-weight: 600;
@@ -1301,10 +1308,30 @@ width:100%;
   line-height: 1.22;
   letter-spacing: normal;
   color: $dark;
+  margin-top: 20px;
 }
 .selector-quantity-group{
 display: flex;
+padding-bottom:20px;
 }
+
+.social-sharing{
+margin-top:-30px;
+}
+
+.gallery-desktop{
+  @media(max-width:750px){
+ display:none;
+  }
+}
+.gallery-mobile{
+  display:none;
+
+  @media(max-width: 750px){
+  display:block;
+  }
+}
+
 .select-form-size{
   position:relative;
   width:80%;

@@ -136,10 +136,11 @@ else{
       {%- assign height = 1090 -%}
       {%- assign enable_zoom = false -%}
   {% endcase %}
-  <h2>{{product.title}}</h2>
-  <h2>{{product.images.size}}</h2>
+ 
   <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.image_size }}-image{% endif %}">
-    <div class=" grid__item {{ product_image_width }} ">
+   
+    <div class=" grid__item {{ product_image_width }} grid_item_tablet_size">
+    
       <div class="flex-image-product">
           <div class="product-image-size">
               {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
@@ -189,9 +190,9 @@ else{
               {% endif %}
             </div>
         
-            <div class="grid__item thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %} gallery-product-image-custom">
+            <div class="grid__item thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %} gallery-product-image-custom  gallery-desktop">
              
-      <h2>gallery</h2>
+ 
       <ul class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
         {% for image in product.images%}
           <li class="product-single__thumbnails-item js">
@@ -221,12 +222,16 @@ else{
         </button>
       {% endif %}
               </div>
+
+              <div class="gallery-mobile">
+
+              </div>
       </div>
       
     </div>
-  
 
-    <div class="grid__item {{ product_description_width }}">
+
+    <div class="grid__item {{ product_description_width }} grid_item_tablet_size">
  
       
       <div class="product-single__meta">
@@ -376,6 +381,7 @@ else{
         >{{ 'products.product.loader_label' | t }}</p>
     
     </div>
+  
   </div>
 </div>
 
@@ -391,7 +397,6 @@ else{
 {%endfor%}
 {%endcomment%}
 <div class="tab-container desktop-display">
-<h2>display desktop</h2>
       <div class="tabs-product header-tab-products">
 
      

@@ -71,9 +71,11 @@
 
    </div>
   
-   <div class="product-reviews-size">
-      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
-   </div>
+     <div class="product-reviews-container">
+        <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+     </div>
+ 
+  
 
  
    </div>
@@ -150,7 +152,7 @@
     </dd>
   </div>
   {%if template == 'product' %}
-  <div class="product-inventor">
+  <div class="product-store">
     ¡{{variant.inventory_quantity}} {{variant.inventory_quantity  | pluralize: 'Disponible', 'Disponibles'}}!
    </div>
   {%endif%}
