@@ -3,9 +3,29 @@
             <div class="info-bar-email">
                     <p >{{section.settings.e-mail}}</p>
                 </div>
-                <div class="info-bar-telefono">
-                    <p>{{section.settings.telefono}}</p>
+                <div id="ContactNumbers" class="numbers-group">
+                        <div class="info-bar-telefono">
+                                <p>{{section.settings.telefono}}</p>
+                            </div>
+                            {%if section.settings.phone_whats%}
+                              <div class="whats-group">
+                                    {%assign logo_whats= 'whatsapp_2x.png'  | asset_img_url: '22X22'  %}
+                  
+                                    <div class="whats-div " >
+                                        <img
+                                             src="{{ logo_whats }}"
+                                             data-aspectratio="{{ logo_whats.aspect_ratio }}"
+                                             alt="{{ logo_whats.alt | escape }}">
+                                      </div>
+                              <div class="whats-style">
+                                  {{section.settings.phone_whats}}
+                              </div>
+                              </div>
+                            {%endif%}
                 </div>
+           
+
+
     </div>
     
 </div>

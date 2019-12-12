@@ -57,7 +57,7 @@
         "other": "{{ count }} resultados para \"{{ terms }}\""
       },
       "title": "Buscar nuestro sitio",
-      "placeholder": "Buscar",
+      "placeholder": "¿Qué estás buscando?",
       "submit": "Buscar",
       "close": "Cerrar",
       "heading": {
