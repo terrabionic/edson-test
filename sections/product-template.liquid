@@ -227,7 +227,7 @@ else{
   
 
     <div class="grid__item {{ product_description_width }}">
-      <h2>product description</h2>
+ 
       
       <div class="product-single__meta">
 
@@ -262,7 +262,7 @@ else{
 
 
           <div class="product__price">
-            {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
+           {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
           </div>
 
        
@@ -374,7 +374,7 @@ else{
           role="alert"
           aria-hidden="true"
         >{{ 'products.product.loader_label' | t }}</p>
-        <h2>end product description</h2>
+    
     </div>
   </div>
 </div>

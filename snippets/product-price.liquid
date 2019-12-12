@@ -50,23 +50,32 @@
                 {{ product.vendor }}
               </dd>
             </div>
-            <div class="divisor">
-            </div>
-            <div class="price__sku">
-                <dt>
-                  <span class="visually-hidden">{{ 'products.product.selected_or_first_available_variant.sku' | t }}</span>
-                </dt>
-                <dd class="product-vendor-sku-text">
-                {{ product.selected_or_first_available_variant.sku }}
-                </dd>
+              {%if product.selected_or_first_available_variant.sku != blank%}
+              <div class="divisor">
+
               </div>
+              <div class="price__sku">
+                  <dt>
+                    <span class="visually-hidden">{{ 'products.product.selected_or_first_available_variant.sku' | t }}</span>
+                  </dt>
+                  <dd class="product-vendor-sku-text">
+                  SKU: {{ product.selected_or_first_available_variant.sku }}
+                  </dd>
+                </div>
+              {%endif%}
+         
        </div>
    
 
    <div>
 
    </div>
-  <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+  
+   <div class="product-reviews-size">
+      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+   </div>
+
+ 
    </div>
    {%endif%}
   {% endif %}
