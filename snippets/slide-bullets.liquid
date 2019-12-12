@@ -1,0 +1,22 @@
+
+
+<ul class="slick-dots" style="display:block;">
+ {%for block in blocks%}
+   {{forloop.index0}}
+   {%if forloop.index == 1%}
+     <li class=" example-li slick-active" aria-hidden="false" id="slickDot00">
+        
+        <a href="#SlideshowWrapper-slideshow" aria-label="Cargar diapositiva {{forloop.index}}"
+        data-slide-number="{{forloop.index0}}" aria-current="true" aria-controls="slickSlide00"></a>
+     </li>
+   {%else%}
+     <li class="example-li" id="slickDot0{{forloop.index0}}">
+     
+      <a href="#SlideshowWrapper-slideshow" aria-label="Cargar diapositiva {{forloop.index}}"
+      data-slide-number="{{forloop.index0}}" aria-controls="slickSlide0{{forloop.index0}}"
+      ></a>
+     </li>
+   {%endif%}
+   
+ {%endfor%}
+</ul>
