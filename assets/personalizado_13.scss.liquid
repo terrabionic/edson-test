@@ -3,6 +3,7 @@ $charcoal-grey: #2b2d2f;
 $lipstick: #ce1f34;
 $grape-purple: #80174b;
 $dark: #1b1326;
+$ice-blue: #f7f8f8;
 $ice-blue-two:#eef0f0;
 /*================ Minix  ================*/
 @mixin bg-color-param($color)
@@ -1701,4 +1702,49 @@ display: block;
    }
  }
 
+ //slide buttons
+ .button-arrow-size{
+width:50px;
+height:50px;
+ }
+
+ .button-arrow-active{
+background-color: $lipstick;
+ }
+
+ .button-arrow-inactive{
+background-color: $ice-blue;
+ }
+
+ .arrow-size{
+  width:32px;
+  height: 32px;
+  img{
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.arrows-position{
+  position:relative;
+  width:100%;
+  position:absolute;
+  top: calc(50% - (50px/2)); 
+}
+
+.arrows-flex{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-right-position{
+position:absolute;
+left: calc(100% - 50px - 20px);
+}
+
+.btn-left-position{
+  position:absolute;
+  left: 20px;
+}
 

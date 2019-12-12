@@ -105,14 +105,37 @@
           </div>
         {%- endfor -%}
       </div>
+      <div class=" arrows-position  ">
+         <div class=" new_slideshow__arrows arrows-flex ">
+            <button class="btn-left-position new_slideshow__arrow-left button-arrow-size button-arrow-inactive" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
+                {%assign logo_arrow_left= 'arrow-left-gray_2x.png'  | asset_img_url: '32X32'  %}
+           
+                <div  class="arrow-size">
+                    <img
+                         src="{{ logo_arrow_left }}"
+                         data-aspectratio="{{ logo_arrow_left.aspect_ratio }}"
+                         alt="{{ logo_arrow_left.alt | escape }}">
+                  </div>
+              </button>
+              <button class="btn-right-position new_slideshow__arrow-right button-arrow-size button-arrow-active" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
+                {%assign logo_arrow_right= 'arrow-right-white_2x.png'  | asset_img_url: '32X32'  %}
+           
+                <div  class="arrow-size">
+                    <img
+                         src="{{ logo_arrow_right }}"
+                         data-aspectratio="{{ logo_arrow_right.aspect_ratio }}"
+                         alt="{{ logo_arrow_right.alt | escape }}">
+                  </div>
+              </button>
+         </div>
+    
+    
+      </div>
+  
       <div class="slideshow__controls">
         {%- if section.blocks.size > 1 -%}
           {%- assign arrows_width = section.blocks.size | times: 18 | plus: 95 -%}
-          <div class="slideshow__arrows"
-               style="width: {{- arrows_width -}}px">
-            <button class="slideshow__arrow slideshow__arrow-left" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">{% include 'icon-chevron-left' %}</button>
-            <button class="slideshow__arrow slideshow__arrow-right" aria-label="{{ 'sections.slideshow.next_slide' | t }}">{% include 'icon-chevron-right' %}</button>
-          </div>
+        
           {%- if section.settings.autorotate -%}
             <button type="button" class="slideshow__pause" data-id="{{ section.id }}" aria-live="polite" aria-pressed="false">
               <span class="slideshow__pause-stop">
@@ -776,3 +799,4 @@
   ]
 }
 {% endschema %}
+

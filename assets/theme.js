@@ -1606,10 +1606,10 @@ theme.Slideshow = (function() {
     controls: '.slideshow__controls',
     pauseButton: '.slideshow__pause',
     dots: '.slick-dots',
-    arrows: '.slideshow__arrows',
+    arrows: '.new_slideshow__arrows',
     arrowsMobile: '.slideshow__arrows--mobile',
-    arrowLeft: '.slideshow__arrow-left',
-    arrowRight: '.slideshow__arrow-right'
+    arrowLeft: '.new_slideshow__arrow-left',
+    arrowRight: '.new_slideshow__arrow-right'
   };
 
   function slideshow(el, sectionId) {
