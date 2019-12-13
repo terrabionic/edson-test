@@ -3,7 +3,6 @@
 window.onload = init;
 function init() {
 
-  
  
   $("#buttonDown").click(function() {
     var item_number = $('#slideContentVertical').data('current-item');
@@ -18,8 +17,20 @@ function init() {
      diff_absolute = 0;
     }
 
-  
-    item_number++;
+    var items = $('#slideContentVertical').data('count-items');
+
+    
+   console.log("item number current"+ item_number);
+
+    if (item_number < items){
+
+      item_number++;
+    }
+    else{
+
+    }
+    console.log("item number new"+ item_number);
+   
 
     var item = $('#foo1');
 
@@ -30,9 +41,7 @@ function init() {
     var containerPos =  $('#slideContentVertical').offset().top
 
       var top = $("#foo1").offset().top - containerPos;
-      alert("top relative item="+ top );
-
-      alert("top item1="+ $("#foo1").offset().top );
+  
 
     $('#slideContentVertical').data('current-item',item_number)
     $('#slideContentVertical').animate({
@@ -40,7 +49,47 @@ function init() {
         scrollTop: $("#foo"+item_number).offset().top -containerPos + diff_absolute
 
 
-    }, 2000);
+    }, 500);
+   
+  });
+
+  $("#buttonUp").click(function() {
+    var item_number = $('#slideContentVertical').data('current-item');
+
+    var diff_absolute;
+
+    if (item_number != 1){
+      diff_absolute = $("#foo"+item_number).offset().top - $("#foo1").offset().top
+    }
+    else
+    {
+     diff_absolute = 0;
+    }
+
+    console.log("item number current"+ item_number);
+   if(item_number != 1){
+    item_number--;
+   }
+   console.log("item number new"+ item_number);
+ 
+    var item = $('#foo1');
+
+    
+   
+    var containerSlide = document.getElementById("slideContentVertical");
+  
+    var containerPos =  $('#slideContentVertical').offset().top
+
+      var top = $("#foo1").offset().top - containerPos;
+    
+
+    $('#slideContentVertical').data('current-item',item_number)
+    $('#slideContentVertical').animate({
+    
+        scrollTop: $("#foo"+item_number).offset().top -containerPos + diff_absolute
+
+
+    }, 500);
    
   });
 }
@@ -243,8 +292,9 @@ else{
         
             <div class="grid__item thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %} gallery-product-image-custom    gallery-desktop">
              
+        
  
-      <ul id="slideContentVertical" class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }} vertical-carousel-size " data-current-item="1">
+      <ul id="slideContentVertical" class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }} vertical-carousel-size " data-current-item="1"  data-count-items="{{product.images.size}}">
         {% for image in product.images%}
         
           <li  id="foo{{forloop.index}}"  class="product-single__thumbnails-item js">
@@ -252,30 +302,45 @@ else{
                class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
                data-thumbnail-id="{{ image.id }}"
                {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-                 <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
+
+               {%comment%}
+                 <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '78x78', scale: 1 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
+                
+                {%endcomment%}
+                 {%assign image_product= image.src  | img_url: '74X74'  %}
+      
+                 <div  class="vertical-carrousel-image">
+                    <img
+                       class="product-single__thumbnail-image"
+                         src="{{ image_product}}"
+                         data-aspectratio="{{ image.aspect_ratio }}"
+                         alt="{{ image.alt | escape }}">
+                  </div>
             </a>
           </li>
         {% endfor %}
       </ul>
    
+      {% if enable_thumbnail_slides == true %}
+      {%assign img_arrow_down = 'arrow-down_2x.png' | asset_img_url: '18x18' %}
+      {%assign img_arrow_up = 'arrow-up_2x.png' | asset_img_url: '18X18' %}
+      <button id="buttonUp" type="button" class="btn btn--link 
+        {{ section.id }}" >
+          <img 
+          class="feature-row__image"
+          src="{{ img_arrow_up}}"
+          alt="{{ img_arrow_up.alt | escape }}">
+        </button>
+        <button id="buttonDown" type="button" class="btn btn--link {{ section.id }}">
+            <img 
+            class="feature-row__image "
+            src="{{ img_arrow_down}}"
+            alt="{{ img_arrow_down.alt | escape }}">
+        </button>
+      {% endif %}
               </div>
 
-              {% if enable_thumbnail_slides == true %}
-              {%assign img_arrow_down = 'arrow-down_2x.png' | asset_img_url: '18x18' %}
-              {%assign img_arrow_up = 'arrow-up_2x.png' | asset_img_url: '18X18' %}
-              <button id="buttonUp" type="button" class="btn btn--link thumbnails-slider__btn  {{ section.id }} carousel-inner.vertical item.next vertical-up" onclick="buttonUP()">
-                  <img 
-                  class="feature-row__image"
-                  src="{{ img_arrow_up}}"
-                  alt="{{ img_arrow_up.alt | escape }}">
-                </button>
-                <button id="buttonDown" type="button" class="btn btn--link thumbnails-slider__btn  {{ section.id }}   carousel-inner.vertical item.prev">
-                    <img 
-                    class="feature-row__image "
-                    src="{{ img_arrow_down}}"
-                    alt="{{ img_arrow_down.alt | escape }}">
-                </button>
-              {% endif %}
+              
 
               <div class="gallery-mobile">
 
