@@ -1,5 +1,56 @@
 <script>
 
+window.onload = init;
+function init() {
+
+  
+ 
+  $("#buttonDown").click(function() {
+    var item_number = $('#slideContentVertical').data('current-item');
+
+    var diff_absolute;
+
+    if (item_number != 1){
+      diff_absolute = $("#foo"+item_number).offset().top - $("#foo1").offset().top
+    }
+    else
+    {
+     diff_absolute = 0;
+    }
+
+  
+    item_number++;
+
+    var item = $('#foo1');
+
+    
+   
+    var containerSlide = document.getElementById("slideContentVertical");
+  
+    var containerPos =  $('#slideContentVertical').offset().top
+
+      var top = $("#foo1").offset().top - containerPos;
+      alert("top relative item="+ top );
+
+      alert("top item1="+ $("#foo1").offset().top );
+
+    $('#slideContentVertical').data('current-item',item_number)
+    $('#slideContentVertical').animate({
+    
+        scrollTop: $("#foo"+item_number).offset().top -containerPos + diff_absolute
+
+
+    }, 2000);
+   
+  });
+}
+
+    function buttonUP(){
+    
+    //containerSlide.translate(0,-200);
+    }
+
+
     function openCity(evt, cityName) {
   
       var i, tabcontent, tablinks;
@@ -190,13 +241,14 @@ else{
               {% endif %}
             </div>
         
-            <div class="grid__item thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %} gallery-product-image-custom  gallery-desktop">
+            <div class="grid__item thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %} gallery-product-image-custom    gallery-desktop">
              
  
-      <ul class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
+      <ul id="slideContentVertical" class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }} vertical-carousel-size " data-current-item="1">
         {% for image in product.images%}
-          <li class="product-single__thumbnails-item js">
-            <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
+        
+          <li  id="foo{{forloop.index}}"  class="product-single__thumbnails-item js">
+            <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }} "
                class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
                data-thumbnail-id="{{ image.id }}"
                {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
@@ -205,23 +257,25 @@ else{
           </li>
         {% endfor %}
       </ul>
-      {% if enable_thumbnail_slides == true %}
-      {%assign img_arrow_down = 'arrow-down_2x.png' | asset_img_url: '18x18' %}
-      {%assign img_arrow_up = 'arrow-up_2x.png' | asset_img_url: '18X18' %}
-      <button type="button" class="btn btn--link thumbnails-slider__btn  {{ section.id }}">
-          <img 
-          class="feature-row__image"
-          src="{{ img_arrow_up}}"
-          alt="{{ img_arrow_up.alt | escape }}">
-        </button>
-        <button type="button" class="btn btn--link thumbnails-slider__btn  {{ section.id }}">
-            <img 
-            class="feature-row__image "
-            src="{{ img_arrow_down}}"
-            alt="{{ img_arrow_down.alt | escape }}">
-        </button>
-      {% endif %}
+   
               </div>
+
+              {% if enable_thumbnail_slides == true %}
+              {%assign img_arrow_down = 'arrow-down_2x.png' | asset_img_url: '18x18' %}
+              {%assign img_arrow_up = 'arrow-up_2x.png' | asset_img_url: '18X18' %}
+              <button id="buttonUp" type="button" class="btn btn--link thumbnails-slider__btn  {{ section.id }} carousel-inner.vertical item.next vertical-up" onclick="buttonUP()">
+                  <img 
+                  class="feature-row__image"
+                  src="{{ img_arrow_up}}"
+                  alt="{{ img_arrow_up.alt | escape }}">
+                </button>
+                <button id="buttonDown" type="button" class="btn btn--link thumbnails-slider__btn  {{ section.id }}   carousel-inner.vertical item.prev">
+                    <img 
+                    class="feature-row__image "
+                    src="{{ img_arrow_down}}"
+                    alt="{{ img_arrow_down.alt | escape }}">
+                </button>
+              {% endif %}
 
               <div class="gallery-mobile">
 
