@@ -8,6 +8,8 @@
      </div>
  </div>
 
+
+
  <div class="carousel js-carousel">
     <div class="carousel__container js-carousel-container">
       <div class="carousel__list js-carousel-list">
@@ -22,12 +24,12 @@
                
                 <div class="carrousel_product_image">
                     <img id="{{ img_id }}"
-                    class="feature-row__image carrousel_product_image lazyload"
-                    src="{{ image_url| img_url: '300X300' }}"
+                    class=" lazyload"
+                    src="{{ image_url| img_url: 'master' }}"
                     data-src="{{ img_url }}"
                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
                     data-aspectratio="{{ image_url.aspect_ratio }}"
-                    data-sizes="auto"
+                    data-sizes="cover"
                     alt="{{ image_url.alt | escape }}">
                 </div>
                 
@@ -50,7 +52,7 @@
       </div>
     </div>
     <div class="carousel__nav">
-        <button class="carousel__button--prev js-carousel-button btn-left-position new_slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item" data-dir="prev" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
+        <button class="carousel__button--prev js-carousel-button btn-left-position carousel_position_button new_slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item" data-dir="prev" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
             {%assign logo_arrow_right= 'arrow-right-white_2x.png'  | asset_img_url: '32X32'  %}
        
             <div  class=" arrow-size">
@@ -61,7 +63,7 @@
               </div>
           </button>
          
-          <button class="  carousel__button--next js-carousel-button   btn-right-position new_slideshow__arrow-right button-arrow-size button-arrow arrow-item" data-dir="next" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
+          <button class="  carousel__button--next js-carousel-button   btn-right-position carousel_position_button new_slideshow__arrow-right button-arrow-size button-arrow arrow-item" data-dir="next" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
                
             
               <div  class=" arrow-size">
@@ -75,64 +77,14 @@
     </div>
   </div>
 
-  {%comment%}
-<div class=" carousel slide " id="theCarousel" data-ride="carousel"> 
-    <ol class="carousel-indicators">
-        <li data-target="#theCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#theCarousel" data-slide-to="1"></li>
-        <li data-target="#theCarousel" data-slide-to="2"></li>
-        <li data-target="#theCarousel" data-slide-to="3"></li>
-        <li data-target="#theCarousel" data-slide-to="4"></li>
-        <li data-target="#theCarousel" data-slide-to="5"></li>
-        <li data-target="#theCarousel" data-slide-to="6"></li>
-        <li data-target="#theCarousel" data-slide-to="7"></li>
-      </ol>
+ 
 
-
-  <div class="flex-carrousel carousel-inner">
   
-      
-  </div>
-  {%assign image_left = 'arrow-left_2x.png' | asset_img_url: '32X32'  %}
-  {%assign image_right = 'arrow-right_2x.png' | asset_img_url: '32X32'  %}
-  
-  
-<a class="left carousel-control" href="#theCarousel" data-slide="prev">
-  <div class="btn button-left-right">
-      <div class="img-arrow-size">
-          <img id="{{ img_id }}"
-          class="feature-row__image carrousel_product_image lazyload"
-          src="{{ image_left }}"
-          data-src="{{ img_url }}"
-          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-          data-aspectratio="{{ image_left.aspect_ratio }}"
-          data-sizes="auto"
-          alt="{{ image_left.alt | escape }}">
-      </div>
-  </div>
-
-    
-</a>
-<a class="right carousel-control" href="#theCarousel" data-slide="next">
-  <div class="btn button-left-right">
-      <div class="img-arrow-size">
-          <img id="{{ img_id }}"
-          class="feature-row__image carrousel_product_image lazyload"
-          src="{{ image_right }}"
-          data-src="{{ img_url }}"
-          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-          data-aspectratio="{{ image_right.aspect_ratio }}"
-          data-sizes="auto"
-          alt="{{ image_right.alt | escape }}">
-      </div>
-  </div>
+     
+ 
 
 
-</a>
 
-</div>
-
-{%endcomment%}
 
 
 
