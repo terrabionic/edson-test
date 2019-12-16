@@ -50,8 +50,28 @@
       </div>
     </div>
     <div class="carousel__nav">
-      <button class="carousel__button--prev js-carousel-button" data-dir="prev">&lt;</button>
-      <button class="carousel__button--next js-carousel-button" data-dir="next">&gt;</button>
+        <button class="carousel__button--prev js-carousel-button btn-left-position new_slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item" data-dir="prev" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
+            {%assign logo_arrow_right= 'arrow-right-white_2x.png'  | asset_img_url: '32X32'  %}
+       
+            <div  class=" arrow-size">
+                <img
+                     src="{{ logo_arrow_right }}"
+                     data-aspectratio="{{ logo_arrow_left.aspect_ratio }}"
+                     alt="{{ logo_arrow_left.alt | escape }}">
+              </div>
+          </button>
+         
+          <button class="  carousel__button--next js-carousel-button   btn-right-position new_slideshow__arrow-right button-arrow-size button-arrow arrow-item" data-dir="next" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
+               
+            
+              <div  class=" arrow-size">
+                  <img
+                       src="{{ logo_arrow_right }}"
+                       data-aspectratio="{{ logo_arrow_right.aspect_ratio }}"
+                       alt="{{ logo_arrow_right.alt | escape }}">
+                </div>
+            </button>
+
     </div>
   </div>
 
