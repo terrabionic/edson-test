@@ -1,6 +1,6 @@
-<ul class="site-nav list--inline{% if wrapper_class != blank %} {{ wrapper_class }}{% endif %}" id="SiteNav">
+<ul class="site-nav new-site-nav list--inline{% if wrapper_class != blank %} {{ wrapper_class }}{% endif %}" id="SiteNav">
     {% for link_list_lv1 in linklist.links %}
-    <li class="drop-menu-item-header">
+    <li class="drop-menu-item-header click_hover">
             <div class="dropdown" id="dropdown{{forloop.index}}">
               
              <h3 class="drop-menu-item-title">{{link_list_lv1.title}}</h3> 
@@ -66,9 +66,7 @@
     {%endfor%}
 </ul>
 
-<div >
-  <h1>nav-mobil</h1>
-</div>
+
   {%comment%}
 <ul class="drop-down-content-mobil" id="SiteNavMobile">
     {% for link_list_lv1 in linklist.links %}

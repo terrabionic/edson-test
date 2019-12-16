@@ -520,7 +520,7 @@ else{
 
      
         
-          <div id="descripcion-header" class="tablinks  tab-title-item tab-title-item-active" onclick="openCity(event,'descripcion')">
+          <div id="descripcion-header" class="tablinks  tab-title-item tab-title-item-active click_hover" onclick="openCity(event,'descripcion')">
               <div class="title-tab-style">
                 Descripción
               </div>
@@ -533,7 +533,7 @@ else{
            
            {%if forloop.index == section.blocks.size%}
             
-           <div id="comentarios-header" class="tablinks  tab-title-item " onClick="openCity(event,'comentarios')">
+           <div id="comentarios-header" class="tablinks  tab-title-item click_hover " onClick="openCity(event,'comentarios')">
               <div class="title-tab-style">
                 Comentarios
               </div>
@@ -544,7 +544,7 @@ else{
           
            {%endif%}
   
-          <div id="{{block.settings.tab_title}}-header" class="tablinks  tab-title-item " onclick="openCity(event,'{{block.settings.tab_title}}')">
+          <div id="{{block.settings.tab_title}}-header" class="tablinks  tab-title-item click_hover" onclick="openCity(event,'{{block.settings.tab_title}}')">
             <div class="title-tab-style">
               {{block.settings.tab_title }}
             </div>

@@ -265,12 +265,15 @@ display:flex;
 
 }
 .drop-menu-item-header{
-margin: 0 25px;
+margin: 0 15px;
 
+}
+.new-site-nav{
+  margin: 5px 0!important;
 }
 
 .drop-menu-item-title{
-  padding: 0.8rem 2rem 0.8rem 0;
+  padding: 0.7rem 0 0.1rem 0;
   font-family: 'Asap';
   font-size: 16px;
   font-weight: 600;
@@ -413,7 +416,7 @@ margin-right: 35px;
 }
 
 .padding-nav{
-max-height: 200px;
+//max-height: 200px;
 padding-bottom: 0;
 }
 
@@ -1172,6 +1175,18 @@ white-space:normal;
 
 /*================Product template================*/
 
+.product-section-header{
+  font-family: 'Asap';
+  font-size: 26px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.08;
+  letter-spacing: normal;
+  text-align: center;
+  color:$dark;
+}
+
 .product-attributes{
   display:flex;
   justify-content:space-between;
@@ -1400,6 +1415,12 @@ margin-top:-30px;
   justify-content: center;
   background-color: white;
   margin: 0 0.15rem;
+  &:hover{
+background-color: $lipstick;
+.title-tab-style{
+  color: white;
+}
+  }
   @media(max-width: 750px){
   flex-direction:row;
    position:relative;
@@ -1415,6 +1436,7 @@ background-color: $lipstick;
   color: white;
 }
 }
+
 
 .tab-content-active{
   display:block;
@@ -1915,6 +1937,15 @@ img{
   height: 100%;
 }
 }
+
+.click_hover{
+  &:hover{
+    cursor: pointer;
+  }
+
+}
+
+
 
 
 

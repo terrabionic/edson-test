@@ -14,34 +14,47 @@
        <div class="list-collections-custom list-collections-flex-custom ">
          
                {%for block in section.blocks%}
-               <div class="flex-collection-vertical coleccion_color_item div-class-collection">
-               {%assign class = "zx"%}
-               {%assign image = block.settings.collection_image%}
+               {%if block != blank%}
+                <div class="flex-collection-vertical coleccion_color_item div-class-collection click_hover">
 
-               {%if forloop.index == 1 or forloop.index == section.blocks.size%}
-               {%assign size_img = '585X250'%}
-               {%assign size_contain = 'custom-collection-image-585'%}
-               {%else%}
-               {%assign size_img = '250X250'%}
-               {%assign size_contain = 'custom-collection-image-250'%}
+                  
+                   {%if block.settings.collection_id != blank%}
+                   {%assign collection = collections[block.settings.collection_id]%}
+                   <a href="{{collection.url}}">
+                   {%endif%}
+                  {%assign class = "zx"%}
+                  {%assign image = block.settings.collection_image%}
+   
+                  {%if forloop.index == 1 or forloop.index == section.blocks.size%}
+                  {%assign size_img = '585X250'%}
+                  {%assign size_contain = 'custom-collection-image-585'%}
+                  {%else%}
+                  {%assign size_img = '250X250'%}
+                  {%assign size_contain = 'custom-collection-image-250'%}
+                  {%endif%}
+              
+                  <div class="">
+                       
+                        <img id="{{ img_id }}"
+                             class="feature-row__image  {{size_contain}} lazyload"
+                             src="{{ image | img_url: size_img }}"
+                             data-src="{{ img_url }}"
+                             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                             data-aspectratio="{{ image.aspect_ratio }}"
+                             data-sizes="fit"
+                             alt="{{ image.alt | escape }}">
+                             
+                      </div>
+                               <div class="custom-collection-title" >
+                                  {{block.settings.collection_id | capitalize | replace: "-", " " }}
+                              </div> 
+
+                              {%if block.settings.collection_id != blank%}
+                              </a>
+                              {%endif%}
+                            </div>
                {%endif%}
            
-               <div class="">
-                    
-                     <img id="{{ img_id }}"
-                          class="feature-row__image  {{size_contain}} lazyload"
-                          src="{{ image | img_url: size_img }}"
-                          data-src="{{ img_url }}"
-                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                          data-aspectratio="{{ image.aspect_ratio }}"
-                          data-sizes="fit"
-                          alt="{{ image.alt | escape }}">
-                          
-                   </div>
-                            <div class="custom-collection-title" >
-                               {{block.settings.collection_id | capitalize | replace: "-", " " }}
-                           </div> 
-                         </div>
                                  
                                  
             
