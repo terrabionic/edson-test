@@ -422,6 +422,10 @@ padding-bottom: 0;
 
 
 //breadcrumb
+.breadcrumb{
+background-color: white;
+}
+
 .breadcrumb-list{
   li:nth-last-child(-n+2), li:nth-last-child(-n+2):hover{
     a{
@@ -1281,7 +1285,8 @@ white-space:normal;
   height:100%;
 }
 .product-image-size{
- width:100%;
+
+ width: 100%;
 }
 .product-image-carousel-container{
   overflow: hidden;
@@ -1452,25 +1457,30 @@ margin-top:-30px;
 
 .tab-container{
   position:relative;
-  margin: 0 10% 0 10%;
-  width:80%;
+  background-color:#f7f8f8;
+  //margin: 0 10% 0 10%;
+  width:100%;
 }
 .header-tab-products{
   display:flex;
-  max-width: 995px;
-  min-height:60px;
+  padding-top:20px;
+  position:relative;
+  width:100%;
+  min-height:80px;
   @media(max-width:750px){
   display:block;
   }
   
 }
 .tab-title-item{
-  flex: 1 1 0px;
+
+  //flex: 1 1 0;
+  width:240px;
   display:flex;
   flex-direction: column;
   justify-content: center;
   background-color: white;
-  margin: 0 0.15rem;
+  //margin: 0 0.15rem;
   &:hover{
 background-color: $lipstick;
 .title-tab-style{
