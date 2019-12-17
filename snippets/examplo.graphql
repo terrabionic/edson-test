@@ -1,0 +1,28 @@
+{
+    
+  variant(id: "gid://shopify/ProductVariant/30949857296484") {
+    
+        edges {
+        node {
+          id
+        }
+      }
+  }
+    
+
+}
+
+ {
+  productVariant(id: "gid://shopify/ProductVariant/30949857296484") {
+    inventoryItem {
+      inventoryLevels (first:1) {
+        edges {
+          node {
+           
+            available
+          }
+        }
+      }
+    }
+  }
+}

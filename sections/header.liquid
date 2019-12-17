@@ -363,14 +363,15 @@
       </ul>
   
     </nav>
+    <nav class="small--hide padding-nav" id="AccessibleNav" role="navigation">
+        {%comment%}
+        hay id duplicados AccesibleNav, cambiarlo despues
+        {%endcomment%}
+        {% include 'custom-dropdown-menu', linklist: linklists.custom-main-menu %}
+      </nav>
 
   </header>
-  <nav class="small--hide border-bottom padding-nav" id="AccessibleNav" role="navigation">
-    {%comment%}
-    hay id duplicados AccesibleNav, cambiarlo despues
-    {%endcomment%}
-    {% include 'custom-dropdown-menu', linklist: linklists.custom-main-menu %}
-  </nav>
+
 </div>
 
 
