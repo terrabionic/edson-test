@@ -49,7 +49,15 @@
       </style>
 
 {% if section.settings.message_link == blank %}
-<div style="background-color: {{section.settings.color_background}}" class="announcement-bar  bar-group">
+
+   {%if section.settings.image_bar != blank%}
+   {%assign image_url = section.settings.image_bar | img_url: 'master'%}
+   <div style="background: url({{image_url}})" class="announcement-bar  bar-group">
+    {%else %}
+    <div style="background-color: {{section.settings.color_background}}" class="announcement-bar  bar-group">
+   {%endif%}
+   
+
 {% else %}
 <a href="{{ section.settings.message_link }}" class="announcement-bar announcement-bar--link">
 {% endif %}
@@ -65,15 +73,7 @@
  </div>
 {%endif%}
 
-{%if section.settings.image_bar != blank%}
-{%assign image_url_bar = section.settings.image_bar | img_url: '200X200'%}
 
-<div class="annoncement-bar-image-size ">
-<img src="{{image_url_bar}}">
-</div>
-
-
-{%endif%}
 
 {% if section.settings.message_link == blank %}
 </div>
@@ -823,7 +823,8 @@
       "label": {
         "en": "Color Background",
         "es": "Color de fondo"
-      }
+      },
+      "default": "#ce1f34"
     },
 
     {

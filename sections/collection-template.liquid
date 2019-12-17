@@ -30,15 +30,15 @@
              data-bgset="{% include 'bgset', image: collection.image %}"
              data-sizes="auto"
              data-parent-fit="cover"
-             style="background-image: url('{{ collection.image | img_url: '300x300' }});"></div>
+             style="background-image: url('{{ background-image.png | asset_img_url: 'master' }});"></div>
         <noscript>
-          <div class="collection-hero__image" style="background-image: url({{ collection.image | img_url: '2048x600', crop: 'top' }});"></div>
+          <div class="collection-hero__image" style="background-image: url({{ background-image.png | asset_img_url: 'master', crop: 'top' }});"></div>
         </noscript>
         <div class="collection-hero__title-wrapper">
           <h1 class="collection-hero__title page-width">
             <span role="text">
               <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
-              {{ collection.title }}
+              title1s{{ collection.title }}
             </span>
           </h1>
         </div>
@@ -59,7 +59,7 @@
           <h1>
             <span role="text">
               <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
-              {{ collection.title }}
+              title2{{ collection.title }}
             </span>
           </h1>
           {% if collection.description != blank %}

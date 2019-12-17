@@ -89,7 +89,7 @@ function init() {
         scrollTop: $("#foo"+item_number).offset().top -containerPos + diff_absolute
 
 
-    }, 500);
+    }, 100);
    
   });
 }
@@ -297,7 +297,7 @@ else{
       <ul id="slideContentVertical" class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }} vertical-carousel-size " data-current-item="1"  data-count-items="{{product.images.size}}">
         {% for image in product.images%}
         
-          <li  id="foo{{forloop.index}}"  class="product-single__thumbnails-item js">
+          <li  id="foo{{forloop.index}}"  class="product-single__thumbnails-item vertical-carousel-margin js">
             <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }} "
                class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
                data-thumbnail-id="{{ image.id }}"
@@ -307,13 +307,14 @@ else{
                  <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '78x78', scale: 1 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
                 
                 {%endcomment%}
-                 {%assign image_product= image.src  | img_url: '74X74'  %}
+                 {%assign image_product= image.src  | img_url: 'master'  %}
       
                  <div  class="vertical-carrousel-image">
                     <img
                        class="product-single__thumbnail-image"
                          src="{{ image_product}}"
                          data-aspectratio="{{ image.aspect_ratio }}"
+                         data-size="cover"
                          alt="{{ image.alt | escape }}">
                   </div>
             </a>
@@ -331,7 +332,7 @@ else{
           src="{{ img_arrow_up}}"
           alt="{{ img_arrow_up.alt | escape }}">
         </button>
-        <button id="buttonDown" type="button" class="btn btn--link {{ section.id }}">
+        <button id="buttonDown" type="button" class="btn btn--link {{ section.id }} product-carousel-active">
             <img 
             class="feature-row__image "
             src="{{ img_arrow_down}}"
@@ -572,7 +573,7 @@ else{
 
 
 <nav class="tab-container display-mobile">
-  <h2>display mobile</h2>
+
       <div class="tabs-product header-tab-products">
 
      

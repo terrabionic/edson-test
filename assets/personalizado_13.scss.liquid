@@ -1226,6 +1226,13 @@ white-space:normal;
   margin:0;
 }
 
+.product-carousel-active:hover{
+  
+    img{
+      filter: grayscale(100%);
+    }
+
+}
 
 .flex-image-product{
   display:flex;
@@ -1649,25 +1656,27 @@ display: block;
 }
 
 .bar-group{
+  height:56px;
   padding:10px;
   display:flex;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  @media(max-width: 570px){
+  @media(max-width: 800px){
+    height:82px;
    flex-direction: column;
   }
 }
 
 .button-group-margin{
   @media(max-width: 570px){
-    margin-top: -15px;
-    margin-bottom: 20px;
+    //margin-top: -15px;
+    //margin-bottom: 20px;
    }
 }
 
 .button-padding{
-  padding:5px;
+  padding:1px;
 }
 
 
@@ -1969,6 +1978,10 @@ img{
     width:100%;
     height:100%;
   }
+}
+
+.vertical-carousel-margin{
+margin-top: 3px;
 }
 
 
