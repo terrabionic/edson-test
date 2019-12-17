@@ -99,6 +99,32 @@ function init() {
     //containerSlide.translate(0,-200);
     }
 
+  function hoverDown(element) {
+ var element = document.getElementById('buttonDownImage');
+ {%assign img_arrow_up= 'arrow-up_2x.png' | asset_img_url: '18X18' %}
+  element.setAttribute('src', '{{img_arrow_up}}');
+}
+
+function unhoverDown(element) {
+  var element = document.getElementById('buttonDownImage');
+  {%assign img_arrow_down = 'arrow-down_2x.png' | asset_img_url: '18x18' %}
+  element.setAttribute('src', '{{img_arrow_down}}');
+}
+
+function hoverUp(element) {
+ var element = document.getElementById('buttonUpImage');
+ {%assign img_arrow_up= 'arrow-up_2x.png' | asset_img_url: '18X18' %}
+  element.setAttribute('src', '{{img_arrow_up}}');
+
+}
+
+function unhoverUp(element) {
+  var element = document.getElementById('buttonUpImage');
+  {%assign img_arrow_down = 'arrow-down_2x.png' | asset_img_url: '18x18' %}
+  element.setAttribute('src', '{{img_arrow_down}}');
+ 
+}
+
 
     function openCity(evt, cityName) {
   
@@ -325,19 +351,22 @@ else{
       {% if enable_thumbnail_slides == true %}
       {%assign img_arrow_down = 'arrow-down_2x.png' | asset_img_url: '18x18' %}
       {%assign img_arrow_up = 'arrow-up_2x.png' | asset_img_url: '18X18' %}
-      <button id="buttonUp" type="button" class="btn btn--link 
-        {{ section.id }}" >
-          <img 
-          class="feature-row__image"
-          src="{{ img_arrow_up}}"
-          alt="{{ img_arrow_up.alt | escape }}">
-        </button>
-        <button id="buttonDown" type="button" class="btn btn--link {{ section.id }} product-carousel-active">
-            <img 
-            class="feature-row__image "
+      <div class="btn-vertical-group">
+          <button id="buttonUp" onmouseover="hoverUp()" onmouseout="unhoverUp()"  type="button" class="btn-padding btn btn--link 
+          {{ section.id }}  product-carousel-active-up" >
+            <img  id="buttonUpImage"
+            class=""
             src="{{ img_arrow_down}}"
-            alt="{{ img_arrow_down.alt | escape }}">
-        </button>
+            alt="{{ img_arrow_up.alt | escape }}">
+          </button>
+          <button id="buttonDown" onmouseover="hoverDown()" onmouseout="unhoverDown()" type="button" class="btn-padding btn btn--link {{ section.id }} product-carousel-active">
+              <img id="buttonDownImage"
+              class=" "
+              src="{{ img_arrow_down}}"
+              alt="{{ img_arrow_down.alt | escape }}">
+          </button>
+      </div>
+      
       {% endif %}
               </div>
 
