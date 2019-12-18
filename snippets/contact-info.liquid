@@ -12,10 +12,7 @@
                                     {%assign logo_whats= 'whatsapp_2x.png'  | asset_img_url: '22X22'  %}
                   
                                     <div class="whats-div " >
-                                        <img
-                                             src="{{ logo_whats }}"
-                                             data-aspectratio="{{ logo_whats.aspect_ratio }}"
-                                             alt="{{ logo_whats.alt | escape }}">
+                                      {%include 'icon-whatsapp'%}
                                       </div>
                               <div class="whats-style">
                                   {{section.settings.phone_whats}}

@@ -58,62 +58,34 @@
            <div class="menu-item-custom-footer site-footer__item--one-quarter">
               <h3 class="custom-menu-title">{{block.settings.contact_title}}</h3>
               <div class="contact-phone flex-footer">
-                {%assign logo_phone = 'icon-phone_2x.png'  | asset_img_url: '24X24'  %}
-      
-                  <div class="img-logo-footer" >
-                      <img id="{{ img_id }}"
-                           class="lazyload"
-                           src="{{ logo_phone }}"
-                           data-src="{{ img_url }}"
-                           data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                           data-aspectratio="{{ logo_phone.aspect_ratio }}"
-                           data-sizes="auto"
-                           alt="{{ logo_phone.alt | escape }}">
-                    </div>
-               <div class="contact-info-footer custom-menu-link">
-                  {{block.settings.phone_number}}
-               </div>
-               
-                 
+        
+                  <div class=" logo-container-size">
+                      {%include 'icon-phone'%}
+                  </div>
+              
+                 <div class="contact-info-footer custom-menu-link text-container-size">
+                   {{block.settings.phone_number}}
+              </div>
               </div>
               <div class="contact-email flex-footer">
-                  {%assign logo_email = 'email_2x.png'  | asset_img_url: '24X24'  %}
-      
-                  
-                  <div class="img-logo-footer">
-                      <img id="{{ img_id }}"
-                      class="lazyload"
-                      src="{{ logo_email }}"
-                      data-src="{{ img_url }}"
-                      data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                      data-aspectratio="{{ logo_email.aspect_ratio }}"
-                      data-sizes="auto"
-                      alt="{{ logo_email.alt | escape }}">
-                  </div>
-                      
-                  <div class="contact-info-footer custom-menu-link">
-                      {{block.settings.email}}
-                   </div>
+                  <div class=" logo-container-size">
+                      {%include 'icon-email'%}
+                    </div>
+                        
+                    <div class="contact-info-footer custom-menu-link text-container-size">
+                        {{block.settings.email}}
+                     </div>
               </div>
       
       
               <div class="contact-address flex-footer">
-                  {%assign logo_direccion = 'marcador_2x.png'  | asset_img_url: '24X24'  %}
-      
-                  <div  class="img-logo-footer">
-                      <img id="{{ img_id }}"
-                           class="lazyload"
-                           src="{{ logo_direccion }}"
-                           data-src="{{ img_url }}"
-                           data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                           data-aspectratio="{{ logo_direccion.aspect_ratio }}"
-                           data-sizes="auto"
-                           alt="{{ logo_direccion.alt | escape }}">
-                    </div>
-      
-                    <div class="contact-info-footer custom-menu-link">
-                        {{block.settings.address}}
+              <div  class=" logo-container-size">
+                      {%include 'icon-marcador'%}
                      </div>
+       
+                     <div class="contact-info-footer custom-menu-link text-container-size">
+                         {{block.settings.address}}
+                      </div>
              </div>
           </div>
       
@@ -207,60 +179,34 @@
           
             <div id="{{block.settings.contact_title}}" class="menu-content menu-links-mobile-inactive" >
                 <div class="contact-phone flex-footer">
-                    {%assign logo_phone = 'icon-phone_2x.png'  | asset_img_url: '24X24'  %}
-          
-                      <div class="img-logo-footer-margin" >
-                          <img id="{{ img_id }}"
-                               class="lazyload"
-                               src="{{ logo_phone }}"
-                               data-src="{{ img_url }}"
-                               data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                               data-aspectratio="{{ logo_phone.aspect_ratio }}"
-                               data-sizes="auto"
-                               alt="{{ logo_phone.alt | escape }}">
-                        </div>
-                   <div class="contact-info-footer custom-menu-link">
-                      {{block.settings.phone_number}}
-                   </div>
-                   
-                     
+                    <div class=" logo-container-size">
+                        {%include 'icon-phone'%}
+                    </div>
+                
+                   <div class="contact-info-footer custom-menu-link text-container-size">
+                     {{block.settings.phone_number}}
+                </div>
+
                   </div>
                   <div class="contact-email flex-footer">
-                      {%assign logo_email = 'email_2x.png'  | asset_img_url: '24X24'  %}
+                     
           
-                      
-                      <div class="img-logo-footer-margin">
-                          <img id="{{ img_id }}"
-                          class="lazyload"
-                          src="{{ logo_email }}"
-                          data-src="{{ img_url }}"
-                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                          data-aspectratio="{{ logo_email.aspect_ratio }}"
-                          data-sizes="auto"
-                          alt="{{ logo_email.alt | escape }}">
-                      </div>
-                          
-                      <div class="contact-info-footer custom-menu-link">
-                          {{block.settings.email}}
-                       </div>
+                  <div class=" logo-container-size">
+                      {%include 'icon-email'%}
+                    </div>
+                        
+                    <div class="contact-info-footer custom-menu-link text-container-size">
+                        {{block.settings.email}}
+                     </div>
                   </div>
                   <div class="contact-address flex-footer">
-                      {%assign logo_direccion = 'marcador_2x.png'  | asset_img_url: '24X24'  %}
-          
-                      <div  class="img-logo-footer-margin">
-                          <img id="{{ img_id }}"
-                               class="lazyload"
-                               src="{{ logo_direccion }}"
-                               data-src="{{ img_url }}"
-                               data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                               data-aspectratio="{{ logo_direccion.aspect_ratio }}"
-                               data-sizes="auto"
-                               alt="{{ logo_direccion.alt | escape }}">
-                        </div>
-          
-                        <div class="contact-info-footer custom-menu-link">
-                            {{block.settings.address}}
+                      <div  class=" logo-container-size">
+                          {%include 'icon-marcador'%}
                          </div>
+           
+                         <div class="contact-info-footer custom-menu-link text-container-size">
+                             {{block.settings.address}}
+                          </div>
                  </div>
             </div>
             
@@ -300,27 +246,13 @@
             <h4 class="siguenos-label">Síguenos</h4>
             </div>
             <div class="inline-logos footer-social-logo-item">
-                {%assign logo_facebook = 'facebook_2x.png'  | asset_img_url: '24X24'  %}
+            
             <div class="inline-logos-item logo-size">
-                <img id="{{ img_id }}"
-                     class="lazyload"
-                     src="{{ logo_facebook }}"
-                     data-src="{{ img_url }}"
-                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                     data-aspectratio="{{ logo_direccion.aspect_ratio }}"
-                     data-sizes="auto"
-                     alt="{{ logo_direccion.alt | escape }}">
+              {%include 'icon-facebook'%}
               </div>
-              {%assign logo_instagram = 'instagram_2x.png'  | asset_img_url: '24X24'  %}
+              
               <div class="inline-logos-item logo-size" >
-                  <img id="{{ img_id }}"
-                       class="lazyload"
-                       src="{{ logo_instagram }}"
-                       data-src="{{ img_url }}"
-                       data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                       data-aspectratio="{{ logo_direccion.aspect_ratio }}"
-                       data-sizes="auto"
-                       alt="{{ logo_direccion.alt | escape }}">
+                 {%include 'icon-instagram'%}
                 </div>
             </div>
         

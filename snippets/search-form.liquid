@@ -11,10 +11,7 @@
                 {%assign logo_search= 'search_2x.png'  | asset_img_url: '30X30'  %}
       
                 <div class="search-div search-position" >
-                    <img
-                         src="{{ logo_search }}"
-                         data-aspectratio="{{ logo_search.aspect_ratio }}"
-                         alt="{{ logo_search.alt | escape }}">
+                 {%include 'icon-search'%}
                   </div>
                 <input class="search-header__input search__input input_border"
                 type="search"

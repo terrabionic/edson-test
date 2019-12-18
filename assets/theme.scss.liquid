@@ -963,7 +963,8 @@ $grid-breakpoints: (
   $medium-up '(min-width: #{$grid-medium})',
   $large '(min-width: #{$grid-large}) and (max-width: #{$grid-widescreen - 1})',
   $large-down '(max-width: #{$grid-widescreen - 1})',
-  $large-up '(min-width: #{$grid-large})',
+  $large-up '(min-width: #{$grid-large + 1})',
+
   $widescreen '(min-width: #{$grid-widescreen})',
   $no-mobile '(min-width: #{$grid-medium})'
 );
@@ -4665,8 +4666,8 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 
 .site-header__icon svg {
-  height: 23px;
-  width: 22px;
+  height: 32px;
+  width: 32px;
 
   @include media-query($medium-up) {
     margin-right: 3px;

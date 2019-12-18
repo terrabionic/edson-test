@@ -77,7 +77,7 @@ justify-content: flex-start;
 .flex-footer{
   display:flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .flex-suscribe{
@@ -1560,7 +1560,16 @@ display: block;
 }
 
 .img-logo-footer-margin{
-  margin-right: 1rem;
+  //margin-right: 10px;
+}
+
+.logo-container-size{
+  position: relative;
+  width:15%;
+}
+.text-container-size{
+  position:relative;
+  width:85%;
 }
 
 .menu-title-mobile{
@@ -1747,31 +1756,57 @@ display: block;
 }
 
 .search-position{
-  position:absolute;
+ 
+  @media(min-width: 990px){
+    position:absolute;
   left:42px;
   top:5px;
+  }
 }
 
 .search-div{
-  width:30px;
+  width:22px;
+  height: 22px;
+}
+
+.site-header__icon_search svg {
+  height: 22px;
+  width: 22px;
+
+  
+}
+
+.search-svg-pos
+{
+  position:absolute;
+  top:10px;
+  left:10px;
+  width: 30px;
   height: 30px;
- 
-  img{
-    position: relative;
-    height: 100%;
-    width: 100%;
+  @media(max-width:990px){
+  position:absolute;
+  top:13px;
   }
+}
+
+.contact-info-inline{
+ display:inline;
 }
 
 .margin-search-group{
   position:absolute;
   left: 300px;
   top: 30px;
-  @media(max-width: 990px){
+  @media(max-width: 989px){
  position:absolute;
   left:150px;
 
   }
+}
+
+.margin-button-search{
+margin-top:-5px!important;
+margin-left:35px;
 }
 
 .margin-search-size{
@@ -1782,7 +1817,7 @@ display: block;
 .site-header__search{
   position:relative;
   width: 80%;
-  @media(max-width: 990px){
+  @media(max-width: 989px){
     width:0;
   }
 
@@ -1791,9 +1826,14 @@ display: block;
 .icon-group{
   position: relative;
   display: flex;
-  @media(max-width: 990px){
+  @media(max-width: 989px){
 
   }
+}
+.icon-size{
+  position: relative;
+  width:100%;
+  height:100%;
 }
 
 .whats-style{
