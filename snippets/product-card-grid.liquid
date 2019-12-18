@@ -1,4 +1,5 @@
 {% comment %}
+cambiar product grid background
     Renders a product card using "Grid" style
     Accepts:
     - max_height: {Number} Maximum height of the product's image (required)
@@ -24,9 +25,17 @@
 
   
 
-  <div class="product-card__image-with-placeholder-wrapper " data-image-with-placeholder-wrapper>
-    <div  class="grid-view-item__image-wrapper product-card__image-wrapper js">
-        <div class="product-image-position ratio-container image-overflow lazyload js image-product-size"
+  <div class="product-card__image-with-placeholder-wrapper" data-image-with-placeholder-wrapper>
+      {%if template == 'collection'%}
+      {%assign class_border = 'collection-image-border'%}
+      {%assign image_half_size =''%}
+      {%else%}
+      {%assign class_border = ''%}
+      {%assign image_half_size = 'image-recomendations-size'%}
+      {%endif%}
+    <div  class="grid-view-item__image-wrapper product-card__image-wrapper  image-recomendations-center js ">
+        
+        <div class="product-image-position ratio-container  image-overflow lazyload js image-product-size {{class_border}}  {{image_half_size}} "
         style="background-image: url('{{ product.featured_image | img_url: 'master' }}); padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100 }}%{% else %}100%{% endunless %};">
       </div>
     <div class="placeholder-background placeholder-background--animation" data-image-placeholder></div>
@@ -41,10 +50,14 @@
   <div class="product-title-ratio">
   {{product.title}}
   </div>
-   
-  
+   {% if template != 'collection'%}
+   {% include 'product-price', variant: product.selected_or_first_available_variant, current_section: current_section, product: product, show_vendor: show_vendor %}
+   {%endif%}
   </div>
-
-  {% include 'product-price', variant: product.selected_or_first_available_variant, current_section: current_section, product: product, show_vendor: show_vendor %}
+   {%if template == 'collection'%}
+   {% include 'product-price', variant: product.selected_or_first_available_variant, current_section: current_section, product: product, show_vendor: show_vendor %}
+   {%endif%}
+  
+  
 
 </div>
