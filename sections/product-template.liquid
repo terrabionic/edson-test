@@ -7,7 +7,11 @@ function init() {
   $("#buttonDown").click(function() {
     var item_number = $('#slideContentVertical').data('current-item');
 
+    console.log('item after'+ item_number);
+
     var diff_absolute;
+
+  
 
     if (item_number != 1){
       diff_absolute = $("#foo"+item_number).offset().top - $("#foo1").offset().top
@@ -17,39 +21,42 @@ function init() {
      diff_absolute = 0;
     }
 
-    var items = $('#slideContentVertical').data('count-items');
+    var items = $('#slideContentVertical').data('count-items'); 
 
-    
-   console.log("item number current"+ item_number);
+    var items_displayed =  $('#slideContentVertical').data('items-showed');
+  
+    console.log(items - items_displayed);
+    if (item_number < (items -items_displayed + 1)){
 
-    if (item_number < items){
+item_number++;
 
-      item_number++;
-    }
-    else{
+}
 
-    }
-    console.log("item number new"+ item_number);
    
-
+console.log('item before'+ item_number);
+   
     var item = $('#foo1');
 
     
    
-    var containerSlide = document.getElementById("slideContentVertical");
-  
-    var containerPos =  $('#slideContentVertical').offset().top
+var containerSlide = document.getElementById("slideContentVertical");
 
-      var top = $("#foo1").offset().top - containerPos;
-  
+var containerPos =  $('#slideContentVertical').offset().top
 
-    $('#slideContentVertical').data('current-item',item_number)
-    $('#slideContentVertical').animate({
+  var top = $("#foo1").offset().top - containerPos;
+
+
+$('#slideContentVertical').data('current-item',item_number)
+$('#slideContentVertical').animate({
+
+    scrollTop: $("#foo"+item_number).offset().top -containerPos + diff_absolute
+
+
+}, 100);
     
-        scrollTop: $("#foo"+item_number).offset().top -containerPos + diff_absolute
+   
 
-
-    }, 500);
+    
    
   });
 
@@ -110,31 +117,7 @@ function init() {
 } );
   }
 
-  function hoverDown(element) {
- var element = document.getElementById('buttonDownImage');
- {%assign img_arrow_up= 'arrow-up_2x.png' | asset_img_url: '18X18' %}
-  element.setAttribute('src', '{{img_arrow_up}}');
-}
 
-function unhoverDown(element) {
-  var element = document.getElementById('buttonDownImage');
-  {%assign img_arrow_down = 'arrow-down_2x.png' | asset_img_url: '18x18' %}
-  element.setAttribute('src', '{{img_arrow_down}}');
-}
-
-function hoverUp(element) {
- var element = document.getElementById('buttonUpImage');
- {%assign img_arrow_up= 'arrow-up_2x.png' | asset_img_url: '18X18' %}
-  element.setAttribute('src', '{{img_arrow_up}}');
-
-}
-
-function unhoverUp(element) {
-  var element = document.getElementById('buttonUpImage');
-  {%assign img_arrow_down = 'arrow-down_2x.png' | asset_img_url: '18x18' %}
-  element.setAttribute('src', '{{img_arrow_down}}');
- 
-}
 
 
     function openCity(evt, cityName) {
@@ -331,7 +314,7 @@ else{
              
         
  
-      <ul id="slideContentVertical" class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }} vertical-carousel-size " data-current-item="1"  data-count-items="{{product.images.size}}">
+      <ul id="slideContentVertical" class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }} vertical-carousel-size " data-current-item="1" data-items-showed="5" data-count-items="{{product.images.size}}">
         {% for image in product.images%}
         
           <li  id="foo{{forloop.index}}"  class="product-single__thumbnails-item vertical-carousel-margin js">
@@ -360,21 +343,15 @@ else{
       </ul>
    
       {% if enable_thumbnail_slides == true %}
-      {%assign img_arrow_down = 'arrow-down_2x.png' | asset_img_url: '18x18' %}
-      {%assign img_arrow_up = 'arrow-up_2x.png' | asset_img_url: '18X18' %}
+     
       <div class="btn-vertical-group">
-          <button id="buttonUp" onmouseover="hoverUp()" onmouseout="unhoverUp()"  type="button" class="btn-padding btn btn--link 
-          {{ section.id }}  product-carousel-active-up" >
-            <img  id="buttonUpImage"
-            class=""
-            src="{{ img_arrow_down}}"
-            alt="{{ img_arrow_up.alt | escape }}">
+          <button id="buttonUp"  type="button" class="btn-padding btn btn--link 
+          {{ section.id }}  product-carousel-active-up btn-slider-vertical-margin btn-color-up" >
+          {%include 'icon-up'%}
           </button>
-          <button id="buttonDown" onmouseover="hoverDown()" onmouseout="unhoverDown()" type="button" class="btn-padding btn btn--link {{ section.id }} product-carousel-active">
-              <img id="buttonDownImage"
-              class=" "
-              src="{{ img_arrow_down}}"
-              alt="{{ img_arrow_down.alt | escape }}">
+          <button id="buttonDown"  type="button" class="btn-padding btn btn--link 
+          {{ section.id }} product-carousel-active btn-slider-vertical-margin btn-color-down">
+            {%include 'icon-down'%}
           </button>
       </div>
       
