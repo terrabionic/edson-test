@@ -1,24 +1,19 @@
 <script>
-
     function showDiv(evt, divName) {
    
       var i, tabcontent, tablinks;
       tabcontent = document.getElementsByClassName("menu-content");
      
-
       var divChange =  document.getElementById(divName);
       var imageMas = document.getElementById(divName+'-mas')
       var imageMenos= document.getElementById(divName+'-menos')
-
     
-
       var classList = String(divChange.classList);
    if (classList.includes('menu-links-mobile-inactive'))
    {
     divChange.classList.remove("menu-links-mobile-inactive");
     imageMas.classList.remove("menu-links-mobile-active");
     imageMenos.classList.remove("menu-links-mobile-inactive");
-
     divChange.classList.add("menu-links-mobile-active");
     imageMas.classList.add("menu-links-mobile-inactive");
     imageMenos.classList.add("menu-links-mobile-active");
@@ -27,12 +22,10 @@
     divChange.classList.remove("menu-links-mobile-active");
     imageMas.classList.remove("menu-links-mobile-inactive");
     imageMenos.classList.remove("menu-links-mobile-active");
-
     divChange.classList.add("menu-links-mobile-inactive");
     imageMas.classList.add("menu-links-mobile-active");
     imageMenos.classList.add("menu-links-mobile-inactive");
    }
-
     }
     </script>
 
@@ -248,7 +241,8 @@
             <div class="inline-logos footer-social-logo-item">
             
             <div class="inline-logos-item logo-size">
-              {%include 'icon-facebook'%}
+            
+              {%include 'new-icon-facebook'%}
               </div>
               
               <div class="inline-logos-item logo-size" >

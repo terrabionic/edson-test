@@ -350,6 +350,7 @@ $grid-breakpoint-has-push: ($small, $medium-up);
 /*================ Color Variables ================*/
 
 // Text colors
+$dark: #1b1326;
 $color-text: {{ settings.color_text }};
 $color-text-shadow: rgba(0,0,0,0.4);
 $color-body-text: {{ settings.color_body_text }};
@@ -6092,8 +6093,9 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
 }
 
 .price-item {
-  color: $color-body-text;
-  font-weight: $font-weight-header;
+  color:  $dark;
+  font-weight: 600;
+  
 }
 
 .price-item--sale {

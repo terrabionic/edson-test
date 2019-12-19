@@ -256,10 +256,13 @@ else{
       {%- assign height = 1090 -%}
       {%- assign enable_zoom = false -%}
   {% endcase %}
+
  
   <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.image_size }}-image{% endif %}">
    
     <div class=" grid__item {{ product_image_width }} grid_item_tablet_size">
+
+ 
     
       <div class="flex-image-product">
           <div class="product-image-size">
@@ -362,44 +365,33 @@ else{
 
               <div class="gallery-mobile">
 
-                  gallery-vertical
-
-                 
-                      <ul id="slideContentHorizontal" class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }} horizontal-carousel-size " data-current-item="1" data-items-showed="3" data-count-items="{{product.images.size}}">
-                          {% for image in product.images%}
-                          
-                            <li  id="foo{{forloop.index}}"  class="product-single__thumbnails-item horizontal-carousel-margin js">
-                              <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }} "
-                                 class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
-                                 data-thumbnail-id="{{ image.id }}"
-                                 {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-                  
-                                 {%comment%}
-                                   <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '78x78', scale: 1 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
-                                  
-                                  {%endcomment%}
-                                   {%assign image_product= image.src  | img_url: 'master'  %}
-                        
-                                   <div  class="vertical-carrousel-image">
-                                      <img
-                                         class="product-single__thumbnail-image"
-                                           src="{{ image_product}}"
-                                           data-aspectratio="{{ image.aspect_ratio }}"
-                                           data-size="cover"
-                                           alt="{{ image.alt | escape }}">
-                                    </div>
-                              </a>
-                            </li>
-                          {% endfor %}
-                        </ul>
-                    
-
-               
-
-              
-              
-                 
-
+                  <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
+          {% if enable_thumbnail_slides == true %}
+            <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}">
+              {% include 'icon-chevron-left' %}
+              <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
+            </button>
+          {% endif %}
+          <ul class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
+            {% for image in product.images %}
+              <li class="grid__item {{ product_thumbnail_width }} product-single__thumbnails-item js">
+                <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
+                   class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
+                   data-thumbnail-id="{{ image.id }}"
+                   {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
+                     <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+          {% if enable_thumbnail_slides == true %}
+            <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
+              {% include 'icon-chevron-right' %}
+              <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
+            </button>
+          {% endif %}
+        </div>
+    
               </div>
       </div>
       
