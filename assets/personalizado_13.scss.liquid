@@ -1322,10 +1322,22 @@ margin-bottom:8px;
      }
 }
 
+
 .flex-image-product{
   display:flex;
   flex-direction: row;
+  @media(max-width: 750px){
+  flex-direction:column;
+  }
 }
+
+.horizontal-carousel-size{
+overflow:hidden; 
+position:relative;
+height:80px;
+width:100%;
+}
+
 .gallery-product-image-custom{
   display: inline-block;
   max-width: 80px;
@@ -1451,6 +1463,7 @@ margin-top:-30px;
   display:none;
 
   @media(max-width: 750px){
+  background-color: $lipstick;
   display:block;
   }
 }
@@ -2123,6 +2136,9 @@ img{
 
 .vertical-carousel-margin{
 margin-top: 3px;
+}
+.horizontal-carousel-margin{
+margin-left: 3px;
 }
 
 .input_border{
