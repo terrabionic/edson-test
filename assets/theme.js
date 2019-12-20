@@ -254,6 +254,7 @@ slate.a11y = {
         $('a[href*=#]').on(
             'click',
             function(evt) {
+                
                 this.pageLinkFocus($(evt.currentTarget.hash));
             }.bind(this)
         );
@@ -268,6 +269,7 @@ slate.a11y = {
      * @param {string} options.namespace - Namespace used for new focus event handler
      */
     trapFocus: function(options) {
+        
         var eventsName = {
             focusin: options.namespace ? 'focusin.' + options.namespace : 'focusin',
             focusout: options.namespace ?
@@ -4493,6 +4495,7 @@ theme.Product = (function() {
 
         _setActiveThumbnail: function(imageId) {
             // If there is no element passed, find it by the current product image
+          
             if (typeof imageId === 'undefined') {
                 imageId = $(
                     this.selectors.productImageWraps + ':not(.hide)',
@@ -4529,6 +4532,7 @@ theme.Product = (function() {
         },
 
         _switchImage: function(imageId) {
+            
             var $newImage = $(
                 this.selectors.productImageWraps + "[data-image-id='" + imageId + "']",
                 this.$container
@@ -4546,12 +4550,14 @@ theme.Product = (function() {
         },
 
         _handleImageFocus: function(evt) {
+          
             if (evt.keyCode !== slate.utils.keyboardKeys.ENTER) return;
 
             $(this.selectors.productFeaturedImage + ':visible').focus();
         },
 
         _initThumbnailSlider: function() {
+        
             var options = {
                 slidesToShow: 3,
                 slidesToScroll: 3,
@@ -4711,6 +4717,7 @@ theme.Product = (function() {
         },
 
         _updateImages: function(evt) {
+          
             var variant = evt.variant;
             var imageId = variant.featured_image.id;
 
@@ -5079,6 +5086,7 @@ theme.init = function() {
     });
 
     $('a[href="#"]').on('click', function(evt) {
+      
         evt.preventDefault();
     });
 

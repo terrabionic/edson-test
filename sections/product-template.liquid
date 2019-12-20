@@ -75,6 +75,7 @@
       
       //containerSlide.translate(0,-200);
       }
+     
     function pruebaAjax(){
         //var url= window.location.href;
      // alert('current'+url);
@@ -207,12 +208,17 @@
         {%- assign height = 1090 -%}
         {%- assign enable_zoom = false -%}
     {% endcase %}
+
+   
+  
+    
    
     <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.image_size }}-image{% endif %}">
      
       <div class=" grid__item {{ product_image_width }} grid_item_tablet_size">
-      
+        
         <div class="flex-image-product">
+           
             <div class="product-image-size">
                 {%- assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image -%}
                 {% for image in product.images %}
@@ -263,14 +269,14 @@
           
               <div class="grid__item thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %} gallery-product-image-custom    gallery-desktop">
                
-          
+                
    
         <ul id="slideContentVertical" class="grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }} vertical-carousel-size " data-current-item="1" data-items-showed="5" data-count-items="{{product.images.size}}">
           {% for image in product.images%}
-          
+        
             <li  id="foo{{forloop.index}}"  class="product-single__thumbnails-item vertical-carousel-margin js">
               <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }} "
-                 class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
+                 class="text-link product-single__thumbnail no-outline product-single__thumbnail--{{ section.id }}"
                  data-thumbnail-id="{{ image.id }}"
                  {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
   
@@ -321,16 +327,19 @@
   
           <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
           
-            <ul class=" slide-gallery-size grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
+            <ul class=" slide-gallery-size grid grid--uniform product-single__thumbnails ul-slide  product-single__thumbnails-{{ section.id }}">
+            
               {% for image in product.images %}
-                <li class="grid__item  product-single__thumbnails-item js box-shadow-none ">
+           
+                <li class="grid__item  product-single__thumbnails-item js    ">
                   <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
-                     class="text-link  img-slide-size box-shadow-none  product-single__thumbnail--{{ section.id }}"
+                     class="text-link no-outline  product-single__thumbnail--{{ section.id }}"
                      data-thumbnail-id="{{ image.id }}"
                      {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-                       <img class="product-single__thumbnail-image box-shadow-none img-slide-size" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
+                       <img class="product-single__thumbnail-image  size-prueba img-slide-size" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
                   </a>
                 </li>
+            
               {% endfor %}
             </ul>
             {% if enable_thumbnail_slides == true %}
