@@ -1,4 +1,5 @@
 <script>
+<<<<<<< HEAD
   window.onload = init;
   function init() {
    
@@ -16,6 +17,43 @@
       }
       var items = $('#slideContentVertical').data('count-items'); 
       var items_displayed =  $('#slideContentVertical').data('items-showed');
+=======
+window.onload = init;
+function init() {
+ 
+  $("#buttonDown").click(function() {
+    var item_number = $('#slideContentVertical').data('current-item');
+    console.log('item after'+ item_number);
+    var diff_absolute;
+  
+    if (item_number != 1){
+      diff_absolute = $("#foo"+item_number).offset().top - $("#foo1").offset().top
+    }
+    else
+    {
+     diff_absolute = 0;
+    }
+    var items = $('#slideContentVertical').data('count-items'); 
+    var items_displayed =  $('#slideContentVertical').data('items-showed');
+  
+    console.log(items - items_displayed);
+    if (item_number < (items -items_displayed + 1)){
+item_number++;
+}
+   
+console.log('item before'+ item_number);
+   
+    var item = $('#foo1');
+    
+   
+var containerSlide = document.getElementById("slideContentVertical");
+var containerPos =  $('#slideContentVertical').offset().top
+  var top = $("#foo1").offset().top - containerPos;
+$('#slideContentVertical').data('current-item',item_number)
+$('#slideContentVertical').animate({
+    scrollTop: $("#foo"+item_number).offset().top -containerPos + diff_absolute
+}, 100);
+>>>>>>> 2c4f4d471b87c9f2c95534f9f6c3a9339a8939a4
     
       console.log(items - items_displayed);
       if (item_number < (items -items_displayed + 1)){
@@ -55,10 +93,13 @@
      }
      console.log("item number new"+ item_number);
    
+<<<<<<< HEAD
       var item = $('#foo1');
       
      
       var containerSlide = document.getElementById("slideContentVertical");
+=======
+>>>>>>> 2c4f4d471b87c9f2c95534f9f6c3a9339a8939a4
     
       var containerPos =  $('#slideContentVertical').offset().top
         var top = $("#foo1").offset().top - containerPos;
@@ -79,6 +120,7 @@
         //var url= window.location.href;
      // alert('current'+url);
    
+<<<<<<< HEAD
       
      jQuery.getJSON('/products/'+'calcetines'+'.js', function(product) {
     alert('The title of this product is ' + product.title);
@@ -86,6 +128,26 @@
   } );
     }
       function openCity(evt, cityName) {
+=======
+  });
+  $("#buttonUp").click(function() {
+    var item_number = $('#slideContentVertical').data('current-item');
+    var diff_absolute;
+    if (item_number != 1){
+      diff_absolute = $("#foo"+item_number).offset().top - $("#foo1").offset().top
+    }
+    else
+    {
+     diff_absolute = 0;
+    }
+    console.log("item number current"+ item_number);
+   if(item_number != 1){
+    item_number--;
+   }
+   console.log("item number new"+ item_number);
+ 
+    var item = $('#foo1');
+>>>>>>> 2c4f4d471b87c9f2c95534f9f6c3a9339a8939a4
     
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
@@ -109,6 +171,7 @@
      var imageMas = document.getElementById(divName+'-mas')
      var imageMenos= document.getElementById(divName+'-menos')
    
+<<<<<<< HEAD
    
      var classList = String(divChange.classList);
      var currentTarget = evt.currentTarget
@@ -126,6 +189,29 @@
     currentTarget.classList.remove('tab-title-item-inactive');
     currentTarget.classList.add('tab-title-item-active');
    }
+=======
+    var containerSlide = document.getElementById("slideContentVertical");
+  
+    var containerPos =  $('#slideContentVertical').offset().top
+      var top = $("#foo1").offset().top - containerPos;
+    
+    $('#slideContentVertical').data('current-item',item_number)
+    $('#slideContentVertical').animate({
+    
+        scrollTop: $("#foo"+item_number).offset().top -containerPos + diff_absolute
+    }, 100);
+   
+  });
+}
+    function buttonUP(){
+    
+    //containerSlide.translate(0,-200);
+    }
+  function pruebaAjax(){
+      //var url= window.location.href;
+   // alert('current'+url);
+ 
+>>>>>>> 2c4f4d471b87c9f2c95534f9f6c3a9339a8939a4
     
   if (classList.includes('tab-content-inactive'))
   {
@@ -136,6 +222,7 @@
    imageMas.classList.add("tab-content-inactive");
    imageMenos.classList.add("tab-content-active"); 
   }
+<<<<<<< HEAD
   else{
    divChange.classList.remove("tab-content-active"); 
    imageMas.classList.remove("tab-content-inactive"); 
@@ -171,6 +258,93 @@
             valueType
             description
           }
+=======
+    function openCity(evt, cityName) {
+  
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace(" tab-title-item-active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+      evt.currentTarget.className += " tab-title-item-active";
+    }
+    function showDivMobile(evt, divName) {
+   
+   var i, tabcontent, tablinks;
+   tabcontent = document.getElementsByClassName("menu-content");
+   var divChange =  document.getElementById(divName);
+   var imageMas = document.getElementById(divName+'-mas')
+   var imageMenos= document.getElementById(divName+'-menos')
+ 
+ 
+   var classList = String(divChange.classList);
+   var currentTarget = evt.currentTarget
+     
+   console.log('current='+currentTarget.id);
+   console.log('image-mas'+imageMas.id);
+   console.log('image-menos'+imageMenos.id);
+   var classListCurrentTarget = String(currentTarget.classList);
+ if (classListCurrentTarget.includes('tab-title-item-active')){
+  currentTarget.classList.remove('tab-title-item-active');
+  currentTarget.classList.add('tab-title-item-inactive');
+ }
+ else
+ {
+  currentTarget.classList.remove('tab-title-item-inactive');
+  currentTarget.classList.add('tab-title-item-active');
+ }
+  
+if (classList.includes('tab-content-inactive'))
+{
+ divChange.classList.remove("tab-content-inactive");  
+ imageMas.classList.remove("tab-content-active"); 
+ imageMenos.classList.remove("tab-content-inactive"); 
+ divChange.classList.add("tab-content-active"); 
+ imageMas.classList.add("tab-content-inactive");
+ imageMenos.classList.add("tab-content-active"); 
+}
+else{
+ divChange.classList.remove("tab-content-active"); 
+ imageMas.classList.remove("tab-content-inactive"); 
+ imageMenos.classList.remove("tab-content-active"); 
+ divChange.classList.add("tab-content-inactive"); 
+ imageMas.classList.add("tab-content-active"); 
+ imageMenos.classList.add("tab-content-inactive"); 
+}
+ }
+    </script>
+   
+
+<div class=" page-width"
+  id="ProductSection-{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="product"
+  data-enable-history-state="true"
+  data-ajax-enabled="{{ settings.enable_ajax }}"
+>
+  {% comment %}
+    Get first variant, or deep linked one
+
+
+    Graphql example
+    {
+  product(id: "gid://shopify/Product/4297957048420") {
+    metafields(first: 10){
+      edges {
+        node {
+          id
+          key 
+          value
+          valueType
+          description
+>>>>>>> 2c4f4d471b87c9f2c95534f9f6c3a9339a8939a4
         }
       }
     }
@@ -411,6 +585,7 @@
                   {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
                 {%- endif -%}
               </div>
+<<<<<<< HEAD
             {%- endif -%}
   
             {% capture "form_classes" -%}
@@ -449,6 +624,49 @@
                 </div>
               {% endif %}
             </div>
+=======
+
+              
+
+              <div class="gallery-mobile">
+
+              
+      {% if product.images.size > 1 %}
+        {% if product.images.size > 3 %}
+          {%- assign enable_thumbnail_slides = true -%}
+        {% endif %}
+
+        <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
+        
+          <ul class=" slide-gallery-size grid grid--uniform product-single__thumbnails product-single__thumbnails-{{ section.id }}">
+            {% for image in product.images %}
+              <li class="grid__item  product-single__thumbnails-item js">
+                <a href="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"
+                   class="text-link  img-slide-size product-single__thumbnail--{{ section.id }}"
+                   data-thumbnail-id="{{ image.id }}"
+                   {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
+                     <img class="product-single__thumbnail-image img-slide-size" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+          {% if enable_thumbnail_slides == true %}
+            <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev button-gallery-color btn-gallery-size new-btn-left-gallery-position thumbnails-slider__prev--{{ section.id }}">
+              {% include 'new-icon-left' %}
+              <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
+            </button>
+            <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn button-gallery-color thumbnails-slider__next btn-gallery-size  thumbnails-slider__next--{{ section.id }}">
+              {% include 'new-icon-right' %}
+              <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
+            </button>
+          {% endif %}
+        </div>
+      {% endif %}
+                    
+
+               
+
+>>>>>>> 2c4f4d471b87c9f2c95534f9f6c3a9339a8939a4
               
   
               <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
