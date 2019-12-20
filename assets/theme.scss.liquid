@@ -350,6 +350,7 @@ $grid-breakpoint-has-push: ($small, $medium-up);
 /*================ Color Variables ================*/
 
 // Text colors
+$dark: #1b1326;
 $color-text: {{ settings.color_text }};
 $color-text-shadow: rgba(0,0,0,0.4);
 $color-body-text: {{ settings.color_body_text }};
@@ -3659,6 +3660,8 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
   .active-thumb & {
     border-color: $lipstick;
+    box-shadow: none!important;
+
   }
 }
 
@@ -3724,8 +3727,11 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
       display: none;
       &.slick-initialized {
         display: block;
-        margin: 0 auto;
-        max-width: 75%;
+        //margin: 0 auto;
+       // max-width: 75%;
+       @media(max-width:504px){
+         margin: 0 auto;
+       }
       }
     }
   }
@@ -3744,7 +3750,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
     transform: translateY(-50%);
   }
   .thumbnails-slider__prev {
-    left: -20px;
+    right: 10px;
   }
   .thumbnails-slider__next {
     right: -20px;
@@ -6092,8 +6098,9 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
 }
 
 .price-item {
-  color: $color-body-text;
-  font-weight: $font-weight-header;
+  color:  $dark;
+  font-weight: 600;
+  
 }
 
 .price-item--sale {
@@ -7789,3 +7796,4 @@ background-color:#223344;
       padding-top: 50%; //keep ratio 1x1
     }
   }
+
