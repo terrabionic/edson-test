@@ -155,42 +155,11 @@
    
     </main>
 
+    
+
     {% section 'custom-footer' %}
 
-    <div class="copyright-payment-group">
-        <div class="copyright">
-             <h3 class="copyright-text">@2019 Almacén y cristalería la 13. Todos los derechos reservados. </h3>
-        </div>
-        <div class="payment-logos">
-          {%assign image_pay_u = 'payu_2x.png' | asset_img_url: '50X36'%}
-          {%assign image_visa = 'visa_2x.png' | asset_img_url: '50X36'%}
-          {%assign image_mastercard = 'mastercard_2x.png' | asset_img_url: '50X36'%}
-          {%assign image_pse = 'pse_2x.png' | asset_img_url: '50X36'%}
-          {%assign image_efecty = 'efecty_2x.png' | asset_img_url: '50X36'%}
-          {%assign image_via = 'via_2x.png' | asset_img_url: '50X36'%}
-          {%assign image_baloto = 'baloto_2x.png' | asset_img_url: '50X36'%}
-          {%assign image_bancolombia = 'bancolombia_2x.png' | asset_img_url: '50X36'%}
-     
-          {%assign image_url_list = image_pay_u | append: ',' | append:image_visa | append: ',' | append: image_mastercard
-          | append: image_pse | append: ',' | append: image_efecty | append: ',' | append: image_via | append: ','
-          | append: image_baloto | append: ',' | append: image_bancolombia
-          %}
-     
-          {%assign image_url_list_array = image_url_list | split: ','%}
-     
-          {%for image_url_item in image_url_list_array%}
-          <div class="payment-logo-size">
-             <img 
-                  src="{{ image_url_item}}"
-                 
-                  alt="{{ image_pay_u.alt | escape }}">
-           </div>
-          {%endfor%}
-     
-        
-        </div>
-     
-         </div>
+    {%include 'payment-bar'%}
 
   </div>
  

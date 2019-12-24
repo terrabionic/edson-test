@@ -349,8 +349,12 @@ $grid-breakpoint-has-push: ($small, $medium-up);
 
 /*================ Color Variables ================*/
 
+//borders
+$ice-blue-two: #eef0f0;
+
 // Text colors
 $dark: #1b1326;
+$dimgray: #585665;
 $color-text: {{ settings.color_text }};
 $color-text-shadow: rgba(0,0,0,0.4);
 $color-body-text: {{ settings.color_body_text }};
@@ -2303,6 +2307,7 @@ select {
   }
 }
 
+
 .select-label {
   font-size: em(12);
   text-transform: uppercase;
@@ -3318,7 +3323,10 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   flex-wrap: nowrap;
   background-color: #eef0f0;
   padding: 6px 55px;
-  border-bottom: solid 1px #eef0f0;
+  border-width: 1px 0 1px 0 ;
+  border-style: solid;
+  border-color: $ice-blue-two;
+  //border-bottom: solid 1px #eef0f0;
 }
 
 .information-bar__block-right
@@ -3326,18 +3334,19 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   text-align: right;
 }
 
-.title-store
+.title-store, .title-store:hover
 {
   width: 213px;
   height: 24px;
-  font-family: Asap;
+  font-family: 'Asap';
   font-size: 19px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.26;
   letter-spacing: normal;
-  color: var(--charcoal-grey);
+  color: $dimgray;
+  
 }
 
 /*================ TEMPLATES ================*/
@@ -5710,7 +5719,7 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
   .slideshow__text-wrap--desktop & {
     position: absolute;
     width: 100%;
-    top: 50%;
+    top: calc(50% - 36px);
     opacity: 0;
     z-index: $z-index-slideshow-text;
   }

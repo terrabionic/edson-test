@@ -21,22 +21,19 @@
     <a href="/" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %}">
       {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
       <div class="image-logo-header-container image-logo-header-container-item">
-      <div class="image-logo-header">
-          <img class="lazyload js"
+       <div class="image-logo-header image-border-container image-border-container">
+          <img class="image-logo-size"
           src="{{ section.settings.logo | img_url: '82X82' }}"
-          data-src="{{ img_url }}"
-         
-          data-sizes="auto"
           alt="{{ logo_alt | escape }}">
      <noscript>
        {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
        <img src="{{ section.settings.logo | img_url: image_size }}"
             srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-            alt="{{ section.settings.logo.alt | default: shop.name }}"
-            style="max-width: {{ section.settings.logo_max_width }}px;">
+            alt="{{ section.settings.logo.alt | default: shop.name }}">
      </noscript>
       </div>
        {%if section.settings.nombre_tienda != blank%}
+     
        <div class="header-section-title image-logo-header-container-item">
           <p class="title-store">{{section.settings.nombre_tienda}}</p>
       </div>
