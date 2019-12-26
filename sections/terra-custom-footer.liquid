@@ -1,0 +1,43 @@
+<h2>custom</h2>
+
+
+    {% schema %}
+    {
+  "name": {
+      "en": "Custom footer",
+      "es": "Footer personalizado"
+  },
+  "class": "Footer section",
+  "max_blocks": 4,
+  "blocks": [
+  {
+    "type": "link_list",
+    "name": {
+        "en": "Menu",
+        "es": "Menú"
+    },
+    "settings": [
+    {
+    "type": "text",
+    "id": "menu_title",
+    "label": {
+       "en": "Menu title",
+       "es": "Titulo de menú"
+    }
+    },
+    {
+     "type": "link_list",
+     "id": "selected_menu",
+     "label": {
+
+        "en": "Menu",
+        "es": "Menú"
+     }
+
+    }
+    ]
+  }
+  ]
+
+}
+{% endschema %}

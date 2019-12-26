@@ -1,46 +1,75 @@
 {
   "current": {
-    "color_text": "#162950",
+    "color_text": "#1b1326",
     "color_body_text": "#6d6d6d",
-    "color_sale_text": "#DA2F0C",
-    "color_borders": "#e4e4e4",
-    "color_button": "#DA2F0C",
+    "color_sale_text": "#ce1f34",
+    "color_button": "#ce1f34",
     "color_button_text": "#ffffff",
     "color_small_button_text_border": "#162950",
-    "color_text_field": "#ffffff",
-    "color_text_field_text": "#162950",
+    "color_text_field_text": "#1b1326",
     "color_text_field_border": "#909090",
+    "color_text_field": "#ffffff",
     "color_image_overlay_text": "#ffffff",
     "color_image_overlay": "#3d3d3d",
     "image_overlay_opacity": 40,
-    "color_body_bg": "#f8f8f8",
-    "type_header_font": "muli_n6",
+    "color_borders": "#ffffff",
+    "color_body_bg": "#ffffff",
+    "type_header_font": "asap_n4",
     "type_header_base_size": 26,
-    "type_base_font": "muli_n4",
+    "type_base_font": "asap_n4",
     "type_base_size": 18,
     "type_bold_product_titles": true,
+    "share_image": "",
     "share_facebook": true,
     "share_twitter": true,
     "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "favicon": "",
+    "enable_ajax": true,
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "small",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#e8f3f6",
+    "checkout_heading_font": "Roboto",
+    "checkout_body_font": "Source Sans Pro",
+    "checkout_accent_color": "#1990c6",
+    "checkout_button_color": "#23314e",
+    "checkout_error_color": "#ff6d6d",
     "sections": {
       "header": {
         "type": "header",
         "settings": {
           "align_logo": "left",
-          "logo": "",
-          "logo_max_width": 135,
-          "main_linklist": "main-menu",
+          "logo": "shopify:\/\/shop_images\/almacen-la-13-logotype_2x_15730c09-5314-4c1d-8626-2d2a5f8e244a.png",
+          "nombre_tienda": "ALMACÉN Y CRISTALERÍA",
+          "logo_max_width": 105,
+          "main_linklist": "custom-main-menu",
           "message": true,
-          "color_bg": "#162950",
+          "home_page_only": false,
+          "message_text": "Envíos gratis en compras mayores a $100,000",
+          "message_link": "",
+          "button_text": "Ver productos",
+          "link_button": "shopify:\/\/collections\/all",
+          "color_button": "#80174b",
+          "color_background": "#ecc3ff",
+          "image_bar": "shopify:\/\/shop_images\/background-image.png",
+          "e-mail": "<p>edsonivansg<strong>@<\/strong>gmail.com<\/p>",
+          "telefono": "Llámanos +57 7713406898 ext 1016",
+          "phone_whats": "+57 313 713 1313",
+          "color_bg": "#80174b",
           "color_text": "#ffffff"
-        }
-      },
-      "hero": {
-        "type": "hero",
-        "settings": {
-          "alignment": "center",
-          "hero_size": "x-large",
-          "text_size": "large"
         }
       },
       "slideshow": {
@@ -49,15 +78,25 @@
           "slideshow-0": {
             "type": "image",
             "settings": {
-              "image": "",
-              "alignment": "center center"
+              "image": "shopify:\/\/shop_images\/cocinando-momentos_2x_0dae4f9d-25ab-4406-9d92-b2b9e515a5c7.jpg",
+              "image_small": "shopify:\/\/shop_images\/amor-y-amistad-mobile.png",
+              "alignment": "center center",
+              "slide_title": "Titulo",
+              "subheading": "Subtítulo",
+              "button_label": "Ver productos",
+              "button_link": "shopify:\/\/blogs\/news"
             }
           },
           "1492095993817": {
             "type": "image",
             "settings": {
-              "image": "",
-              "alignment": "center"
+              "image": "shopify:\/\/shop_images\/promo-baner_2x_82332fc8-5183-47ec-892b-ca680841a555.png",
+              "image_small": "shopify:\/\/shop_images\/amor-y-amistad-mobile.png",
+              "alignment": "center center",
+              "slide_title": "Titulo",
+              "subheading": "Subtítulo",
+              "button_label": "",
+              "button_link": ""
             }
           }
         },
@@ -66,29 +105,51 @@
           "1492095993817"
         ],
         "settings": {
-          "slideshow_height": "medium",
+          "slideshow_height": "adapt",
           "text_size": "medium",
-          "autorotate": false,
+          "text_alignment": "center center",
+          "show_overlay": true,
+          "autorotate": true,
           "autorotate_speed": 5
-        }
-      },
-      "featured-collections": {
-        "type": "collection",
-        "settings": {
-          "grid": 3,
-          "rows": 1,
-          "show_vendor": true,
-          "show_view_all": true
         }
       },
       "product-template": {
         "type": "product-template",
+        "blocks": {
+          "1575483106421": {
+            "type": "text",
+            "settings": {
+              "tab_title": "Tiempos de despacho",
+              "tab_content": "<p>Los art&iacute;culos se entregan dentro de <a href=\"\/pages\/politicas-de-entregas\" title=\"pol&iacute;ticas de entregas\">2 a 4 d&iacute;as h&aacute;biles en la ciudad de Cali,<\/a> en el resto del pa&iacute;s se entrega dentro de 5 a 8 d&iacute;as h&aacute;biles (sujeto a imprevistos por parte de la empresa transportadora)<\/p>"
+            }
+          },
+          "1575483340839": {
+            "type": "text",
+            "settings": {
+              "tab_title": "Cambios y devoluciones",
+              "tab_content": "<p>Nuestro objetivo es la satisfacci&oacute;n de nuestros clientes.<\/p>\n<p>Si tienes alguna consulta acerca de nuestra Pol&iacute;tica Cambios y Devoluciones puedes ponerte en contacto enviando un correo electr&oacute;nico a <a href=\"\/pages\/contacto\" title=\"Contacto\">servicioalcliente@almacenesla13.com<\/a> o visita nuestro link directo <a href=\"\/pages\/politicas-de-entregas\" title=\"pol&iacute;ticas de entregas\">pol&iacute;ticas de cambio<\/a>.<\/p>"
+            }
+          },
+          "1575483836985": {
+            "type": "text",
+            "settings": {
+              "tab_title": "Preguntas frecuentes",
+              "tab_content": "<p><strong>Ll&aacute;manos<\/strong> al PBX: +57 2 8893333 ext 1016.<\/p>\n<p>Envi&aacute;nos un correo a ventasweb@almacenesla13.com<\/p>\n<p><strong>&iexcl;Chatea con nosotros!<\/strong><\/p>\n<p>Abre el &iacute;cono de Messenger color azul ubicado en la parte inferior derecha de tu pantalla<\/p>\n<p><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1575483106421",
+          "1575483340839",
+          "1575483836985"
+        ],
         "settings": {
           "image_size": "medium",
-          "show_quantity_selector": false,
+          "show_quantity_selector": true,
           "show_variant_labels": true,
-          "show_vendor": false,
+          "show_vendor": true,
           "enable_zoom": true,
+          "enable_payment_button": true,
           "show_share_buttons": true
         }
       },
@@ -96,48 +157,12 @@
         "type": "collection-template",
         "settings": {
           "layout": "grid",
-          "grid": 2,
-          "rows": 2,
+          "grid": 4,
+          "rows": 4,
           "show_collection_image": true,
           "show_vendor": false,
           "sort_enable": true,
           "tags_enable": true
-        }
-      },
-      "1492033809691": {
-        "type": "map",
-        "settings": {}
-      },
-      "1492033877875": {
-        "type": "quotes",
-        "blocks": {
-          "1492033877875-0": {
-            "type": "quote",
-            "settings": {}
-          }
-        },
-        "block_order": [
-          "1492033877875-0"
-        ],
-        "settings": {}
-      },
-      "1492033924902": {
-        "type": "custom-content",
-        "blocks": {
-          "1492033924902-0": {
-            "type": "text",
-            "settings": {
-              "width": "100%",
-              "alignment": "center",
-              "align_text": "center"
-            }
-          }
-        },
-        "block_order": [
-          "1492033924902-0"
-        ],
-        "settings": {
-          "title": ""
         }
       },
       "1492096252560": {
@@ -145,15 +170,24 @@
         "blocks": {
           "1492096252560-0": {
             "type": "featured_collection",
-            "settings": {}
+            "settings": {
+              "collection": "pantalones",
+              "image_collection": "shopify:\/\/shop_images\/filtro_2x_36994dd6-2c79-48f7-83c0-f4d5cc2b682c.png"
+            }
           },
           "1492096252560-1": {
             "type": "featured_collection",
-            "settings": {}
+            "settings": {
+              "collection": "calcetines",
+              "image_collection": "shopify:\/\/shop_images\/vajillas_2x_1e4d5f2e-4be8-4088-b223-f971cb49fbce.png"
+            }
           },
           "1492096252560-2": {
             "type": "featured_collection",
-            "settings": {}
+            "settings": {
+              "collection": "productos-baratos",
+              "image_collection": "shopify:\/\/shop_images\/copas_2x_7ef2e4a1-561d-4844-81c7-acbaf9efdf36.png"
+            }
           }
         },
         "block_order": [
@@ -162,6 +196,9 @@
           "1492096252560-2"
         ],
         "settings": {
+          "title": "Renueva tu cocina",
+          "subheading": "<p>Todo lo que necesitas para equipar <strong>tu cocina<\/strong><\/p>",
+          "button_label": "Ver productos",
           "grid": 3
         }
       },
@@ -184,6 +221,7 @@
       "cart-template": {
         "type": "cart-template",
         "settings": {
+          "cart_ajax_enable": true,
           "cart_notes_enable": false
         }
       },
@@ -192,57 +230,370 @@
         "blocks": {
           "link_list": {
             "type": "link_list",
-            "settings": {}
+            "settings": {
+              "title": "Quick links",
+              "menu": "footer"
+            }
           },
-          "text": {
+          "1573672798951": {
             "type": "text",
-            "settings": {}
+            "settings": {
+              "title": "Talk about your business",
+              "text": "<p>Share store details, promotions, or brand content with your customers.<\/p>"
+            }
           },
           "newsletter": {
             "type": "newsletter",
-            "settings": {}
+            "settings": {
+              "title": "Boletín informativo"
+            }
           }
         },
         "block_order": [
           "link_list",
-          "text",
+          "1573672798951",
           "newsletter"
         ],
+        "settings": {
+          "show_payment_icons": true,
+          "color_footer_bg": "#faf1f1",
+          "color_footer_text": "#414547"
+        }
+      },
+      "1574270206714": {
+        "type": "custom-collection-list",
+        "blocks": {
+          "1574270206714-0": {
+            "type": "image",
+            "settings": {
+              "collection_image": "shopify:\/\/shop_images\/licuadoras_2x_9e1c062f-a150-45cb-860d-f39972317e16.png",
+              "collection_id": "calcetines"
+            }
+          },
+          "1574285256522": {
+            "type": "image",
+            "settings": {
+              "collection_image": "shopify:\/\/shop_images\/cristaleria.png",
+              "collection_id": "pantalones"
+            }
+          },
+          "1574285450614": {
+            "type": "image",
+            "settings": {
+              "collection_image": "shopify:\/\/shop_images\/cuchillos.png",
+              "collection_id": "agotados"
+            }
+          },
+          "1574285508455": {
+            "type": "image",
+            "settings": {
+              "collection_image": "shopify:\/\/shop_images\/cafeteras.png",
+              "collection_id": "productos-baratos"
+            }
+          },
+          "1574285541504": {
+            "type": "image",
+            "settings": {
+              "collection_image": "shopify:\/\/shop_images\/juego-de-ollas.png",
+              "collection_id": "disponibles"
+            }
+          },
+          "1574285709627": {
+            "type": "image",
+            "settings": {
+              "collection_image": "shopify:\/\/shop_images\/vajillas_2x_0bbb5829-c617-4d43-ac82-0c888a72d8c5.png",
+              "collection_id": "negro"
+            }
+          }
+        },
+        "block_order": [
+          "1574270206714-0",
+          "1574285256522",
+          "1574285450614",
+          "1574285508455",
+          "1574285541504",
+          "1574285709627"
+        ],
+        "settings": {
+          "heading": "Arma tu cocina",
+          "subheading": "<p>&iexcl;Encuentra los productos que busques y arma <strong>tu cocina ideal!<\/strong><\/p>"
+        }
+      },
+      "1574358775486": {
+        "type": "slideshow",
+        "blocks": {
+          "1574358775486-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/nueva-linea-oster_2x_43b41194-4b81-4c33-b4fb-1dd64541d4fa.png",
+              "image_small": "shopify:\/\/shop_images\/promo-baner_2x_82332fc8-5183-47ec-892b-ca680841a555.png",
+              "alignment": "center center",
+              "slide_title": "",
+              "subheading": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1574358775486-0"
+        ],
+        "settings": {
+          "slideshow_height": "adapt",
+          "text_size": "medium",
+          "text_alignment": "center center",
+          "show_overlay": true,
+          "autorotate": false,
+          "autorotate_speed": 5
+        }
+      },
+      "1574377868494": {
+        "type": "featured-collection-carousel",
+        "settings": {
+          "title": "Productos que otros compraron",
+          "subtitle": "¡Tienes que verlos en tu cocina!",
+          "c_id": "disponibles",
+          "check_vendor": true
+        }
+      },
+      "1574437801065": {
+        "type": "feature-columns",
+        "blocks": {
+          "1574437801065-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/calidad-y-marcas_2x_0e3ab930-7b44-409c-947e-9b8207fd072c.png",
+              "title": "Calidad y marcas reconocidas",
+              "text": "<p>Productos de calidad y las mejores marcas del mercado<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1574437801065-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/promociones-exclusicas_2x_39ffc916-034f-4445-94ac-a2038f02ee0e.png",
+              "title": "Promociones exclusivas",
+              "text": "<p>Encuentra la variedad de productos con las mejores ofertas<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1574437801065-2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/garantia_2x_2f2758c9-81f4-43e2-b4a4-f136d4679a86.png",
+              "title": "Garantía y respaldo",
+              "text": "<p>Nuestros productos cuentan con garant&iacute;a directa con nosotros<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1574438300898": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/compra-segura_2x_5e948bac-2cd2-4df3-981e-bef7e481cc7a.png",
+              "title": "Compra segura",
+              "text": "<p>Somos una empresa con m&aacute;s de 50 a&ntilde;os de experiencia<\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1574437801065-0",
+          "1574437801065-1",
+          "1574437801065-2",
+          "1574438300898"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "left",
+          "bg_color": "#faf6f8"
+        }
+      },
+      "1574459045575": {
+        "type": "logo-bar",
+        "blocks": {
+          "1574459045575-0": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/imusa_2x_eec92639-d7c5-469f-bb4b-2ffa271467c5.png",
+              "link": ""
+            }
+          },
+          "1574459045575-1": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/corona_2x_0f0ebc2e-adf4-423d-bb59-41e813b0f994.png",
+              "link": ""
+            }
+          },
+          "1574459045575-2": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/oster_2x_207a0833-be24-4bf4-a69d-c6c366a13693.png",
+              "link": ""
+            }
+          },
+          "1574459045575-3": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/cristar_2x_61511fbe-55ed-4387-b04e-8a24c573b1d5.png",
+              "link": ""
+            }
+          },
+          "1574459431924": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/universal_2x_eba3acec-700f-4798-ac31-d2e96df17028.png",
+              "link": ""
+            }
+          },
+          "1574459478738": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/black-decker_2x_2f720b0b-24f2-47b5-b64b-9f2ef8d1c592.png",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1574459045575-0",
+          "1574459045575-1",
+          "1574459045575-2",
+          "1574459045575-3",
+          "1574459431924",
+          "1574459478738"
+        ],
+        "settings": {
+          "title": "Proveedores y Marcas Aliadas",
+          "subheading": "<p>Las mejores marcas nacionales e internacionales del mercado<\/p>"
+        }
+      },
+      "custom-footer": {
+        "type": "custom-footer",
+        "blocks": {
+          "1574467776625": {
+            "type": "link_list",
+            "settings": {
+              "menu_title": "Colleciones",
+              "selected_menu": "colecciones"
+            }
+          },
+          "1574468939979": {
+            "type": "link_list",
+            "settings": {
+              "menu_title": "Ayuda",
+              "selected_menu": "ayuda"
+            }
+          },
+          "1574468972525": {
+            "type": "link_list",
+            "settings": {
+              "menu_title": "Acerca de",
+              "selected_menu": "acerca-de"
+            }
+          },
+          "1574703920368": {
+            "type": "text",
+            "settings": {
+              "contact_title": "Contáctanos",
+              "phone_number": "+57 2 889 33 33 ext 1016",
+              "email": "ventasweb@almacenesla13.com",
+              "address": "Centro Calle 13 No. 8-52"
+            }
+          }
+        },
+        "block_order": [
+          "1574467776625",
+          "1574468939979",
+          "1574468972525",
+          "1574703920368"
+        ],
         "settings": {}
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "Productos Relacionados",
+          "show_vendor": true
+        }
+      },
+      "logo-bar": {
+        "type": "logo-bar",
+        "blocks": {
+          "1575570096151": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/imusa_2x_eec92639-d7c5-469f-bb4b-2ffa271467c5.png",
+              "link": ""
+            }
+          },
+          "1575570111236": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/corona_2x_0f0ebc2e-adf4-423d-bb59-41e813b0f994.png",
+              "link": ""
+            }
+          },
+          "1575570121143": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/oster_2x_207a0833-be24-4bf4-a69d-c6c366a13693.png",
+              "link": ""
+            }
+          },
+          "1575570131805": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/cristar_2x_61511fbe-55ed-4387-b04e-8a24c573b1d5.png",
+              "link": ""
+            }
+          },
+          "1575570143366": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/universal_2x_eba3acec-700f-4798-ac31-d2e96df17028.png",
+              "link": ""
+            }
+          },
+          "1575570154047": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/black-decker_2x_2f720b0b-24f2-47b5-b64b-9f2ef8d1c592.png",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1575570096151",
+          "1575570111236",
+          "1575570121143",
+          "1575570131805",
+          "1575570143366",
+          "1575570154047"
+        ],
+        "settings": {
+          "title": "Proveedores y marcas aliadas",
+          "subheading": "<p>Las mejores marcas nacionales e internacionales del mercado<\/p>"
+        }
       }
     },
     "content_for_index": [
-      "hero",
-      "featured-collections",
       "slideshow",
-      "1492033924902",
+      "1574270206714",
+      "1574358775486",
       "1492096252560",
-      "1492033877875",
-      "1492033809691"
-    ],
-    "social_twitter_link": "",
-    "social_facebook_link": "",
-    "social_pinterest_link": "",
-    "social_instagram_link": "",
-    "social_tumblr_link": "",
-    "social_snapchat_link": "",
-    "social_youtube_link": "",
-    "social_vimeo_link": "",
-    "favicon": "",
-    "checkout_header_image": "",
-    "checkout_logo_image": "",
-    "checkout_logo_position": "left",
-    "checkout_logo_size": "small",
-    "checkout_body_background_image": "",
-    "checkout_body_background_color": "#ffffff",
-    "checkout_input_background_color_mode": "white",
-    "checkout_sidebar_background_image": "",
-    "checkout_sidebar_background_color": "#e8f3f6",
-    "checkout_heading_font": "Roboto",
-    "checkout_body_font": "Source Sans Pro",
-    "checkout_accent_color": "#1990c6",
-    "checkout_button_color": "#23314e",
-    "checkout_error_color": "#ff6d6d"
+      "1574377868494",
+      "1574437801065",
+      "1574459045575"
+    ]
   },
   "presets": {
     "Default": {
