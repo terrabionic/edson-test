@@ -5,7 +5,7 @@
      <div class="flex-item-personalizado ">
         <h2 class="heading-custom-collection-list"> {{section.settings.title}} </h2> 
      </div>
-     <div class="flex-item-personalizado section-subtitle">
+     <div class="flex-item-personalizado section-subtitle margin-subtitle">
         <p>  {{section.settings.subtitle}}  </p>  
      </div>
  </div>
@@ -36,13 +36,13 @@
                 </div>
                 
                
-                  <div class="title-item-carousel">
+                  <div class="title-item-carousel carousel-title-margin">
                   {{product.title}}
                   </div>
-                  <div class="price-item-carousel">
+                  <div class="price-item-carousel carousel-price-margin">
                   {{product.price |  money_with_currency}}
                   </div>
-                  <div class="vendor-item-carousel">
+                  <div class="vendor-item-carousel carousel-margin-price">
                    {{product.vendor}}
                   </div>
                   
@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="carousel__nav">
-        <button class="carousel__button--prev js-carousel-button btn-left-position carousel_position_button new_slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item" data-dir="prev" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
+        <button class="carousel__button--prev js-carousel-button btn-left-position carousel_position_button new_slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item no-borders" data-dir="prev" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
             {%assign logo_arrow_right= 'arrow-right-white_2x.png'  | asset_img_url: '32X32'  %}
        
             <div  class=" arrow-size">
@@ -65,7 +65,7 @@
               </div>
           </button>
          
-          <button class="  carousel__button--next js-carousel-button   btn-right-position carousel_position_button new_slideshow__arrow-right button-arrow-size button-arrow arrow-item" data-dir="next" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
+          <button class="  carousel__button--next js-carousel-button   btn-right-position carousel_position_button new_slideshow__arrow-right button-arrow-size button-arrow arrow-item no-borders" data-dir="next" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
                
             
               <div  class=" arrow-size">

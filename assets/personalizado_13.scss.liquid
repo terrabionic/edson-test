@@ -631,7 +631,7 @@ height: 320px;
     position:relative;
     height: 65%;
     width: 100%;
-    margin:20px;
+   // margin:20px;
     
 }
 .flex-collection-vertical{
@@ -654,7 +654,8 @@ height: 320px;
 }
 
 .heading-custom-collection-list{
-    height:22px;
+   // height:22px;
+     margin: 0;
     font-family: 'Asap';
     font-size: 26px;
     font-weight: bold;
@@ -669,12 +670,16 @@ height: 320px;
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
+.margin-subtitle{
+  margin-top:12px;
+  margin-bottom:26px;
+}
 
 .subheading-custom-collection-list{
     //margin: 20px 0px 20px 0px;
-    margin-top:20px;
+  
     width: 715px;
-    height: 22px;
+   
     font-family: 'Asap';
     font-size: 17px;
     font-weight: normal;
@@ -737,8 +742,8 @@ overflow: hidden;
 .section-subtitle
 {
  // margin: 20px 0px 20px 0px;
-  margin-top: 14px;
-  margin-bottom:26px;
+  //margin-top: 14px;
+  //margin-bottom:26px;
   width: 715px;
   height: 22px;
   font-family: 'Asap';
@@ -837,6 +842,15 @@ padding-bottom:50px;
 
 .carousel-section-margin{
   margin-top: 26px;
+}
+.carousel-title-margin{
+ margin-top: 16px;
+}
+.carousel-price-margin{
+  margin-top:7px;
+}
+.carousel-margin-price{
+  margin-top:9px;
 }
 
 // start_carrousel_BS
@@ -2129,9 +2143,10 @@ height:50px;
  }
 
  .button-arrow{
-background-color: $lipstick;
-&:hover{
+
   background-color: $ice-blue;
+&:hover{
+background-color: $lipstick;
 }
  }
 
@@ -2175,7 +2190,7 @@ left: calc(100% - 50px - 20px);
 
 }
 
-.arrow-item:hover{
+.arrow-item{
 
   div{
     img{
