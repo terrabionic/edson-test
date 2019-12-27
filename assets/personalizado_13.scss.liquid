@@ -246,7 +246,7 @@ height:18px;
 }
 
 .dropdown-content{
-  margin-top: -20px;
+  margin-top: -15px;
   margin-left: -52px;
   position: absolute;
   z-index: 1;
@@ -274,6 +274,7 @@ display:flex;
 
 }
 .drop-menu-item-header{
+  
 margin: 0 15px;
 
 }
@@ -282,7 +283,7 @@ margin: 0 15px;
 }
 
 .drop-menu-item-title{
-  padding: 0.7rem 0 0.1rem 0;
+  padding: 0.7rem 0 0.7rem 0;
   font-family: 'Asap';
   font-size: 16px;
   font-weight: 600;
@@ -398,6 +399,9 @@ width:100%;
 }
 .image-border-container{
   border-right: 1px solid $ice-blue-two;
+  @media(max-width: 763px){
+  border-right:none;
+  }
 }
 .image-logo-size{
   width:82px!important;
@@ -1287,6 +1291,23 @@ align-items: center;
   letter-spacing: normal;
   color: var(--dark);
 }
+.padding-top-bottom-product-recomendations{
+padding-top:35px;
+padding-bottom:45px;
+}
+.margin-top-recomendation-items{
+  margin-top:-20px;
+}
+.border-container-bottom{
+  border-bottom:1px solid $ice-blue-two;
+}
+
+.background-tabs{
+  
+  width:100%;
+  background-color:#f7f8f8;
+}
+
 .product-price{
   font-family: 'Asap';
   font-size: 16px;
@@ -1700,7 +1721,6 @@ li{
 
 .tab-container{
   position:relative;
-  background-color:#f7f8f8;
   //margin: 0 10% 0 10%;
   width:100%;
 }
@@ -2403,6 +2423,7 @@ border: 1px solid $ice-blue-two;
 // text columns with image
 .margin-section-text-columns{
   margin-top:86px;
+  overflow:hidden;
 }
 .padding-top-items-columns{
   padding-top:24px;

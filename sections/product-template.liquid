@@ -511,7 +511,59 @@
       </div>
     
     </div>
-    <div class="tab-container desktop-display">
+
+ 
+
+  
+  {%comment%}
+  {%for block in section.blocks%}
+    <div class="tab-item">
+    <h2 class="title-tab-style">{{block.settings.tab_title}}</h2>
+  
+    <div class=" content-tab-style">
+    {{block.settings.tab_content}}
+    </div>
+    </div>
+  {%endfor%}
+  {%endcomment%}
+  
+  
+  
+
+  
+  {%comment%}
+  <div class="plus-minus-mobile">
+    {%assign logo_mas = 'mas-red_2x.png'  | asset_img_url: '30X30'  %}
+    {%assign logo_menos = 'menos-white_2x.png'  | asset_img_url: '30X30'  %}
+  
+    <div id="comentarios-mas" class="img-logo-footer-margin" >
+        <img id="{{ img_id }}"
+             class="lazyload"
+             src="{{ logo_mas}}"
+          
+             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+             data-aspectratio="{{ logo_mas.aspect_ratio }}"
+             data-sizes="auto"
+             alt="{{ logo_mas.alt | escape }}">
+      </div>
+  
+      <div id="comentarios-menos" class="img-logo-footer-margin menu-links-mobile-inactive " >
+          <img id="{{ img_id }}"
+               class="lazyload"
+               src="{{ logo_menos }}"
+          
+               data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+               data-aspectratio="{{ logo_mas.aspect_ratio }}"
+               data-sizes="auto"
+               alt="{{ logo_mas.alt | escape }}">
+        </div>
+  </div>
+  {%endcomment%}
+  </div>
+  
+  
+     <div class="background-tabs">
+        <div class="page-width tab-container desktop-display">
         <div class="tabs-product header-tab-products">
   
        
@@ -565,23 +617,8 @@
               </div>
           {%endfor%}
   </div>
-  </div>
-  
-  {%comment%}
-  {%for block in section.blocks%}
-    <div class="tab-item">
-    <h2 class="title-tab-style">{{block.settings.tab_title}}</h2>
-  
-    <div class=" content-tab-style">
-    {{block.settings.tab_content}}
-    </div>
-    </div>
-  {%endfor%}
-  {%endcomment%}
-  
-  
-  
-  <nav class="tab-container display-mobile">
+
+   <nav class="page-width tab-container display-mobile">
   
         <div class="tabs-product header-tab-products">
   
@@ -636,39 +673,10 @@
           </div>
     
             </nav>
-  
-  {%comment%}
-  <div class="plus-minus-mobile">
-    {%assign logo_mas = 'mas-red_2x.png'  | asset_img_url: '30X30'  %}
-    {%assign logo_menos = 'menos-white_2x.png'  | asset_img_url: '30X30'  %}
-  
-    <div id="comentarios-mas" class="img-logo-footer-margin" >
-        <img id="{{ img_id }}"
-             class="lazyload"
-             src="{{ logo_mas}}"
-          
-             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-             data-aspectratio="{{ logo_mas.aspect_ratio }}"
-             data-sizes="auto"
-             alt="{{ logo_mas.alt | escape }}">
-      </div>
-  
-      <div id="comentarios-menos" class="img-logo-footer-margin menu-links-mobile-inactive " >
-          <img id="{{ img_id }}"
-               class="lazyload"
-               src="{{ logo_menos }}"
-          
-               data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-               data-aspectratio="{{ logo_mas.aspect_ratio }}"
-               data-sizes="auto"
-               alt="{{ logo_mas.alt | escape }}">
-        </div>
   </div>
-  {%endcomment%}
-  
-  
-  
-  
+
+   
+    </div>
   
   {% unless product == empty %}
     <script type="application/json" id="ProductJson-{{ section.id }}">

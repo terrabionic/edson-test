@@ -1,14 +1,14 @@
 {%- if section.settings.show_product_recommendations -%}
   {%- if recommendations.performed -%}
     {%- if recommendations.products_count > 0 -%}
-      <div class="product-recommendations__inner">
+      <div class="product-recommendations__inner padding-top-bottom-product-recomendations border-container-bottom">
         {%- if section.settings.heading != blank -%}
           <div class=" text-center">
             <h2 class="product-section-header">{{ section.settings.heading | escape }}</h2>
           </div>
         {%- endif -%}
  
-          <ul class="grid grid--uniform grid--view-items">
+          <ul class="grid grid--uniform grid--view-items margin-top-recomendation-items">
             {%- for product in recommendations.products -%}
               <li class="grid__item small--one-half medium-up--one-third background-image-card-grid">
                 {% include 'product-card-grid', max_height: 250, product: product, current_section:'product-recomendations', show_vendor: section.settings.show_vendor %}
