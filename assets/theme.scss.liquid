@@ -558,6 +558,11 @@ $slick-opacity-not-active: 0.25;
 // Unused intentionally
 @function slick-font-url($url) {}
 
+/*================ General ================*/
+a,a:hover{
+  text-decoration: none;
+}
+
 /*================ Slick Slider SCSS ================*/
 .slick-slider {
   position: relative;
@@ -1300,7 +1305,7 @@ html {
 
 .page-width {
   @include clearfix();
-  max-width: $width-site;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -3166,12 +3171,12 @@ $slick-dot-size-small: 10px;
 
 /*================ Index sections ================*/
 .index-section {
-  padding-top: $section-spacing-small;
-  padding-bottom: $section-spacing-small;
+  // padding-top: $section-spacing-small;
+  //padding-bottom: $section-spacing-small;
 
   @include media-query($medium-up) {
-    padding-top: $section-spacing;
-    padding-bottom: $section-spacing;
+   // padding-top: $section-spacing;
+   // padding-bottom: $section-spacing;
   }
 
   &:first-child {
@@ -3180,7 +3185,7 @@ $slick-dot-size-small: 10px;
   }
 
   &:last-child {
-    padding-bottom: 0;
+    //padding-bottom: 0;
   }
 }
 

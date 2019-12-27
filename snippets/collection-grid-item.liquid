@@ -17,7 +17,9 @@
   {% assign collection_image = blank %}
 {% endif %}
 
-<div class="collection-grid-item">
+
+
+<div class="collection-grid-item ratio-grid-item">
   <a href="{% if collection.products == empty %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
     {% unless collection_image == blank %}
       <div class="collection-grid-item__overlay box ratio-container lazyload js"
@@ -50,7 +52,7 @@
               {% else %}
                 {{ collection.title | capitalize}}
               {% endif %}
-              <div class="btn btn-13 btn-13-label">
+              <div class="btn btn-13 btn-13-label button-collection-margin">
                   {{btn_label}}
                 </div>
               </div>

@@ -1,6 +1,6 @@
    
    
-    <div >
+    <div class="page-width  margin-collection-list collection-list-bottom-border collection-list-padding-bottom">
         {%comment%}
         {% if section.settings.title != blank %}
           <div class="section-title-13 text-center">
@@ -32,7 +32,7 @@
         {% endcase %}
       
       
-        <div class="collection-grid ">
+        <div class="collection-grid hidden-overflow">
           <ul class="grid grid--uniform collection-grid-desktop">
             {% for block in section.blocks limit: section.blocks.size %}
               <li class=" grid__item {{ grid_item_width }}" {{ block.shopify_attributes }}>

@@ -6,6 +6,7 @@
 
 
 
+
 {% if section.settings.message %}
   <style>
     {% if section.settings.logo != blank %}
@@ -21,6 +22,7 @@
     {% endif %}
   </style>
 {% endif %}
+
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section">
   {% if section.settings.message %}
@@ -93,13 +95,7 @@
 
      {%include 'image-logo'%}
 
-     {%comment%}
-     <div class="grid__item medium-up--one-half margin-search-group">
-        <div class="site-header__search site-header__icon ">
-            {% include 'search-form' %}
-          </div>
-     </div>
-     {%endcomment%}
+    
      <nav class="grid__item medium-up--one-half small--hide" id="AccessibleNav" role="navigation">
         {% include 'site-nav' %}
       </nav>
@@ -178,49 +174,7 @@
 
     <nav class="mobile-nav-wrapper medium-up--hide" role="navigation">
 
-      {%comment%}
-
-        <ul id="MobileNav" class="mobile-nav">
-          {%assign img_arrow_right = 'arrow-right_2x-lipstick.png'| asset_img_url: '18X18'%}
-
-          <input type="hidden" id="selected_collection" value="">
-
-          <div class="mobile-nav-lv1">
-              {% for link in linklists[section.settings.main_linklist].links %}
-              <li>
-                <div class="item-mobile-menu-container">
-                    <div class="collection-title-movil">
-                        <a href="{{ link.url }}"
-                        class="mobile-nav__link{% if link.active %} mobile-nav__link--active{% endif %}"
-                        {% if link.current %} aria-current="page"{% endif %}>
-                        <span class="mobile-nav__label drop-menu-item-title">{{ link.title | escape }}</span>
-                      </a>
-        
-                    </div>
-                      
-                    <div class="btn-right btn-right-mobile-menu">
-                        <img id="{{ img_id }}"
-                        class="feature-row__image lazyload"
-                        src="{{ img_arrow_right}}"
-                        data-src="{{ img_arrow_right }}"
-                        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                        data-aspectratio="{{ img_arrow_right.aspect_ratio }}"
-                        data-sizes="fit"
-                        alt="{{ img_arrow_right.alt | escape }}">
-                    </div>
-                </div>
-             
-              </li>
-              {%endfor%}
-          </div>
-         <div class="mobile-nav-lv2 ">
-        
-         </div>
-
-       
-        
-        </ul>
-       {%endcomment%}
+   
     
       <ul id="MobileNav" class="mobile-nav">
 
@@ -364,9 +318,7 @@
   
     </nav>
     <nav class="small--hide padding-nav" id="AccessibleNav" role="navigation">
-        {%comment%}
-        hay id duplicados AccesibleNav, cambiarlo despues
-        {%endcomment%}
+    
         {% include 'custom-dropdown-menu', linklist: linklists.custom-main-menu %}
       </nav>
 
@@ -415,6 +367,10 @@
     }
   </script>
 {% endif %}
+
+
+
+
 
 {% schema %}
 {
