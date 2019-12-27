@@ -1,11 +1,13 @@
-<div class="page-width" style="background-color: {{section.settings.bg_color}};">
+<div class="margin-section-text-columns" style="background-color: {{section.settings.bg_color}};">
+
+<div class="page-width" >
   {% if section.settings.title != blank %}
     <div class="section-header text-center">
       <h2>{{ section.settings.title | escape }}</h2>
     </div>
   {% endif %}
 
-  <div class="grid {% unless section.blocks.size == 5 %}grid--uniform{% endunless %} grid--flush-bottom flex-group-generic">
+  <div class="grid {% unless section.blocks.size == 5 %}grid--uniform{% endunless %} grid--flush-bottom flex-group-generic padding-top-items-columns">
     {%- assign grid_item_width = 'medium-up--one-third' -%}
     {%- assign max_height = 345 -%}
     {% case section.blocks.size %}
@@ -26,14 +28,14 @@
       {% else %}
         {%- assign column_width = grid_item_width -%}
       {% endif %}
-      <div class="grid__item {{ column_width }} text-{{ section.settings.align_text }} column-item-size text-column-with-image-mobile" {{ block.shopify_attributes }}>
+      <div class="grid__item {{ column_width }} text-{{ section.settings.align_text }} column-item-size text-column-with-image-mobile padding-left-0-item-column" {{ block.shopify_attributes }}>
         {% if block.settings.enable_image %}
           {% if block.settings.image != blank %}
             {% capture img_id %}TextColumnImage-{{ block.id }}{% endcapture %}
             {% capture wrapper_id %}TextColumnImageWrapper-{{ block.id }}{% endcapture %}
             {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
             {% include 'image-style', image: block.settings.image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
-            <div id="{{ wrapper_id }}" class="feature-row__image-wrapper  img_size  js">
+            <div id="{{ wrapper_id }}" class="feature-row__image-wrapper  img_size margin-column-item-image  js">
               <div style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;">
                 <img id="{{ img_id }}"
                      class="feature-row__image lazyload"
@@ -57,12 +59,12 @@
           {% endif %}
         {% endif %}
         {% if block.settings.title != blank %}
-          <div class="div-text-size">
+          <div class="div-text-size margin-title-item-column">
           <h3 class="h4 title-column">{{ block.settings.title | escape }}</h3>
           </div>
         {% endif %}
         {% if block.settings.text != blank %}
-          <div class="rte-setting text-column div-text-size">{{ block.settings.text }}</div>
+          <div class="rte-setting text-column div-text-size margin-subtitle-item-column">{{ block.settings.text }}</div>
         {% endif %}
 
         {% if block.settings.button_label != blank and block.settings.button_link != blank %}
@@ -92,6 +94,8 @@
     {% include 'no-blocks' %}
   {% endif %}
 </div>
+</div>
+
 
 
 
