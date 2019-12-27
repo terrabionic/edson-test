@@ -29,8 +29,11 @@
     }
     </script>
 
+
+      <div  class="">
+      
 <nav class="desktop-custom-footer">
-    <div class="footer-custom flex-footer flex-nowrap">
+    <div class="footer-custom flex-footer flex-nowrap footer-top-margin">
 
  
         {% for block in section.blocks %}
@@ -42,15 +45,15 @@
               <h3 class="custom-menu-title">{{menu.title}}</h3>
             <ul>
             {%for link in menu.links%}
-            <li class="custom-menu-link capitalize-text">
+            <li class="custom-menu-link capitalize-text margin-top-link-item">
               <a href="{{link.url}}">{{link.title}}</a></li>
             {% endfor %}
             </ul>
            </div>
            {%else%}
            <div class="menu-item-custom-footer site-footer__item--one-quarter">
-              <h3 class="custom-menu-title">{{block.settings.contact_title}}</h3>
-              <div class="contact-phone flex-footer">
+              <h3 class="custom-menu-title no-margin-titles">{{block.settings.contact_title}}</h3>
+              <div class="contact-phone flex-footer contact-block-margin">
         
                   <div class=" logo-container-size">
                       {%include 'icon-phone'%}
@@ -60,7 +63,7 @@
                    {{block.settings.phone_number}}
               </div>
               </div>
-              <div class="contact-email flex-footer">
+              <div class="contact-email flex-footer margin-contact-item">
                   <div class=" logo-container-size">
                       {%include 'icon-email'%}
                     </div>
@@ -71,7 +74,7 @@
               </div>
       
       
-              <div class="contact-address flex-footer">
+              <div class="contact-address flex-footer margin-contact-item">
               <div  class=" logo-container-size">
                       {%include 'icon-marcador'%}
                      </div>
@@ -130,7 +133,7 @@
           </div>
           <div id="{{menu_name}}" class="menu-content menu-links-mobile-inactive">
               {%for link in menu.links%}
-              <li class="custom-menu-link capitalize-text">
+              <li class="custom-menu-link capitalize-text margin-top-link-item">
                 <a href="{{link.url}}">{{link.title}}</a></li>
               {% endfor %}
               </ul>
@@ -171,36 +174,37 @@
               </div>
           
             <div id="{{block.settings.contact_title}}" class="menu-content menu-links-mobile-inactive" >
-                <div class="contact-phone flex-footer">
-                    <div class=" logo-container-size">
-                        {%include 'icon-phone'%}
-                    </div>
-                
-                   <div class="contact-info-footer custom-menu-link text-container-size">
-                     {{block.settings.phone_number}}
-                </div>
-
+              
+              <div class="contact-phone flex-footer contact-block-margin flex-start">
+        
+                  <div class=" contact-mobile-margin-right">
+                      {%include 'icon-phone'%}
                   </div>
-                  <div class="contact-email flex-footer">
-                     
-          
-                  <div class=" logo-container-size">
+              
+                 <div class=" custom-menu-link ">
+                   {{block.settings.phone_number}}
+              </div>
+              </div>
+              <div class="contact-email flex-footer margin-contact-item flex-start">
+                  <div class="contact-mobile-margin-right">
                       {%include 'icon-email'%}
                     </div>
                         
-                    <div class="contact-info-footer custom-menu-link text-container-size">
+                    <div class=" custom-menu-link">
                         {{block.settings.email}}
                      </div>
-                  </div>
-                  <div class="contact-address flex-footer">
-                      <div  class=" logo-container-size">
-                          {%include 'icon-marcador'%}
-                         </div>
-           
-                         <div class="contact-info-footer custom-menu-link text-container-size">
-                             {{block.settings.address}}
-                          </div>
-                 </div>
+              </div>
+      
+      
+              <div class="contact-address flex-footer margin-contact-item flex-start">
+              <div  class="contact-mobile-margin-right">
+                      {%include 'icon-marcador'%}
+                     </div>
+       
+                     <div class=" custom-menu-link  ">
+                         {{block.settings.address}}
+                      </div>
+             </div>
             </div>
             
           
@@ -252,6 +256,7 @@
         
         
           </div>   
+      </div>
       </div>
 
   
