@@ -463,8 +463,8 @@ $svg-select-icon: #{'{{ "ico-select.svg" | asset_url }}'};
 $transition-drawer: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1);
 
 /*================ Hero Slider ================*/
-$color-slideshow-arrows: #000;
-$color-slideshow-dots: #fff;
+$color-slideshow-arrows: black;
+$color-slideshow-dots: white;
 
 /*================ Typography ================*/
 
@@ -539,16 +539,16 @@ $z-index-giftcard-code: 5;
   - Remove `outline: none` from `.slick-dots li button`
 ==============================================================================*/
 $slick-font-family: "slick-icons, sans-serif";
-$slick-arrow-color: $color-slideshow-arrows;
-$slick-dot-color: $color-slideshow-dots;
-$slick-dot-color-active: $slick-dot-color !default;
+$slick-arrow-color: $ice-blue-two;
+$slick-dot-color: $lipstick;
+$slick-dot-color-active: $ice-blue-two;
 $slick-prev-character: '\2190';
 $slick-next-character: '\2192';
 $slick-dot-character: '\2022';
-$slick-dot-size: 6px;
-$slick-opacity-default: 0.75;
+$slick-dot-size: 40px;
+$slick-opacity-default: 1;
 $slick-opacity-on-hover: 1;
-$slick-opacity-not-active: 0.25;
+$slick-opacity-not-active: 0.5;
 
 // Only called once so make sure proper file is grabbed
 @function slick-image-url($url) {
@@ -588,6 +588,8 @@ a,a:hover{
   &:focus {
     outline: none;
   }
+
+
 
   &.dragging {
     cursor: pointer;
@@ -754,7 +756,10 @@ a,a:hover{
 }
 
 .slick-dots {
-  list-style: none;
+  //list-style: none;
+  position:absolute;
+  bottom:-296px;
+  left: 47%;
   display: block;
   text-align: center;
   padding: 0;
@@ -800,7 +805,7 @@ a,a:hover{
         -moz-osx-font-smoothing: grayscale;
       }
     }
-    &.slick-active button:before {
+    &.slick-active  {
       color: $slick-dot-color-active;
       opacity: $slick-opacity-default;
     }
@@ -3096,7 +3101,7 @@ hr {
 /*============================================================================
   Slick slider overrides
 ==============================================================================*/
-$slick-dot-size: 12px;
+$slick-dot-size: 20px;
 $slick-dot-size-small: 10px;
 
 .slick-dotted.slick-slider {
@@ -3105,10 +3110,11 @@ $slick-dot-size-small: 10px;
 
 /*================ Slick dots and prev/next pagination ================*/
 .slideshow__arrows .slick-dots {
-  margin: 0 0.75rem;
+  margin: 0 300px;
 
   li {
     // sass-lint:disable SelectorDepth
+ 
     margin: 0;
     vertical-align: middle;
     width: $slick-dot-size-small;
@@ -6721,8 +6727,8 @@ $toolbar-height-small: 46px;
 
 // Slick dot positioning and color
 .quotes-wrapper .slick-dots {
-  position: relative;
-  bottom: 0;
+  position: absolute;
+  bottom: 20px;
   margin-top: $section-spacing;
 
   li {

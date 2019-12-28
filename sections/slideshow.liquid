@@ -1,5 +1,13 @@
 
+<script>
+$( document ).ready(function() {
+    console.log( "ready!" );
+    var arrow_list = document.getElementById('slickDot01');
+ console.log('slick 02'+ arrow_list);
+ 
+});
 
+</script>
 {%- if section.settings.slideshow_height == 'adapt' -%}
 
  
@@ -130,6 +138,14 @@
           </div>
      
      
+       </div>
+       <div class="new_slideshow__arrows new-slick-dots">
+       <ul class="slick-dots">
+        {%for block in section.blocks%}
+       
+       {%endfor%}
+       </ul>
+      
        </div>
       {%endif%}
    

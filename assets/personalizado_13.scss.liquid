@@ -6,6 +6,7 @@ $dark: #1b1326;
 $ice-blue: #f7f8f8;
 $ice-blue-two:#eef0f0;
 $dimgray: #585665;
+$color-btn-primary: $lipstick;
 /*================ Minix  ================*/
 @mixin bg-color-param($color)
 {
@@ -397,6 +398,55 @@ display:flex;
 position: relative;
 width:100%;
 }
+
+
+       .slick-dots {
+               // padding-left: 40px;
+
+                .slick-active {
+                    button:before {
+                        color: $color-btn-primary;
+                    }
+
+                    a:before {
+                        color: $color-btn-primary;
+                    }
+                }
+
+                li {
+                    button:before {
+                        color: rgba(255,255,255,0.5);
+                        border: 1px solid rgba(0,0,0,0.25);
+                        border-radius: 100%;
+                        background-color: currentColor;
+                        width: 12px;
+                        height: 12px;
+                        opacity: 0.8;
+                        transition: all 0.2s;
+                    }
+
+                    a:before {
+                        color: rgba(255,255,255,0.5);
+                        border: 1px solid rgba(0,0,0,0.25);
+                        border-radius: 100%;
+                        background-color: currentColor;
+                        width: 10px;
+                        height: 10px;
+                        opacity: 0.8;
+                        transition: all 0.2s;
+                    }
+
+                    button:hover:before {
+                        color: $color-btn-primary;
+                    }
+
+                    a:hover:before {
+                    color: $color-btn-primary;
+                    }
+                }
+            }
+
+
 .image-border-container{
   border-right: 1px solid $ice-blue-two;
   @media(max-width: 763px){
