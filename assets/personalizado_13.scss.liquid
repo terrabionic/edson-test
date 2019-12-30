@@ -1963,6 +1963,14 @@ display:block;
 
   }
 }
+.payment-group-container{
+  position:relative;
+  width:100%;
+  display:flex;
+  justify-content: center;
+   margin-top:22px;
+  background-color: $grape-purple;
+}
 
 .copyright-payment-group{
   min-height: 74px;
@@ -1971,9 +1979,11 @@ display:block;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  width:100%;
-  margin-top:22px;
-  background-color: $grape-purple;
+  width:80%;
+  @media(max-width:1050px){
+  flex-direction:column;
+  }
+ 
   }
   
   .copyright{
@@ -2000,6 +2010,11 @@ display:block;
     max-width: 470px;
     min-height:40px;
     flex-wrap: nowrap;
+  }
+  .payment-logo-item{
+    width:56px;
+    height:36px;
+    margin-right:8px;
   }
   
   .payment-logo-size{

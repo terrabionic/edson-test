@@ -1,8 +1,11 @@
+<div class="payment-group-container">
 <div class="copyright-payment-group">
         <div class="copyright">
              <h3 class="copyright-text">@2019 Almacén y cristalería la 13. Todos los derechos reservados. </h3>
         </div>
+       
         <div class="payment-logos">
+         {%comment%}
           {%assign image_pay_u = 'payu_2x.png' | asset_img_url: '50X36'%}
           {%assign image_visa = 'visa_2x.png' | asset_img_url: '50X36'%}
           {%assign image_mastercard = 'mastercard_2x.png' | asset_img_url: '50X36'%}
@@ -27,8 +30,12 @@
                   alt="{{ image_pay_u.alt | escape }}">
            </div>
           {%endfor%}
-     
-        
+           {%endcomment%}
+          {%for payment in shop.enabled_payment_types%}
+           {{payment | payment_type_svg_tag , class: 'payment-logo-item'}}
+          {%endfor%}
         </div>
+  
      
          </div>
+<div>
