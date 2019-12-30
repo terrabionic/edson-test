@@ -58,7 +58,7 @@
                   <dt>
                     <span class="visually-hidden">{{ 'products.product.selected_or_first_available_variant.sku' | t }}</span>
                   </dt>
-                  <dd class="product-vendor-sku-text">
+                  <dd class="variant-sku product-vendor-sku-text">
                   SKU: {{ product.selected_or_first_available_variant.sku }}
                   </dd>
                 </div>
@@ -153,8 +153,8 @@
     </dd>
   </div>
   {%if template == 'product' %}
-  <div class="product-store">
-    ¡{{variant.inventory_quantity}} {{variant.inventory_quantity  | pluralize: 'Disponible', 'Disponibles'}}!
+  <div class="product-store variant-inventory">
+    ¡{{current_variant.inventory_quantity}} {{current_variant.inventory_quantity  | pluralize: 'Disponible', 'Disponibles'}}!
    </div>
   {%endif%}
 

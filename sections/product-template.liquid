@@ -137,6 +137,12 @@
    imageMenos.classList.add("tab-content-inactive"); 
   }
    }
+
+ var inv_qty = {};
+ {% for var in product.variants %}
+   inv_qty[{{- var.id -}}] = {{ var.inventory_quantity | default: 0 }};
+ {% endfor %}
+
       </script>
      
   

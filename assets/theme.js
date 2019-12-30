@@ -702,6 +702,7 @@ slate.Variants = (function() {
          */
         _getVariantFromOptions: function() {
             var selectedValues = this._getCurrentOptions();
+
             var variants = this.product.variants;
 
             var found = _.find(variants, function(variant) {
@@ -732,6 +733,7 @@ slate.Variants = (function() {
             this._updateImages(variant);
             this._updatePrice(variant);
             this._updateSKU(variant);
+            this._updateInventory(variant);
             this.currentVariant = variant;
 
             if (this.enableHistoryState) {
@@ -794,6 +796,24 @@ slate.Variants = (function() {
 
             this.$container.trigger({
                 type: 'variantSKUChange',
+                variant: variant
+            });
+        },
+
+        /**
+         * Trigger event when variant sku changes.
+         *
+         * @param  {object} variant - Currently selected variant
+         * @return {event} variantInventoryChange
+         */
+
+        _updateInventory: function(variant) {
+            if (variant.inventory_quantity === this.currentVariant.inventory_quantity) {
+                return;
+            }
+
+            this.$container.trigger({
+                type: 'variantInventoryChange',
                 variant: variant
             });
         },
@@ -3985,6 +4005,7 @@ theme.Product = (function() {
             loaderStatus: '[data-loader-status]',
             quantity: '[data-quantity-input]',
             SKU: '.variant-sku',
+            Inventory_variant: '.variant-inventory',
             productStatus: '[data-product-status]',
             originalSelectorId: '#ProductSelect-' + sectionId,
             productForm: '[data-product-form]',
@@ -4130,6 +4151,10 @@ theme.Product = (function() {
             this.$container.on(
                 'variantSKUChange' + this.settings.namespace,
                 this._updateSKU.bind(this)
+            );
+            this.$container.on(
+                'variantInventoryChange' + this.settings.namespace,
+                this._updateInventory.bind(this)
             );
         },
 
@@ -4802,8 +4827,25 @@ theme.Product = (function() {
         _updateSKU: function(evt) {
             var variant = evt.variant;
 
-            // Update the sku
-            $(this.selectors.SKU).html(variant.sku);
+            // Update the sku and inventory
+            var inventory_quantity = inv_qty[variant.id];
+            var availableString;
+            if (inventory_quantity == 1) {
+                availableString = ' Disponible!';
+            } else {
+                availableString = ' Disponibles!';
+            }
+            $(this.selectors.SKU).html('SKU: ' + variant.sku);
+            $(this.selectors.Inventory_variant).html('¡' + inv_qty[variant.id] +
+                availableString
+            );
+        },
+
+        _updateInventory: function(evt) {
+            var variant = evt.variant;
+            console.log('variante inventory');
+            // Update the inventory
+            // $(this.selectors.Inventory_variant).html(variant.inventory_quantity);
         },
 
         onUnload: function() {
