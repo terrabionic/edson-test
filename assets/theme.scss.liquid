@@ -545,7 +545,7 @@ $slick-dot-color-active: $ice-blue-two;
 $slick-prev-character: '\2190';
 $slick-next-character: '\2192';
 $slick-dot-character: '\2022';
-$slick-dot-size: 40px;
+$slick-dot-size: 20px;
 $slick-opacity-default: 1;
 $slick-opacity-on-hover: 1;
 $slick-opacity-not-active: 0.5;
@@ -757,10 +757,7 @@ a,a:hover{
 
 .slick-dots {
   //list-style: none;
-  position:absolute;
-  bottom:-296px;
-  left: 47%;
-  display: block;
+    height: 20px;
   text-align: center;
   padding: 0;
   margin: 0;
@@ -3110,7 +3107,7 @@ $slick-dot-size-small: 10px;
 
 /*================ Slick dots and prev/next pagination ================*/
 .slideshow__arrows .slick-dots {
-  margin: 0 300px;
+  margin: 0 0.75rem;
 
   li {
     // sass-lint:disable SelectorDepth
@@ -5888,7 +5885,7 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
   height: $slideshow-control-size;
   padding: 5px;
   background-clip: content-box;
-  background-color: rgba($color-slideshow-controls-background, 0.4);
+  background-color: rgba($color-slideshow-controls-background, 0);
   color: rgba($color-slideshow-controls, 0.5);
   transition: $transition-controls-slideshow;
   display: none;
@@ -5901,7 +5898,7 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
   .slideshow__controls:focus &,
   .slideshow__controls--hover & {
     @include media-query($medium-up) {
-      background-color: rgba($color-slideshow-controls-background, 0.75);
+      background-color: rgba($color-slideshow-controls-background, 0);
     }
   }
 
@@ -6727,8 +6724,8 @@ $toolbar-height-small: 46px;
 
 // Slick dot positioning and color
 .quotes-wrapper .slick-dots {
-  position: absolute;
-  bottom: 20px;
+  position: relative;
+  bottom: 0;
   margin-top: $section-spacing;
 
   li {

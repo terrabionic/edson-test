@@ -118,17 +118,19 @@ $( document ).ready(function() {
           </div>
         {%- endfor -%}
       </div>
-      {%if section.blocks.size > 1%}
-        <div class=" arrows-position  ">
-          <div class=" new_slideshow__arrows arrows-flex ">
-             <button class="btn-left-position new_slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item arrow-color no-borders" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
-                 {%assign logo_arrow_right= 'arrow-right-white_2x.png'  | asset_img_url: '32X32'  %}
+           <div class="slideshow__controls arrows-position">
+        {%- if section.blocks.size > 1 -%}
+          {%- assign arrows_width = section.blocks.size | times: 18 | plus: 115 -%}
+          <div class="slideshow__arrows "
+               style="width: {{- arrows_width -}}px">
+              <button class="btn-left-position slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item arrow-color no-borders" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
+            
             
                  <div  class="arrow-size ">
                     {%include 'svg-arrow-left'%}
                    </div>
                </button>
-               <button class="btn-right-position new_slideshow__arrow-right button-arrow-size button-arrow arrow-item arrow-color no-borders" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
+               <button class="btn-right-position slideshow__arrow-right button-arrow-size button-arrow arrow-item arrow-color no-borders" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
                
             
                  <div  class="arrow-size">
@@ -136,39 +138,13 @@ $( document ).ready(function() {
                    </div>
                </button>
           </div>
-     
-     
-       </div>
-       <div class="new_slideshow__arrows new-slick-dots">
-       <ul class="slick-dots">
-        {%for block in section.blocks%}
-       
-       {%endfor%}
-       </ul>
-      
-       </div>
-      {%endif%}
-   
-  
-      <div class="slideshow__controls">
-        {%- if section.blocks.size > 1 -%}
-          {%- assign arrows_width = section.blocks.size | times: 18 | plus: 95 -%}
-        
           {%- if section.settings.autorotate -%}
-            <button type="button" class="slideshow__pause" data-id="{{ section.id }}" aria-live="polite" aria-pressed="false">
-              <span class="slideshow__pause-stop">
-                {% include 'icon-pause' %}
-                <span class="icon__fallback-text">{{ 'sections.slideshow.pause_slideshow' | t }}</span>
-              </span>
-              <span class="slideshow__pause-rotate">
-                {% include 'icon-resume' %}
-                <span class="icon__fallback-text">{{ 'sections.slideshow.rotate_slideshow' | t }}</span>
-              </span>
-            </button>
+          
           {%- endif -%}
         {%- endif -%}
       </div>
-    </div>
+   
+        
     
     <div class="slide-mobile">
      

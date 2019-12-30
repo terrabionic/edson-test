@@ -7,6 +7,8 @@ $ice-blue: #f7f8f8;
 $ice-blue-two:#eef0f0;
 $dimgray: #585665;
 $color-btn-primary: $lipstick;
+$slick-dot-color: $ice-blue-two ;
+$slick-dot-color-active:$lipstick;
 /*================ Minix  ================*/
 @mixin bg-color-param($color)
 {
@@ -399,24 +401,31 @@ position: relative;
 width:100%;
 }
 
+.slick-dots{
+  li {
+      margin-right:12px!important;
+  }
+}
 
-       .slick-dots {
-               // padding-left: 40px;
+   .slick-dots {
+             
+                position:absolute!important;
+                bottom:20px!important;
 
                 .slick-active {
                     button:before {
-                        color: $color-btn-primary;
+                        color: $slick-dot-color-active!important;
                     }
 
                     a:before {
-                        color: $color-btn-primary;
+                        color: $slick-dot-color-active!important;
                     }
                 }
 
                 li {
                     button:before {
-                        color: rgba(255,255,255,0.5);
-                        border: 1px solid rgba(0,0,0,0.25);
+                        color: $slick-dot-color!important;
+                        border: 1px solid $slick-dot-color;
                         border-radius: 100%;
                         background-color: currentColor;
                         width: 12px;
@@ -426,8 +435,8 @@ width:100%;
                     }
 
                     a:before {
-                        color: rgba(255,255,255,0.5);
-                        border: 1px solid rgba(0,0,0,0.25);
+                        color: $slick-dot-color!important;
+                        border: 1px solid $slick-dot-color;
                         border-radius: 100%;
                         background-color: currentColor;
                         width: 10px;
@@ -437,11 +446,11 @@ width:100%;
                     }
 
                     button:hover:before {
-                        color: $color-btn-primary;
+                        color: $slick-dot-color-active!important;
                     }
 
                     a:hover:before {
-                    color: $color-btn-primary;
+                    color: $slick-dot-color-active!important;
                     }
                 }
             }
