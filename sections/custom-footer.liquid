@@ -221,21 +221,49 @@
     </nav>
 
     <div class="flex-suscribe">
+            {%- assign formId = 'ContactFooter' -%}
+                  {% form 'customer', id: formId, novalidate: 'novalidate' %}
+                    {%- if form.posted_successfully? -%}
+                      <p class="form-message form-message--success" tabindex="-1" data-form-status>
+                        {{ 'general.newsletter_form.confirmation' | t }}
+                      </p>
+                    {%- endif -%}
         <div class="footer-contact-form"> 
           <div class="suscribir-label footer-contact-form-item"> 
               <h4 class="new-setting-text custom-menu-title" >suscríbete</h4>
           </div>   
            <div class="footer-contact-form-item"> 
-              <input type="email" class=" margin-0 input-suscribe-size input_border"> 
+             <input type="hidden" name="contact[tags]" value="newsletter">
+              <input type="email" name="contact[email]"
+                    id="{{ formId }}-email"
+                    class=" margin-0 input-suscribe-size input_border"
+                         value="{{ form.email }}"
+                        placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                        aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                        aria-required="true"
+                        required
+                        autocorrect="off"
+                        autocapitalize="off"
+                        {% if form.errors %}
+                          aria-invalid="true"
+                          aria-describedby="{{ formId }}-email-error"
+                          data-form-status
+                        {% endif %}
+                         > 
            </div>
             <div class="footer-contact-form-item">
-                <div class="btn-margin-left btn margin-0">
+                <button class="btn-margin-left btn margin-0" name="commit" id="Subscribe">
                     ENVIAR
-                    </div>
+                    </button>
             </div>
-           
-          
-            
+             {% if form.errors contains 'email' %}
+                      <span id="{{ formId }}-email-error" class="input-error-message">
+                        <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                        {% include 'icon-error' %}
+                        <span class="site-footer__newsletter-error">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                      </span>
+                    {% endif %}
+            {%endform%}
         </div>
 
         <div class="footer-social-logo">

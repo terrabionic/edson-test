@@ -5711,9 +5711,10 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
 
   @include media-query($small) {
     display: block;
-    position: relative;
-    top: -1.1rem;
-    background-color: $color-bg;
+    position: absolute;
+    top: 0;
+    left: calc(50% -50px);
+    background-color: none;
     width: 85%;
     margin: 0 0 -1.1rem 7.5%;
   }
@@ -5785,6 +5786,7 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
   .slideshow__arrows--mobile ~ & {
     padding-top: 1.7rem;
     @include media-query($medium-up) {
+      display:block;
       padding-top: 0;
     }
   }
@@ -5940,7 +5942,7 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
 
   .slick-dots {
     line-height: $slideshow-control-size - 12;
-
+    
     li {
       width: $slideshow-dot-size;
       height: $slideshow-dot-size;
@@ -5974,7 +5976,7 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
   display: block;
   width: 100%;
   height: $slideshow-control-size;
-  background-color: transparent;
+  background-color: none;
   .icon {
     fill: rgba($color-slideshow-controls-background, 0.5);
   }
@@ -6004,7 +6006,7 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
   .slideshow__controls:focus &,
   .slideshow__controls--hover &{
     @include media-query($medium-up) {
-      background-color: rgba($color-slideshow-controls-background, 0.75);
+      background-color: rgba($color-slideshow-controls-background, 0);
     }
   }
 
@@ -7767,6 +7769,26 @@ $transition-controls-video: color 0.2s $ease-transition, background-color 0.2s $
     opacity: 1;
   }
 }
+
+//slide images
+.image-desktop{
+   display:block;
+    @include media-query($medium-up) {
+      display:none;
+    }
+}
+.image-mobile{
+   display:none;
+    @include media-query($medium-up) {
+      display:block;
+    }
+}
+
+.slider-height{
+height:auto!important;
+ 
+}
+
 
 .product-recommendations__inner {
   padding: $section-spacing-small 0;

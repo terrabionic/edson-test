@@ -1,12 +1,20 @@
 
 <script>
-$( document ).ready(function() {
-    console.log( "ready!" );
-    var arrow_list = document.getElementById('slickDot01');
- console.log('slick 02'+ arrow_list);
+function change_ratio(){
  
+  var w = window.innerWidth;
+  
+  if (w < 750){
+    $('#Slideshow-slideshow').data('min-aspect-ratio',1)
+  }
+  else{
+   $('#Slideshow-slideshow').data('min-aspect-ratio',2.4)
+  }
+}
+window.onresize = change_ratio;
+$( document ).ready(function() {
+    change_ratio();
 });
-
 </script>
 {%- if section.settings.slideshow_height == 'adapt' -%}
 
@@ -18,7 +26,7 @@ $( document ).ready(function() {
   {%- else -%}
     {%- assign min_aspect_ratio = first_block.settings.image.aspect_ratio -%}
   {%- endif -%}
-  {% assign wrapper_height = 100 | divided_by: min_aspect_ratio %}
+  {% assign wrapper_height = 200 | divided_by: min_aspect_ratio %}
 {%- endif -%}
 
 {%- assign text_alignments = section.settings.text_alignment | split: ' ' -%}
@@ -27,21 +35,21 @@ $( document ).ready(function() {
 
 <div data-section-id="{{ section.id }}" data-section-type="slideshow-section">
   {%- if section.blocks.size > 0 -%}
-    <div id="SlideshowWrapper-{{ section.id }}" class="slideshow-wrapper slide-desktop" role="region" aria-label="slideshow" aria-describedby="slideshow-info" tabindex="-1">
-      <div class="slideshow slideshow--{{ section.settings.slideshow_height }}{% if display_controls %} slideshow--display-controls{% endif %} slide-width"
+    <div id="SlideshowWrapper-{{ section.id }}" class="slideshow-wrapper" role="region" aria-label="slideshow" aria-describedby="slideshow-info" tabindex="-1">
+      <div class="slideshow slideshow--{% if display_controls %} slideshow--display-controls{% endif %} slide-height"
            id="Slideshow-{{ section.id }}"
            data-autorotate="{{ section.settings.autorotate }}"
            data-speed="{{ section.settings.autorotate_speed | times: 1000 }}"
            data-adapt-height="{% if section.settings.slideshow_height == 'adapt' %}true{% else %}false{% endif %}"
            data-slide-nav-a11y="{{ 'sections.slideshow.load_slide' | t: slide_number: '[slide_number]' }}"
-           {% if section.settings.slideshow_height == 'adapt' %}data-min-aspect-ratio="{{ min_aspect_ratio }}"
+           {% if section.settings.slideshow_height == 'adapt' %}data-min-aspect-ratio="{{min_aspect_ratio}}"
            style="height: {{- wrapper_height -}}vw"{% endif %}>
 
         {%- for block in section.blocks -%}
 
          
           <div class="slideshow__slide slideshow__slide--{{ block.id }}" {{ block.shopify_attributes }}>
-              <h2> block id- {{block.id}}</h2>
+        
             {% if block.settings.image == blank %}
               <div class="slideshow__image js">
                 <div class="placeholder-background">
@@ -51,10 +59,18 @@ $( document ).ready(function() {
                 {% if section.settings.show_overlay %}<div class="slideshow__overlay"></div>{% endif %}
               </div>
             {% else %}
-              <div class="slideshow__image box ratio-container lazyload{% unless forloop.first %} lazypreload{% endunless %} js"
-                   data-bgset="{% include 'bgset', image: block.settings.image %}"
+              <div class="slideshow__image box ratio-container lazyload{% unless forloop.first %} lazypreload{% endunless %}  js image-mobile"
+                   data-bgset="{% include 'bgset', image: block.settings.image%}"
+                  data-sizes="auto"
+                   data-parent-fit="contain"
+                   style="background-position: {{ block.settings.alignment }};
+                          background-image: url('{{ block.settings.image | img_url: 'master' }}');">
+                {% if section.settings.show_overlay %}<div class="slideshow__overlay"></div>{% endif %}
+              </div>
+              <div class="slideshow__image box ratio-container lazyload{% unless forloop.first %} lazypreload{% endunless %}  js image-desktop"
+                   data-bgset="{% include 'bgset', image: block.settings.image_small%}"
                    data-sizes="auto"
-                   data-parent-fit="fit"
+                   data-parent-fit="contain"
                    style="background-position: {{ block.settings.alignment }};
                           background-image: url('{{ block.settings.image | img_url: 'master' }}');">
                 {% if section.settings.show_overlay %}<div class="slideshow__overlay"></div>{% endif %}
@@ -62,8 +78,16 @@ $( document ).ready(function() {
             {% endif %}
 
             <noscript>
-              <div class="slideshow__image"{% if block.settings.image %} style="background-image: url('{{ block.settings.image| img_url: '2048x' }}'); background-position: {{ block.settings.alignment }};"{% endif %}>
+              <div class="slideshow__image image-desktop"{% if block.settings.image %} style="background-image: url('{{ block.settings.image| img_url: '2048x' }}'); background-position: {{ block.settings.alignment }};"{% endif %}>
                 {% if block.settings.image == blank %}
+                  <div class="placeholder-background">
+                    {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                    {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                {% endif %}
+              </div>
+                    <div class="slideshow__image image-mobile"{% if block.settings.image %} style="background-image: url('{{ block.settings.image_small| img_url: '2048x' }}'); background-position: {{ block.settings.alignment }};"{% endif %}>
+                {% if block.settings.image_small == blank %}
                   <div class="placeholder-background">
                     {% capture current %}{% cycle 1, 2 %}{% endcapture %}
                     {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
@@ -143,76 +167,33 @@ $( document ).ready(function() {
           {%- endif -%}
         {%- endif -%}
       </div>
-   
+      <div class="slideshow__text-wrap slideshow__text-wrap--mobile">
+      {% if section.blocks.size > 1 %}
+        <div class="slideshow__arrows slideshow__arrows--mobile">
         
-    
-    <div class="slide-mobile">
+        </div>
+      {% endif %}
+      {%- for block in section.blocks -%}
+        
      
-     {%assign protocol = 'https:'%}
-      
-      <div class="slide-mobile-item">
-      {%if first_block.settings.button_label != blank and first_block.settings.button_link != blank%}
-      <a href="{{first_block.settings.button_link}}"> 
-      {%endif%}
-      {%if first_block.settings.image_small != blank%}
-      <div class="slide-mobile-bg-image lazyload"
-      data-bgset = "{%include 'bgset', image: first_block.settings.image_small%}"
-      data-sizes="auto"
-      data-parent-fit="contain"
-      style="background-image: url('{{'first_block.settings.image_small' | img_url: 'master' }})';"> 
-      {%else%}
-      <h2>image blank</h2>
-      <div class="slide-mobile-bg-image lazyload"
-      data-bgset = "{{protocol}}{%include 'bgset', image: first_block.settings.image_small%}"
-      data-sizes="auto"
-      data-parent-fit="contain"
-      style="background-image:  url('{{'default-image-slide-tablet.jpg' | asset_url }}');"> 
-      
-      {%endif%}
-
-      {%if first_block.settings.slide_title != blank and first_block.settings.subheading != blank%}
-         {%assign tituloSubtituloShow = true%}
-      {%else%}
-         {%assign tituloSubtituloShow = false%}
-      {%endif%}
-       {%if first_block.settings.button_label!= blank and first_block.settings.button_link!= blank%}
-           {%assign showButtonLink = true%}
-       {%else%}
-            {%assign showButtonLink = false%}
-        {%endif%}
-        {%if tituloSubtituloShow and showButtonLink%}
-            <div class="slide-mobile-title">
-            {%if first_block.settings.slide_title != blank%}
-               <h2 class="slide-text slide-mobile-title">{{first_block.settings.slide_title}}</h2>
-            {%endif%}
-            </div>
-        {%endif%}
-          {%if first_block.settings.subheading != blank%}
-             <span class="slide-text .slide-mobile-subtitle ">
-               {{first_block.settings.subheading}}
-             </span>
-          {%endif%}
-          
-          {%if showButtonLink%}
-              <a href="{{first_block.settings.button_link}}" class="btn btn-slide-mobile">
-              {{first_block.settings.button_label}}
-              </a>
-          {%endif%}
-       </div>
-       </a>
-
+      {%- endfor -%}
     </div>
-   
-    
-    </div>
-
   {%- endif -%}
+
+ 
+
+
 
   {% if section.blocks.size == 0 %}
     <div class="placeholder-noblocks">
       {{ 'homepage.onboarding.no_content' | t }}
     </div>
   {% endif %}
+
+
+  
+  </div>
+
   </div>
   
 
