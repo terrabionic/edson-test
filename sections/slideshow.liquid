@@ -5,10 +5,12 @@ function change_ratio(){
   var w = window.innerWidth;
   
   if (w < 750){
-    $('#Slideshow-slideshow').data('min-aspect-ratio',1)
+    $('#Slideshow-slideshow').data('min-aspect-ratio',0.6)
+     $('#Slideshow-1574358775486').data('min-aspect-ratio',0.6)
   }
   else{
    $('#Slideshow-slideshow').data('min-aspect-ratio',2.4)
+  $('#Slideshow-1574358775486').data('min-aspect-ratio',2.4)
   }
 }
 window.onresize = change_ratio;
@@ -122,10 +124,8 @@ $( document ).ready(function() {
                       </div>
                         
                       {%- endunless -%}
-                    </ul>
-                  {% endunless %}
 
-                  {%- assign show_link_button = false -%}
+                                     {%- assign show_link_button = false -%}
                   {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
                     {%- assign show_link_button = true -%}
                   {%- endif -%}
@@ -136,6 +136,10 @@ $( document ).ready(function() {
                       </a>
                     </div>
                   {%- endif -%}
+                    </ul>
+                  {% endunless %}
+
+   
                 </div>
               </div>
             </div>

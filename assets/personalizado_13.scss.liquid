@@ -229,6 +229,19 @@ img{
   }
 }
 
+.width-group{
+  @media(max-width:1050px){
+  position:relative;
+  width:80%!important;
+  }
+}
+.container-images-custom-collection-list{
+  position:relative;
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+
 /*================ Slideshow ================*/
 
 /*================ Header  ================*/
@@ -630,7 +643,10 @@ height:50px!important;
 }
 .slide-desktop-title
 {
-font-size: $slide-title-font-size-desktop;
+font-size: 40px;
+@media(max-width:750px){
+font-size: 26px;
+}
 
 }
 .slide-mobile-title
@@ -644,7 +660,10 @@ font-size: $slide-subtitle-font-size-mobile;
 }
 .slide-desktop-subtitle
 {
-font-size: $slide-subtitle-font-size-desktop;
+font-size: 26px;
+   @media(max-width:750px){
+   font-size: 22px;
+}
 }
 
 .btn-slide-mobile
