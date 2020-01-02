@@ -1,4 +1,11 @@
 
+<style>
+   function bullets_showed()
+   {
+
+   } 
+</style>
+
 <div class="page-width carousel-section-margin">
 <div data-section-id="{{ section.id }}" data-section-type="featured-collection-carousel" class="featured-collection-corousel-section">
     <div class="flex-group-personalizado header-custom-collection-list">
@@ -12,9 +19,13 @@
 
 
 
- <div class="carousel js-carousel">
-    <div class="carousel__container js-carousel-container">
-      <div class="carousel__list js-carousel-list">
+ <div id="myCarousel" class="carousel js-carousel"  >
+   {%assign total_items = 8%}
+    {%if collection.size < 8%}
+    {%assign total_items = collection.size%}
+  {%endif%}
+    <div class="carousel__container js-carousel-container" >
+      <div class="carousel__list  js-carousel-list">
           {%assign collection=collections[section.settings.c_id].products%}
           {%for product in collection limit:8 %}
     
@@ -70,6 +81,14 @@
                 </div>
             </button>
 
+    </div>
+    <div class="carousel-bullets" >
+    <ol class="  new-slick-dots ">
+    {%for product in collection limit:8 %}
+    <li data-target="#myCarousel" data-slide-to="7"></li>
+
+    {%endfor%}
+    </ol>
     </div>
   </div>
 </div>
