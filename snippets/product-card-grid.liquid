@@ -10,10 +10,11 @@ cambiar product grid background
     {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
-<div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
+<div   class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
   <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
     <span class="  visually-hidden ">{{ product.title }}</span>
   </a>
+  
 
   {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
@@ -25,7 +26,7 @@ cambiar product grid background
 
   
 
-  <div class="product-card__image-with-placeholder-wrapper" data-image-with-placeholder-wrapper>
+  <div   class="product-card__image-with-placeholder-wrapper" data-image-with-placeholder-wrapper>
       {%if template == 'collection'%}
       {%assign class_border = 'collection-image-border'%}
       {%assign image_half_size =''%}
@@ -33,12 +34,29 @@ cambiar product grid background
       {%assign class_border = ''%}
       {%assign image_half_size = 'image-recomendations-size'%}
       {%endif%}
-    <div  class="grid-view-item__image-wrapper product-card__image-wrapper  image-recomendations-center js ">
-        
-        <div class="product-image-position ratio-container  image-overflow lazyload js image-product-size {{class_border}}  {{image_half_size}} "
-        style="background-image: url('{{ product.featured_image | img_url: 'master' }}); padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100 }}%{% else %}100%{% endunless %};">
+    
+    <div     class="grid-view-item__image-wrapper product-card__image-wrapper  image-recomendations-center js  grid-image-resize-container ">
+  
+ 
+     <div class=" product-image-position ratio-container  image-overflow  lazyload js image-product-size {{class_border}}  {{image_half_size}}"
+        style="   padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100 }}%{% else %}100%{% endunless %};">
+       <img id="{{ img_id }}"
+              class="grid-view-item__image image-prueba-size lazyload"
+              alt="{{ product.featured_image.alt }}"
+              data-src="{{ img_url }}"
+              data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+              data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+              data-sizes="auto"
+              data-image>
       </div>
-    <div class="placeholder-background placeholder-background--animation" data-image-placeholder></div>
+   
+   
+   
+   
+
+
+    <div class="placeholder-background placeholder-background--animation" data-image-placeholder>
+    </div>
   </div>
 
   <noscript>
@@ -49,7 +67,7 @@ cambiar product grid background
   <div class=" product-collection-title title-product-collection-size " aria-hidden="true">
   <div class="product-title-ratio">
   {{product.title}}
-  </div>
+ </div>
    {% if template != 'collection'%}
    {% include 'product-price', variant: product.selected_or_first_available_variant, current_section: current_section, product: product, show_vendor: show_vendor %}
    {%endif%}
@@ -59,5 +77,7 @@ cambiar product grid background
    {%endif%}
   
   
+
+</div>
 
 </div>

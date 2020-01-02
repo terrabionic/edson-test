@@ -3238,9 +3238,9 @@ $slick-dot-size-small: 10px;
   }
 }
 
-$color-blankstate: rgba($color-body-text, 0.35);
-$color-blankstate-border: rgba($color-body-text, 0.2);
-$color-blankstate-background: rgba($color-body-text, 0.1);
+$color-blankstate: rgba($color-body-text, 0);
+$color-blankstate-border: rgba($color-body-text, 0);
+$color-blankstate-background: rgba($color-body-text, 0);
 
 .placeholder-svg {
   display: block;
@@ -5655,6 +5655,7 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
   overflow: hidden;
 }
 
+
 .slideshow__link {
   display: block;
   position: absolute;
@@ -5674,6 +5675,8 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
     @include overlay($z-index-slideshow-text);
   }
 }
+
+
 
 /*================ Slide images ================*/
 .slideshow__image {
@@ -7280,7 +7283,7 @@ $toolbar-height-small: 46px;
   &:hover,
   &:focus-within {
     .product-card__image-wrapper {
-      opacity: 0.8;
+      opacity: 1;
     }
 
     .product-card__title {
@@ -7292,6 +7295,7 @@ $toolbar-height-small: 46px;
 .product-card__image-with-placeholder-wrapper {
   position: relative;
 }
+
 
 .product-card__title {
   border-bottom: 1px solid transparent;
@@ -7426,7 +7430,7 @@ $transition-controls-video: color 0.2s $ease-transition, background-color 0.2s $
 }
 
 .video-background-wrapper--no-overlay {
-  background-color: rgba($color-image-overlay, 0.2);
+  background-color: rgba($color-image-overlay, 0);
 }
 
 /*================ Video text ================*/
@@ -7674,7 +7678,7 @@ $transition-controls-video: color 0.2s $ease-transition, background-color 0.2s $
 
   .icon {
     position: relative;
-    color: rgba($color-video-controls, 0.5);
+    color: rgba($color-video-controls, 0);
     transition: $transition-controls-video;
   }
 
@@ -7705,11 +7709,11 @@ $transition-controls-video: color 0.2s $ease-transition, background-color 0.2s $
   width: $video-pause-button-size;
   margin: 0 auto;
   justify-content: center;
-  background-color: rgba($color-video-controls-background, 0.4);
+  background-color: rgba($color-video-controls-background, 0);
 
   .video__pause:hover &,
   .video__pause:focus & {
-    background-color: rgba($color-video-controls-background, 0.75);
+    background-color: rgba($color-video-controls-background, 0);
   }
 
   .video__pause:focus & {
