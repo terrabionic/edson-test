@@ -7,14 +7,14 @@ function change_active_button(button)
 {
 
  var slide_num =  $('#carousel-list-items').data('current-slide');
-   console.log('slide_num first' + slide_num);
+  
  var total_slide = $("#slick-group li").size();
   $( "#slick-group li" ).each(function(  ) {
  $(this).removeClass( "new-slick-active" );
 });
 if (button == 0) 
 {
-  console.log("button 0");
+  
  if (slide_num > 1){
   slide_num--;
 
@@ -22,7 +22,7 @@ if (button == 0)
 }
 else if (button == 1)
 {
-    console.log('button 1');
+   
 if (slide_num < total_slide)
 {
 
@@ -31,7 +31,7 @@ slide_num= slide_num + 1;
 
 }
 
-console.log('slide-num'+ slide_num);
+
  $('#carousel-list-items').data('current-slide', slide_num)
  $( "#slick-group li" ).eq(slide_num - 1).addClass("new-slick-active");
 }
@@ -46,12 +46,12 @@ function change_active(slide_active)
 function change_slide(event)
 {
   var current_slide = $(event.currentTarget).data('slide');
-  console.log("current-slide="+ current_slide);
+ 
 
    change_active(event.currentTarget);
     var total_width =  $('.carousel__list').width();
    var displayed_width =  $('.carousel__container').width();
-  var item_number = 1 + (2 * (current_slide - 1) );
+  var item_number = 1 + (3 * (current_slide - 1) );
     if (item_number != 1){
         diff_absolute = $("#carousel-item-"+item_number).offset().left - $("#carousel-item-1").offset().left;
       }
@@ -59,9 +59,18 @@ function change_slide(event)
       {
        diff_absolute = 0;
       }
+     
     var containerPos =  $('#carousel-list-items').offset().left;
      var carousel_item =  $("#carousel-item-"+item_number).offset().left;
-     var new_left = - ( carousel_item - containerPos) ;
+
+     var slide = $(event.currentTarget).data('slide');
+     var new_left =   displayed_width * (slide - 1)  ; //cambiar * -1
+     if (new_left > (total_width - displayed_width))
+     {
+         new_left = total_width - displayed_width;
+     }
+     new_left = new_left * -1;
+
     $('#carousel-list-items').data('current-slide', current_slide);
     //$("#carousel-list-items").css('left', -new_left );
       
@@ -86,10 +95,25 @@ function create_bullets(){
 
   var dots_container = $('#slick-group');
 
-  var dots_num = total_width / displayed_width;
+  var width_window = $(window).width();
 
-  
-  var dots_num = Math.ceil(dots_num);
+
+
+
+   var dots_num;
+
+  if (width_window >= 1110)
+  {
+   dots_num = 2;
+  }
+  else if(width_window >= 860 && width_window < 1110)
+  {
+       dots_num = 3;
+  }
+  else
+  {
+    dots_num = 4;
+  }
 
   console.log('dots-num='+ dots_num);
 
@@ -136,7 +160,7 @@ $( document ).ready(function() {
     {%assign total_items = collection.size%}
   {%endif%}
     <div id="carousel-container"  class="carousel__container js-carousel-container"  >
-      <div id="carousel-list-items"  class="carousel__list  js-carousel-list" data-current-slide="1">
+      <div id="carousel-list-items"  class="carousel__list  js-carousel-list"  data-current-slide="1">
           {%assign collection=collections[section.settings.c_id].products%}
           {%for product in collection limit:8 %}
     
@@ -184,7 +208,7 @@ $( document ).ready(function() {
               </div>
           </button>
          
-          <button  onclick="change_active_button(1)" class="  carousel__button--next js-carousel-button   btn-right-position carousel_position_button new_slideshow__arrow-right button-arrow-size button-arrow arrow-item arrow-color no-borders" data-dir="next" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
+          <button  onclick="change_active_button(1)" class="  carousel__button--next js-carousel-button   btn-right-position-carousel carousel_position_button new_slideshow__arrow-right button-arrow-size button-arrow arrow-item arrow-color no-borders" data-dir="next" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
                
             
               <div  class=" arrow-size">
@@ -193,7 +217,7 @@ $( document ).ready(function() {
             </button>
 
     </div>
-    <div class="carousel-bullets" >
+    <div class="carousel-bullets  display-dots" >
     <ol id="slick-group" class="  new-slick-dots ">
    
     </ol>

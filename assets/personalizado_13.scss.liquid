@@ -1262,7 +1262,7 @@ min-width: 258px;
 }
 .carousel__item{
   
-  flex: 1 0 300px;
+  flex: 1 0 250px;
   @media(max-width: 1300px){
     flex: 1 0 250px;
   }
@@ -2342,6 +2342,10 @@ fill:"#464250";
 position:absolute;
 left: calc(100% - 50px - 20px);
 }
+.btn-right-position-carousel{
+position:absolute;
+left: calc(100% - 50px );
+}
 
 .btn-left-position{
   position:absolute;
@@ -2518,8 +2522,12 @@ border: 1px solid $ice-blue-two;
 
 // text columns with image
 .margin-section-text-columns{
-  margin-top:86px;
+  margin-top:-18px;
   overflow:hidden;
+  @media(max-width: 620px)
+  {
+  margin-top:30px;
+  }
 }
 .padding-top-items-columns{
   padding-top:24px;
@@ -2588,8 +2596,7 @@ clear:both;
 }
 
 .new-slick-dots{
-  
-  
+ 
      li{
       display:inline-block;
 
@@ -2627,8 +2634,12 @@ clear:both;
 }
 
 .carousel-bullets{
+  margin-top:40px;
   display: flex;
   justify-content: center;
+   @media(max-width: 620px){
+ display:none;
+  }
 }
 
     
