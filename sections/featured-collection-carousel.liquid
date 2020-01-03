@@ -1,10 +1,89 @@
 
-<style>
-   function bullets_showed()
-   {
 
-   } 
-</style>
+<script>
+function change_slide(event)
+{
+  var current_slide = $(event.currentTarget).data('slide');
+
+  console.log('current_slide'+ current_slide);
+
+    var total_width =  $('.carousel__list').width();
+  console.log('total_width='+ total_width);
+
+   var displayed_width =  $('.carousel__container').width();
+  console.log('displayed_width='+ displayed_width);
+
+  var item_number = 1 + (2 * (current_slide - 1) );
+
+  console.log("item-number="+ item_number);
+
+
+
+
+    if (item_number != 1){
+        diff_absolute = $("#carousel-item-"+item_number).offset().left - $("#carousel-item-1").offset().left;
+      }
+      else
+      {
+       diff_absolute = 0;
+      }
+     console.log("diff absolute"+ diff_absolute);
+    
+
+    var containerPos =  $('#carousel-list-items').offset().left;
+      console.log("containerPos"+ containerPos);
+
+      console.log( "carousel item" + $("#carousel-item-"+item_number).offset().left);
+ 
+     var carousel_item =  $("#carousel-item-"+item_number).offset().left;
+
+     var new_left = - ( carousel_item - containerPos) ;
+
+     console.log('new left h =' + new_left);
+
+    $('#carousel-list-items').data('current-slide',new_left);
+    //$("#carousel-list-items").css('left', -new_left );
+      
+     $('#carousel-list-items').animate({
+      left: new_left
+  }, 300);
+
+  //$("#carousel-container").animate({"left":new_left + "px"}, "slow");
+
+
+
+
+}
+function create_bullets(){
+ 
+  
+  
+ 
+  var total_width =  $('.carousel__list').width();
+  console.log('total_width='+ total_width);
+
+   var displayed_width =  $('.carousel__container').width();
+  console.log('displayed_width='+ displayed_width);
+
+  var dots_container = $('#slick-group');
+
+  var dots_num = total_width / displayed_width;
+
+  var dots_num = Math.ceil(dots_num);
+
+  console.log('dots-num='+ dots_num);
+
+  for (i=1 ; i<= dots_num; i++){
+    console.log('i='+i)
+   dots_container.append('<li onclick=change_slide(event)' +' data-slide= \"'+i +'\"> </li>');
+  }
+}
+
+window.onresize = create_bullets;
+$( document ).ready(function() {
+   create_bullets();
+});
+</script>
 
 <div class="page-width carousel-section-margin">
 <div data-section-id="{{ section.id }}" data-section-type="featured-collection-carousel" class="featured-collection-corousel-section">
@@ -24,14 +103,14 @@
     {%if collection.size < 8%}
     {%assign total_items = collection.size%}
   {%endif%}
-    <div class="carousel__container js-carousel-container" >
-      <div class="carousel__list  js-carousel-list">
+    <div id="carousel-container"  class="carousel__container js-carousel-container"  >
+      <div id="carousel-list-items" class="carousel__list  js-carousel-list" data-current-slide="1">
           {%assign collection=collections[section.settings.c_id].products%}
           {%for product in collection limit:8 %}
     
        
     
-              <div class=" carousel__item js-carousel-item  product_carrousel_item flex-group-personalizado">
+              <div id="carousel-item-{{forloop.index}}" class=" carousel__item js-carousel-item  product_carrousel_item flex-group-personalizado">
                 {%assign image_url = product.featured_image  %}
               
                
@@ -83,11 +162,8 @@
 
     </div>
     <div class="carousel-bullets" >
-    <ol class="  new-slick-dots ">
-    {%for product in collection limit:8 %}
-    <li data-target="#myCarousel" data-slide-to="7"></li>
-
-    {%endfor%}
+    <ol id="slick-group" class="  new-slick-dots ">
+   
     </ol>
     </div>
   </div>
