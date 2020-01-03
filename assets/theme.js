@@ -4785,6 +4785,7 @@ theme.Product = (function() {
             // Sold out
             if (!variant.available) {
                 $priceContainer.addClass(this.classes.productSoldOut);
+                $(this.selectors.Inventory_variant).html('');
                 return;
             }
 
@@ -4815,6 +4816,29 @@ theme.Product = (function() {
                 $unitPriceBaseUnit.html(this._getBaseUnit(variant));
                 $priceContainer.addClass(this.classes.productUnitAvailable);
             }
+            //  inventory
+            try {
+                var inventory_quantity;
+
+                inventory_quantity = inv_qty[variant.id];
+                if (inventory_quantity == null) {
+                    inventory_quantity = 0;
+                }
+
+                var availableString;
+                if (inventory_quantity == 1) {
+                    availableString = ' Disponible!';
+                } else {
+                    availableString = ' Disponibles!';
+                }
+
+                $(this.selectors.Inventory_variant).html('¡' + inv_qty[variant.id] +
+                    availableString
+                );
+            } catch (ex) {
+                console.log('ex=' + ex);
+            }
+
         },
 
         _getBaseUnit: function(variant) {

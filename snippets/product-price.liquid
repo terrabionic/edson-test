@@ -83,6 +83,7 @@
   {% endif %}
 
   <div class="price__regular">
+ 
     <dt>
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
     </dt>
@@ -100,7 +101,7 @@
           </dt>
           <dd>
         
-            <s class="price-item price-item--regular" data-regular-price>
+            <s style="font-weight:bold" class=" price-item--regular" data-regular-price>
               {{ compare_at_price | money }}
             </s>
           </dd>
@@ -121,6 +122,7 @@
 
   </div>
   <div class="price__unit">
+
     <dt>
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.unit_price_label' | t }}</span>
     </dt>
@@ -143,6 +145,7 @@
     </dd>
   </div>
   <div class="price__availability">
+
     <dt>
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.availability' | t }}</span>
     </dt>
@@ -154,7 +157,9 @@
   </div>
   {%if template == 'product' %}
   <div class="product-store variant-inventory">
-    ¡{{current_variant.inventory_quantity}} {{current_variant.inventory_quantity  | pluralize: 'Disponible', 'Disponibles'}}!
+    {% if current_variant.inventory_quantity != 0%}
+     ¡{{current_variant.inventory_quantity}} {{current_variant.inventory_quantity  | pluralize: 'Disponible', 'Disponibles'}}!
+    {%endif%}
    </div>
   {%endif%}
 

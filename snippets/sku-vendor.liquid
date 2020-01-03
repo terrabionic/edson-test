@@ -1,0 +1,44 @@
+{% if show_vendor and product %}
+  {%if  current_section != 'product-recomendations'%}
+   <div class="product-attributes">
+ 
+      <div class="product-sku-vendor">
+          <div class="price__vendor">
+              <dt>
+                <span class="visually-hidden">{{ 'products.product.vendor' | t }}</span>
+              </dt>
+              <dd class="product-vendor-sku-text">
+                {{ product.vendor }}
+              </dd>
+            </div>
+              {%if product.selected_or_first_available_variant.sku != blank%}
+              <div class="divisor">
+
+              </div>
+              <div class="price__sku">
+                  <dt>
+                    <span class="visually-hidden">{{ 'products.product.selected_or_first_available_variant.sku' | t }}</span>
+                  </dt>
+                  <dd class="variant-sku product-vendor-sku-text">
+                  SKU: {{ product.selected_or_first_available_variant.sku }}
+                  </dd>
+                </div>
+              {%endif%}
+         
+       </div>
+   
+
+   <div>
+
+   </div>
+  
+     <div class="product-reviews-container">
+        <span class="product-reviews-container-child shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+     </div>
+ 
+  
+
+ 
+   </div>
+   {%endif%}
+  {% endif %}
