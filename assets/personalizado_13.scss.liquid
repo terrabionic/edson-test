@@ -2578,31 +2578,50 @@ margin-top:10px;
 clear:both;
 }
 
+.new-slick-active{
+  &{
+     background:$lipstick!important;
+  }
+  &:before{
+    color: $lipstick!important;
+  }
+}
+
 .new-slick-dots{
   
   
      li{
       display:inline-block;
 
-     width:20px;
-     height:20px;
-  
-       background: dark;
-       border-radius:100%;
+     width:15px;
+     height:15px;
+      margin-left:20px;
+      padding:-10px;
+      background:$ice-blue-two;
+     
+       border:1px solid {{settings.color_borders}};
+      
+          border-radius: 100%;
+          
+      
        content:"\2022";
       
        cursor: pointer;
      }
      li:before{
-          width:20px;
-       height:20px;
-       background: dark;
-       border-radius:100%;
-       content:"\2022";
-       font-size: 40px;
-       color: $lipstick;
+       position:relative;
+       top:-33px;
+       left:-2px;
       
+       display:block;
+          width:15px;
+       height:15px;
+        box-sizing: border-box;
+       content:"\2022";
+       font-size: 51px;
+       color: $ice-blue-two;
        cursor: pointer;
+     
      }
   
 }

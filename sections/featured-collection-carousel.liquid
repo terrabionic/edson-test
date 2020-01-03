@@ -1,25 +1,57 @@
 
 
 <script>
+
+
+function change_active_button(button)
+{
+
+ var slide_num =  $('#carousel-list-items').data('current-slide');
+   console.log('slide_num first' + slide_num);
+ var total_slide = $("#slick-group li").size();
+  $( "#slick-group li" ).each(function(  ) {
+ $(this).removeClass( "new-slick-active" );
+});
+if (button == 0) 
+{
+  console.log("button 0");
+ if (slide_num > 1){
+  slide_num--;
+
+ }
+}
+else if (button == 1)
+{
+    console.log('button 1');
+if (slide_num < total_slide)
+{
+
+slide_num= slide_num + 1;
+}
+
+}
+
+console.log('slide-num'+ slide_num);
+ $('#carousel-list-items').data('current-slide', slide_num)
+ $( "#slick-group li" ).eq(slide_num - 1).addClass("new-slick-active");
+}
+function change_active(slide_active)
+{
+  $(this).data('current-slide');
+  $( "#slick-group li" ).each(function(  ) {
+ $(this).removeClass( "new-slick-active" );
+});
+ $(slide_active).addClass("new-slick-active");
+}
 function change_slide(event)
 {
   var current_slide = $(event.currentTarget).data('slide');
+  console.log("current-slide="+ current_slide);
 
-  console.log('current_slide'+ current_slide);
-
+   change_active(event.currentTarget);
     var total_width =  $('.carousel__list').width();
-  console.log('total_width='+ total_width);
-
    var displayed_width =  $('.carousel__container').width();
-  console.log('displayed_width='+ displayed_width);
-
   var item_number = 1 + (2 * (current_slide - 1) );
-
-  console.log("item-number="+ item_number);
-
-
-
-
     if (item_number != 1){
         diff_absolute = $("#carousel-item-"+item_number).offset().left - $("#carousel-item-1").offset().left;
       }
@@ -27,21 +59,10 @@ function change_slide(event)
       {
        diff_absolute = 0;
       }
-     console.log("diff absolute"+ diff_absolute);
-    
-
     var containerPos =  $('#carousel-list-items').offset().left;
-      console.log("containerPos"+ containerPos);
-
-      console.log( "carousel item" + $("#carousel-item-"+item_number).offset().left);
- 
      var carousel_item =  $("#carousel-item-"+item_number).offset().left;
-
      var new_left = - ( carousel_item - containerPos) ;
-
-     console.log('new left h =' + new_left);
-
-    $('#carousel-list-items').data('current-slide',new_left);
+    $('#carousel-list-items').data('current-slide', current_slide);
     //$("#carousel-list-items").css('left', -new_left );
       
      $('#carousel-list-items').animate({
@@ -50,15 +71,13 @@ function change_slide(event)
 
   //$("#carousel-container").animate({"left":new_left + "px"}, "slow");
 
-
-
-
 }
 function create_bullets(){
  
   
-  
- 
+  var old_dots_num = $('#slick-group li').length;
+  console.log('old-dots-num='+old_dots_num);
+
   var total_width =  $('.carousel__list').width();
   console.log('total_width='+ total_width);
 
@@ -69,14 +88,27 @@ function create_bullets(){
 
   var dots_num = total_width / displayed_width;
 
+  
   var dots_num = Math.ceil(dots_num);
 
   console.log('dots-num='+ dots_num);
 
-  for (i=1 ; i<= dots_num; i++){
-    console.log('i='+i)
-   dots_container.append('<li onclick=change_slide(event)' +' data-slide= \"'+i +'\"> </li>');
+  if (old_dots_num != dots_num)
+  {
+  $( "#slick-group li" ).each(function(  ) {
+ $(this).remove( );
+});
+   for (i=1 ; i<= dots_num; i++){
+     if (i == 1){
+        dots_container.append('<li class="new-slick-active" onclick=change_slide(event) ' +' data-slide= \"'+i +'\">  </li>');
+     }
+     else{
+      dots_container.append('<li onclick=change_slide(event) ' +' data-slide= \"'+i +'\">  </li>');
+     }
+  
   }
+  }
+ 
 }
 
 window.onresize = create_bullets;
@@ -104,7 +136,7 @@ $( document ).ready(function() {
     {%assign total_items = collection.size%}
   {%endif%}
     <div id="carousel-container"  class="carousel__container js-carousel-container"  >
-      <div id="carousel-list-items" class="carousel__list  js-carousel-list" data-current-slide="1">
+      <div id="carousel-list-items"  class="carousel__list  js-carousel-list" data-current-slide="1">
           {%assign collection=collections[section.settings.c_id].products%}
           {%for product in collection limit:8 %}
     
@@ -144,7 +176,7 @@ $( document ).ready(function() {
       </div>
     </div>
     <div class="carousel__nav">
-        <button class="carousel__button--prev js-carousel-button btn-left-position carousel_position_button new_slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item arrow-color no-borders" data-dir="prev" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
+        <button onclick="change_active_button(0)" class="carousel__button--prev js-carousel-button btn-left-position carousel_position_button new_slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item arrow-color no-borders" data-dir="prev" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
             {%assign logo_arrow_right= 'arrow-right-white_2x.png'  | asset_img_url: '32X32'  %}
        
             <div  class=" arrow-size">
@@ -152,7 +184,7 @@ $( document ).ready(function() {
               </div>
           </button>
          
-          <button class="  carousel__button--next js-carousel-button   btn-right-position carousel_position_button new_slideshow__arrow-right button-arrow-size button-arrow arrow-item arrow-color no-borders" data-dir="next" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
+          <button  onclick="change_active_button(1)" class="  carousel__button--next js-carousel-button   btn-right-position carousel_position_button new_slideshow__arrow-right button-arrow-size button-arrow arrow-item arrow-color no-borders" data-dir="next" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
                
             
               <div  class=" arrow-size">
