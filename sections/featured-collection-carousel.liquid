@@ -167,6 +167,7 @@ $( document ).ready(function() {
        
     
               <div id="carousel-item-{{forloop.index}}" class=" carousel__item js-carousel-item  product_carrousel_item flex-group-personalizado">
+                <a href="{{product.url}}">
                 {%assign image_url = product.featured_image  %}
               
                
@@ -191,7 +192,7 @@ $( document ).ready(function() {
                   <div class="vendor-item-carousel carousel-margin-price">
                    {{product.vendor}}
                   </div>
-                  
+                </a>
                 </div>
           {%endfor%}
     
