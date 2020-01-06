@@ -1873,8 +1873,16 @@ theme.Slideshow = (function() {
     };
 
     slideshow.prototype.setSlideshowHeight = function() {
-        var minAspectRatio = this.$slideshow.data('min-aspect-ratio');
-        this.$slideshow.height($(document).width() / minAspectRatio);
+        console.log('set-slide-height');
+        if (window.innerWidth > 750)
+        {
+            var minAspectRatio = this.$slideshow.data('min-aspect-ratio');
+            this.$slideshow.height($(document).width() / minAspectRatio);
+        }
+        else{
+            this.$slideshow.height($(document).width() * 1.41);
+        }
+      
     };
 
     slideshow.prototype.showMobileText = function(slideIndex) {

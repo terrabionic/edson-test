@@ -2,16 +2,8 @@
 <script>
 function change_ratio(){
  
-  var w = window.innerWidth;
+
   
-  if (w < 750){
-    $('#Slideshow-slideshow').data('min-aspect-ratio',0.6)
-     $('#Slideshow-1574358775486').data('min-aspect-ratio',0.6)
-  }
-  else{
-   $('#Slideshow-slideshow').data('min-aspect-ratio',2.4)
-  $('#Slideshow-1574358775486').data('min-aspect-ratio',2.4)
-  }
 }
 window.onresize = change_ratio;
 $( document ).ready(function() {
@@ -44,7 +36,7 @@ $( document ).ready(function() {
            data-speed="{{ section.settings.autorotate_speed | times: 1000 }}"
            data-adapt-height="{% if section.settings.slideshow_height == 'adapt' %}true{% else %}false{% endif %}"
            data-slide-nav-a11y="{{ 'sections.slideshow.load_slide' | t: slide_number: '[slide_number]' }}"
-           {% if section.settings.slideshow_height == 'adapt' %}data-min-aspect-ratio="{{min_aspect_ratio}}"
+           {% if section.settings.slideshow_height == 'adapt' %}data-min-aspect-ratio="{{2.4}}"
            style="height: {{- wrapper_height -}}vw"{% endif %}>
 
         {%- for block in section.blocks -%}
@@ -69,7 +61,7 @@ $( document ).ready(function() {
                           background-image: url('{{ block.settings.image | img_url: 'master' }}');">
                 {% if section.settings.show_overlay %}<div class="slideshow__overlay"></div>{% endif %}
               </div>
-              <div class="slideshow__image box ratio-container lazyload{% unless forloop.first %} lazypreload{% endunless %}  js image-desktop"
+              <div class="slideshow__image box ratio-container lazyload{% unless forloop.first %} lazypreload{% endunless %}  js object-fill image-desktop"
                    data-bgset="{% include 'bgset', image: block.settings.image_small%}"
                    data-sizes="auto"
                    data-parent-fit="contain"
