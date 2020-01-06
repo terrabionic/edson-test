@@ -38,7 +38,8 @@ cambiar product grid background
     
     <div     class="grid-view-item__image-wrapper product-card__image-wrapper  image-recomendations-center js  grid-image-resize-container ">
   
-
+       {%if current_section!='product-recomendations'%} 
+       no product recomendatios
  
      <div class=" product-image-position ratio-container  image-overflow  lazyload js image-product-size {{class_border}}  {{image_half_size}} overflow-hidden"
         style="   padding-top:100%">
@@ -52,7 +53,29 @@ cambiar product grid background
              data-parent-fit="contain"
               data-image>
       </div>
+
+      {%else%}
+
+
+     <div class=" product-image-position recomendations-ratio-container  image-overflow  lazyload js image-product-size {{class_border}}  {{image_half_size}} overflow-hidden flex-recomendatios-align"
+     style="   padding-top:100%">
+
+     <div class="img-container-recomentatios">
+        <img id="{{ img_id }}"
+        class="grid-view-item__image  lazyload object-fit"
+        alt="{{ product.featured_image.alt }}"
+        data-src="{{ img_url }}"
+        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+        data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+        data-sizes="auto"
+       data-parent-fit="contain"
+        data-image>
+</div>
+     </div>
    
+
+      {%endif%}
+
    
    
    
