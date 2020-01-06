@@ -36,7 +36,7 @@ $( document ).ready(function() {
   {% when 3 %}
     {%- assign max_height = 345 -%}
   {% when 4 %}
-    {%- assign max_height = 250 -%}
+    {%- assign max_height = 265 -%}
   {% when 5 %}
     {%- assign max_height = 195 -%}
 {% endcase %}
@@ -61,7 +61,7 @@ $( document ).ready(function() {
     {% if section.settings.show_collection_image  %}
 
    
-    <div class="page-width">
+    <div class="page-width ">
       {%assign image_bg = 'background-image.png' | asset_img_url: 'master'%}
       <div class="section-header  image-size collection-title-container" style="
       background: url({{image_bg}})">
@@ -84,7 +84,7 @@ $( document ).ready(function() {
 
     {% if is_filter_by_available or section.settings.sort_enable %}
       <div class="filters-toolbar-wrapper{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %}">
-        <div class="page-width">
+        <div class="page-width ">
           <div class="filters-toolbar">
             <div class="filters-toolbar__item-wrapper">
               {% if section.settings.tags_enable %}
@@ -134,7 +134,7 @@ $( document ).ready(function() {
     {% endif %}
   </header>
 
-  <div  class="page-width" id="Collection">
+  <div  class="page-width padding-bottom-collection" id="Collection">
     {% if section.settings.layout == 'grid' %}
       {% case section.settings.grid %}
       {% when 2 %}
