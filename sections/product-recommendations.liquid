@@ -10,8 +10,9 @@
  
           <ul class="grid grid--uniform grid--view-items margin-top-recomendation-items">
             {%- for product in recommendations.products -%}
+           
               <li class="grid__item small--one-half medium-up--one-third background-image-card-grid">
-                {% include 'product-card-grid', max_height: 250, product: product, current_section:'product-recomendations', show_vendor: section.settings.show_vendor %}
+                {% include 'product-card-grid', max_height: 520, product: product, current_section:'product-recomendations', show_vendor: section.settings.show_vendor %}
               </li>
             {%- endfor -%}
           </ul>
