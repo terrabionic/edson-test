@@ -1,13 +1,22 @@
 <script>
 function resize_collection_image()
 {
-
+ var size;
   $( ".grid-image-resize-container" ).each(function(  ) {
    console.log('container='+ $(this));
    var new_height =  $(this).width();
-
+  size = new_height;
  console.log('new-height='+ new_height);
   $(this).height(new_height);
+});
+
+  $( ".object-fit" ).each(function(  ) {
+   console.log('container='+ $(this));
+
+
+ console.log('new-height='+ new_height);
+  $(this).height(size);
+  $(this).width(size);
 });
 
   
