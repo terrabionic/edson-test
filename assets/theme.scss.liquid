@@ -1313,10 +1313,12 @@ html {
 
 .main-content {
   display: block;
-  //padding-top: $section-spacing-small;
+  padding-top: $section-spacing-small;
+  padding-bottom:25px;
 
   @include media-query($medium-up) {
-    //padding-top: $section-spacing;
+    padding-top: $section-spacing;
+   
   }
 }
 
@@ -5587,12 +5589,12 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
   position: unset;
   overflow: hidden;
   margin-bottom: 0;
-  max-height: 80vh;
+  //max-height: 80vh;
   transition: height 0.6s cubic-bezier(0.44, 0.13, 0.48, 0.87);
 
   @include media-query($medium-up) {
     position: relative;
-    max-height: 100vh;
+    //max-height: 100vh;
   }
 
   // Make sure slides fill full height
@@ -6605,49 +6607,49 @@ $toolbar-height-small: 46px;
   max-height: 100vh;
 
   @include media-query($medium-up) {
-    max-height: 80vh;
+   // max-height: 80vh;
   }
 }
 
 .hero--x-small {
-  height: 94px;
+  height: 940px;
 }
 
 .hero--small {
-  height: 225px;
+  height: 2250px;
 }
 
 .hero--medium {
-  height: 357px;
+  height: 3570px;
 }
 
 .hero--large {
-  height: 488px;
+  height: 4880px;
 }
 
 .hero--x-large {
-  height: 582px;
+  height: 5820px;
 }
 
 @include media-query($medium-up) {
   .hero--x-small {
-    height: 125px;
+    height: 1250px;
   }
 
   .hero--small {
-    height: 300px;
+    height: 3000px;
   }
 
   .hero--medium {
-    height: 475px;
+    height: 4750px;
   }
 
   .hero--large {
-    height: 650px;
+    height: 6500px;
   }
 
   .hero--x-large {
-    height: 775px;
+    height: 7750px;
   }
 }
 

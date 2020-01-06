@@ -1873,16 +1873,28 @@ theme.Slideshow = (function() {
     };
 
     slideshow.prototype.setSlideshowHeight = function() {
-        console.log('set-slide-height');
+        console.log('set-slide-height'); 
+        console.log('width='+ this.$slideshow.width());
+        console.log('old-height='+ this.$slideshow.height());
+     
         if (window.innerWidth > 750)
         {
             var minAspectRatio = this.$slideshow.data('min-aspect-ratio');
             this.$slideshow.height($(document).width() / minAspectRatio);
         }
         else{
-            this.$slideshow.height($(document).width() * 1.41);
+            var new_height = this.$slideshow.width() * 1.4;
+            console.log('expected-height='+ new_height);
+            this.$slideshow.height(new_height);
         }
       
+   
+        console.log('new-height='+ this.$slideshow.height());
+
+       /*
+       var minAspectRatio = this.$slideshow.data('min-aspect-ratio');
+       this.$slideshow.height($(document).width() / minAspectRatio);
+       */
     };
 
     slideshow.prototype.showMobileText = function(slideIndex) {

@@ -29,7 +29,13 @@
 
 {%- assign money_price = price | money -%}
 
-<dl class="price
+{%assign margin_recomendations = ''%}
+{%if current_section  == 'product-recomendations' %}
+{%assign margin_recomendations = 'margin-price-recomendations'%}
+{%endif%}
+
+
+<dl class="price {{margin_recomendations}}
   {% if available == false %} price--sold-out {% endif %}
   {% if available and compare_at_price > price %} price--on-sale {% endif %}
   {% if available and variant.unit_price_measurement %} price--unit-available {% endif %}"
@@ -164,11 +170,11 @@
   {%endif%}
 
   {%if current_section == 'product-recomendations'%}
-  <div class="price__vendor">
+  <div class="price__vendor padding-vendor-recomendations">
       <dt>
         <span class="visually-hidden">{{ 'products.product.vendor' | t }}</span>
       </dt>
-      <dd class="product-vendor-sku-text">
+      <dd class="product-vendor-sku-text ">
         {{ product.vendor }}
       </dd>
     </div>
