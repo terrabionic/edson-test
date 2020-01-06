@@ -18,6 +18,8 @@
       {{ 'general.search.heading' | t: count: search.results_count }}: {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
     {%- else -%}
       {{ page_title }}
+
+    
     {%- endif -%}
     {%- if current_tags -%}
       {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
@@ -108,7 +110,7 @@
 
 <body class="template-{{ request.page_type | handle }}">
 
-  
+
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 

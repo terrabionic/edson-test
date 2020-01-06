@@ -52,9 +52,12 @@
               {% else %}
                 {{ collection.title | capitalize}}
               {% endif %}
+              {%if template !='list-collections'%}
               <div class="btn btn-13 btn-13-label button-collection-margin">
-                  {{btn_label}}
-                </div>
+                {{btn_label}}
+              </div>
+              {%endif%}
+             
               </div>
     </div>
     

@@ -56,7 +56,11 @@ $( document ).ready(function() {
       {%- assign is_filter_by_available = true -%}
     {%- endif -%}
 
+
+
     {% if section.settings.show_collection_image  %}
+
+   
     <div class="page-width">
       {%assign image_bg = 'background-image.png' | asset_img_url: 'master'%}
       <div class="section-header  image-size collection-title-container" style="
