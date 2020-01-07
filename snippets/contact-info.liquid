@@ -8,16 +8,22 @@
                                 <p>{{section.settings.telefono}}</p>
                             </div>
                             {%if section.settings.phone_whats%}
+                            {% assign whats_phone_without_spaces = section.settings.phone_whats | remove:' ' | remove: '+' %}
+                            
+                            <a href="https://wa.me/{{whats_phone_without_spaces}}">
                               <div class="whats-group">
                                     {%assign logo_whats= 'whatsapp_2x.png'  | asset_img_url: '22X22'  %}
                   
+
                                     <div class="whats-div " >
                                       {%include 'icon-whatsapp'%}
                                       </div>
+                                      
                               <div class="whats-style">
                                   {{section.settings.phone_whats}}
                               </div>
                               </div>
+                            </a>
                             {%endif%}
                 </div>
            

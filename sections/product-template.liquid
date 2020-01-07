@@ -333,7 +333,7 @@
                      class="text-link no-outline  product-single__thumbnail--{{ section.id }}"
                      data-thumbnail-id="{{ image.id }}"
                      {% if enable_zoom %}data-zoom="{{ image.src | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-                       <img class="product-single__thumbnail-image  size-prueba img-slide-size" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
+                       <img class="product-single__thumbnail-image  img-slide-size img-slide-size-new" src="{{ image.src | img_url: '110x110', scale: 2 }}" alt="{{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: image.alt | escape }}">
                   </a>
                 </li>
             
