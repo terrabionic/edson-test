@@ -61,17 +61,17 @@
    
 
 {% else %}
-<a href="{{ section.settings.message_link }}" class="announcement-bar announcement-bar--link">
+<a href="{{ section.settings.message_link }}" class="announcement-bar  bar-group">
 {% endif %}
 <div>
     <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
 </div>
 
 
-{%if section.settings.button_text != blank%}
+{%if section.settings.button_text != blank and section.settings.message_link == blank%}
 
  <div style="background-color: {{section.settings.color_button}}" class="btn  button-group-margin button-padding" >
-  <a>  <p class="button-bar-text">{{section.settings.button_text}}</p></a>
+  <a href="{{section.settings.link_button}}">  <p class="button-bar-text">{{section.settings.button_text}}</p></a>
  </div>
 {%endif%}
 

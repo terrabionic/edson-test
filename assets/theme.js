@@ -1715,10 +1715,11 @@ theme.Slideshow = (function() {
         // adds a11y features.
         slideshowPostInitA11ySetup.bind(this)();
 
-        this.$arrows.find(selectors.arrowLeft).on('click', function() {
+       $('.slideshow__arrow-left').on('click', function() {
+             console.log('clicked');
             $slideshow.slick('slickPrev');
         });
-        this.$arrows.find(selectors.arrowRight).on('click', function() {
+        $('.slideshow__arrow-right').on('click', function() {
             $slideshow.slick('slickNext');
         });
 
@@ -1873,9 +1874,7 @@ theme.Slideshow = (function() {
     };
 
     slideshow.prototype.setSlideshowHeight = function() {
-        console.log('set-slide-height'); 
-        console.log('width='+ this.$slideshow.width());
-        console.log('old-height='+ this.$slideshow.height());
+    
      
         if (window.innerWidth > 750)
         {
@@ -1884,12 +1883,11 @@ theme.Slideshow = (function() {
         }
         else{
             var new_height = this.$slideshow.width() * 1.4;
-            console.log('expected-height='+ new_height);
+         
             this.$slideshow.height(new_height);
         }
       
    
-        console.log('new-height='+ this.$slideshow.height());
 
        /*
        var minAspectRatio = this.$slideshow.data('min-aspect-ratio');

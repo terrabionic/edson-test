@@ -5871,9 +5871,10 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
 /*================ Slideshow control styles ================*/
 
 .slideshow__controls {
+  //z-index:-3;
   display: none;
   justify-content: center;
-  position: absolute;
+  position: relative;
   top: 0px;
   right: 0px;
   margin-bottom: 5px;
@@ -5890,6 +5891,8 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
 }
 
 .slideshow__arrows {
+  //position:absolute;
+  //z-index:200!important;
   height: $slideshow-control-size;
   padding: 5px;
   background-clip: content-box;
