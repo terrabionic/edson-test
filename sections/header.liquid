@@ -1,4 +1,59 @@
+<script>
+ function change_position_overflow_menu(evt)
+ {
+ 
 
+  var id = String(evt.currentTarget.id).replace("dropdown", "");
+  
+  console.log('id='+ id);
+
+  var id_content = '#drop-content' + id;
+
+  var menu_drop_down = $(id_content);
+
+  console.log('position menu left var ='+ $(menu_drop_down).offset().left);
+
+  var menu_position = $(menu_drop_down).offset().left;
+
+  console.log('width menu =' + $(menu_drop_down).width());
+
+  var width_menu = $(menu_drop_down).width();
+
+
+  console.log('window width=' + $(window).width());
+
+  var width_window = $(window).width();
+
+  if (width_menu != 0){
+    
+     if ((menu_position + width_menu) > width_window){
+
+          
+           var dif_width = (menu_position + width_menu) - width_window;
+           console.log('dif_width =' + dif_width);
+
+           var new_position = $(menu_drop_down).offset().left - dif_width - 30; //margin-right 30px
+
+           console.log('new_position='+ new_position);
+           $(menu_drop_down).offset({left: new_position});
+
+           console.log('menu_drop_down new position = ' +  $(menu_drop_down).offset().left);
+
+     }
+  }
+
+  
+ }
+ $( document ).ready(function() {
+  
+  //change_position_overflow_menu(event);
+ 
+
+ 
+});
+
+
+</script>
 
 
 

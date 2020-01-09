@@ -102,9 +102,9 @@
   
               <div class="slideshow__text-wrap slideshow__text-wrap--desktop">
                 <div class="slideshow__text-content slideshow__text-content--vertical-{{ text_vertical_alignment }} text-{{ text_horizontal_alignment }}">
-                  <div class="page-width">
+               
                     {% unless block.settings.slide_title == blank and block.settings.subheading == blank %}
-                      <ul class="slideshow__text-content-list">
+                      <ul class="slideshow__text-content-list align-text-items-slide">
                         {%- unless block.settings.slide_title == blank -%}
                         <div class="slide-text-items-margin">
                             <li>
@@ -132,17 +132,17 @@
                       {%- assign show_link_button = true -%}
                     {%- endif -%}
                     {%- if show_link_button -%}
-                      <div class="slideshow__btn-wrapper{% if block.settings.slide_title != blank or block.settings.subheading != blank %} slideshow__btn-wrapper--push{% endif %} slide-btn-z-index">
-                        <a href="{{ block.settings.button_link }}" class="btn slideshow__btn slide-button-text btn-slide-size btn-slide-padding">
+             
+                        <a href="{{ block.settings.button_link }}" class="btn slideshow__btn slide-button-text btn-slide-size btn-slide-padding btn-slide-margin-section slide-text-items-margin">
                       {{ block.settings.button_label | escape }}
                         </a>
-                      </div>
+                    
                     {%- endif -%}
                       </ul>
                     {% endunless %}
   
      
-                  </div>
+                  
                 </div>
               </div>
               </a>
@@ -152,6 +152,8 @@
         
               
         </div>
+
+        {%if section.blocks > 1 %}
         <button class=" btn-left-position slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item arrow-color no-borders arrows-position" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
      
      
@@ -166,6 +168,7 @@
              {%include 'svg-arrow-right'%}
             </div>
         </button>
+        {%endif%}
         <div class="slideshow__arrows new-position-bullets "
         style="width: {{- arrows_width -}}px">
 

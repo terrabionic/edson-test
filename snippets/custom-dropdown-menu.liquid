@@ -1,7 +1,7 @@
 <ul class="site-nav new-site-nav list--inline{% if wrapper_class != blank %} {{ wrapper_class }}{% endif %}" id="SiteNav">
     {% for link_list_lv1 in linklist.links %}
     <li class="drop-menu-item-header click_hover">
-            <div class="dropdown" id="dropdown{{forloop.index}}">
+            <div class="dropdown" id="dropdown{{forloop.index}}" onmouseenter="change_position_overflow_menu(event)">
               
              <h3 class="drop-menu-item-title">{{link_list_lv1.title}}</h3> 
                   
@@ -14,8 +14,11 @@
 
                     {%assign collection_image = collection.image | img_url: '300X290'%}
 
+                
 
-                    <div class=" dropdown-content" id="drop-content{{forloop.index}}">
+                  {%if link_list_lv2.links.size != 0%}
+                  <div class=" dropdown-content" id="drop-content{{forloop.index}}">
+                 
 
                       <div class="collection-info-drop">
                      
@@ -49,7 +52,7 @@
                       </div>
 
                       <div class="collection-nested-items">
-
+                     
                           {%for link in link_list_lv2.links%}
 
                           <div class="dropdown-link-item">
@@ -60,6 +63,8 @@
                       </div>
 
                     </div>
+                  {%endif%}
+               
                   </div>
     </li>
     
