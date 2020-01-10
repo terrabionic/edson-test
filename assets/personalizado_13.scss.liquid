@@ -79,7 +79,9 @@ justify-content: flex-start;
     overflow: hidden;
 }
 .flex-footer{
+  position:relative;
   display:flex;
+  height:auto;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -1181,7 +1183,7 @@ height:100%;
 /*================Footer================*/
 .Footer{
   position:relative;
-  padding:0 6% 0 6% ;
+  padding:0 0 0 0 ;
 }
 .footer-custom{
  
@@ -1244,7 +1246,7 @@ width:15%;
   justify-content: space-between;
   flex-direction: row;
   padding-left: 0px;
-  padding: 0 1.5rem;
+  padding: 0;
   box-sizing: border-box;
 
   @media(max-width: 575px){
@@ -1300,7 +1302,7 @@ justify-content: center;
   justify-content: center;
 }
 .new-setting-text{
-  margin:0 12px;
+  margin:0 12px 0 0;
   font-family: 'Asap';
   font-size: 16px;
   font-weight: bold;
@@ -2086,11 +2088,25 @@ margin-top:20px;
 .logo-container-size{
   position: relative;
   width:15%;
+ 
 }
 .text-container-size{
   position:relative;
   width:85%;
+ 
 }
+
+.newsletter-visible{
+  visibility: visible;
+}
+.newsletter-hidden{
+ visibility:hidden;
+ @media(max-width: 904px)
+ {
+   display:none;
+ }
+}
+
 
 .menu-title-mobile{
   position:relative;

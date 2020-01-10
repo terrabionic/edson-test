@@ -30,7 +30,7 @@
     </script>
 
 
-      <div  class="">
+      <div  class="page-width">
       
 <nav class="desktop-custom-footer">
     <div class="footer-custom flex-footer flex-nowrap footer-top-margin">
@@ -41,18 +41,30 @@
            {%assign menu_name = block.settings.selected_menu%}
            {%assign menu = linklists[menu_name]%}
            {%if forloop.index < section.blocks.size%}
+           {%if block%}
+        
            <div class="menu-item-custom-footer site-footer__item--one-quarter ">
-              <h3 class="custom-menu-title">{{menu.title}}</h3>
+              {%if block.settings.menu_title and block.settings.menu_title != ''%}
+              <h3 class="custom-menu-title">{{block.settings.menu_title}}</h3>
+              {%endif%}
             <ul>
             {%for link in menu.links%}
             <li class="custom-menu-link capitalize-text margin-top-link-item">
               <a href="{{link.url}}">{{link.title}}</a></li>
             {% endfor %}
             </ul>
-           </div>
+          </div>
+          {%endif%}
            {%else%}
+         
            <div class="menu-item-custom-footer site-footer__item--one-quarter">
+
+    
               <h3 class="custom-menu-title no-margin-titles">{{block.settings.contact_title}}</h3>
+
+              {%if block.settings.phone_number and block.settings.phone_number != ''%}
+             
+             
               <div class="contact-phone flex-footer contact-block-margin">
         
                   <div class=" logo-container-size">
@@ -63,7 +75,11 @@
                    {{block.settings.phone_number}}
               </div>
               </div>
-              <div class="contact-email flex-footer margin-contact-item">
+              {%endif%}
+
+              {%if block.settings.email and block.settings.email != ''%}
+             
+              <div class="contact-email flex-footer margin-contact-item" >
                   <div class=" logo-container-size">
                       {%include 'icon-email'%}
                     </div>
@@ -72,7 +88,9 @@
                         {{block.settings.email}}
                      </div>
               </div>
+              {%endif%}
       
+             {%if block.settings.address and block.settings.address != ''%}
       
               <div class="contact-address flex-footer margin-contact-item">
               <div  class=" logo-container-size">
@@ -83,7 +101,11 @@
                          {{block.settings.address}}
                       </div>
              </div>
+             {%endif%}
+
+
           </div>
+      
       
            {%endif%}
          {% endfor %}
@@ -221,6 +243,12 @@
     </nav>
 
     <div class="flex-suscribe">
+           {% if section.settings.show_newsletter == true %}
+           {%assign newsletter_visibility = 'newsletter-visible'%}
+           {%else%}
+           {%assign newsletter_visibility = 'newsletter-hidden'%}
+           {% endif %}
+           <div class="{{newsletter_visibility}}"> 
             {%- assign formId = 'ContactFooter' -%}
                   {% form 'customer', id: formId, novalidate: 'novalidate' %}
                     {%- if form.posted_successfully? -%}
@@ -228,6 +256,7 @@
                         {{ 'general.newsletter_form.confirmation' | t }}
                       </p>
                     {%- endif -%}
+            
         <div class="footer-contact-form"> 
           <div class="suscribir-label footer-contact-form-item"> 
               <h4 class="new-setting-text custom-menu-title" >suscríbete</h4>
@@ -264,6 +293,8 @@
                       </span>
                     {% endif %}
             {%endform%}
+            </div>
+           
         </div>
 
         <div class="footer-social-logo">
@@ -272,14 +303,25 @@
             </div>
             <div class="inline-logos footer-social-logo-item">
             
-            <div class="inline-logos-item logo-size">
+              {%if settings.social_facebook_link and settings.social_facebook_link != ''%}
+              <a href="{{settings.social_facebook_link}}">
+                  <div class="inline-logos-item logo-size">
             
-              {%include 'new-icon-facebook'%}
-              </div>
+                      {%include 'new-icon-facebook'%}
+                      </div>
+              </a>
+           
+              {%endif%}
               
+              {%if settings.social_instagram_link and settings.social_instagram_link != ''%}
+              <a href="{{settings.social_instagram_link}}"> 
               <div class="inline-logos-item logo-size" >
                  {%include 'icon-instagram'%}
                 </div>
+                </a>
+                {%endif%}
+
+
             </div>
         
         
@@ -299,6 +341,17 @@
   },
   "class": "Footer section",
   "max_blocks": 4,
+  "settings": [
+     {
+      "id": "show_newsletter",
+      "type": "checkbox",
+      "label":{
+        "en": "Show newsletter",
+        "es": "Mostrar boletín"
+      },
+      "default": false
+     }
+  ],
   "blocks": [
   {
     "type": "link_list",
