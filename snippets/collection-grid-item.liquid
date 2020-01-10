@@ -44,7 +44,7 @@
    
     
     <div class=" collection-grid-item__title flex-group-personalizado">
-      
+    
       
           <div class="collection-name-title h3">
               {% if collection.title == blank %}
@@ -52,11 +52,23 @@
               {% else %}
                 {{ collection.title | capitalize}}
               {% endif %}
-              {%if template !='list-collections'%}
+              {%if template !='list-collections'%} 
+              {%if template == 'index'%}
+              <div class="btn btn-13 btn-13-label button-collection-margin btn-width-collection-list">
+                {{btn_label}}
+              </div>
+              {%else%}
               <div class="btn btn-13 btn-13-label button-collection-margin">
                 {{btn_label}}
               </div>
               {%endif%}
+
+             
+              
+           
+              {%endif%}
+             
+
              
               </div>
     </div>

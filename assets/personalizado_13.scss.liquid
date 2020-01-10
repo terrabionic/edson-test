@@ -799,6 +799,28 @@ height: 320px;
    height:250px;
   }
   }
+.grid-margin-left-0{
+margin-left: 0px;
+}
+
+.logo-item-margin{
+margin: 0 7.5px 20px!important;
+}
+
+.btn-width-collection-list{
+
+  @media(min-width:750px) and (max-width:990px){
+   width:150px;
+  }
+
+}
+
+.small-hide{
+  @media(max-width:750px){
+    display:none;
+  }
+}
+
 
 .list-collections-custom{
   
@@ -818,6 +840,7 @@ height: 320px;
 .list-collections-flex-custom{
   display:flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .header-custom-collection-list{
    font-family: $custom-collection-list-font-family;
@@ -1328,6 +1351,21 @@ min-width: 300px;
   min-width: 24px;
   min-height: 24px;
 }
+
+.menu-burguer-display{
+  display:none!important;
+  @media(max-width:990px){
+    display:inline-block!important;
+  }
+}
+
+.medium-hide{
+  display:block;
+  @media(max-width:990px){
+  display:none!important;
+  }
+  }
+
 
 
 //carrousel prueba

@@ -1876,7 +1876,7 @@ theme.Slideshow = (function() {
     slideshow.prototype.setSlideshowHeight = function() {
     
      
-        if (window.innerWidth > 750)
+        if (window.innerWidth > 749)
         {
             var minAspectRatio = this.$slideshow.data('min-aspect-ratio');
             this.$slideshow.height($(document).width() / minAspectRatio);

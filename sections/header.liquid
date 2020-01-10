@@ -209,7 +209,7 @@
                   {% endif %}
         
                   {% unless linklists[section.settings.main_linklist] == blank %}
-                    <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
+                    <button type="button" class="btn--link site-header__icon site-header__menu menu-burguer-display js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
                       {% include 'icon-hamburger' %}
                       {% include 'icon-close' %}
                     </button>
@@ -372,7 +372,7 @@
       </ul>
   
     </nav>
-    <nav class="small--hide padding-nav" id="AccessibleNav" role="navigation">
+    <nav class="medium-hide padding-nav" id="AccessibleNav" role="navigation">
     
         {% include 'custom-dropdown-menu', linklist: linklists.custom-main-menu %}
       </nav>

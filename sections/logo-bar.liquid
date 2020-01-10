@@ -16,7 +16,7 @@
     {% if section.blocks.size > 0 %}
       <ul class="logo-bar-list temporal-margin margin-logos-section logo-bar-container-size">
         {% for block in section.blocks %}
-          <li class=" logo_item_size logo-bar__item{% if section.settings.title_enable %} logo-bar__item--large{% endif %} " {{ block.shopify_attributes }}>
+          <li class=" logo_item_size logo-bar__item{% if section.settings.title_enable %} logo-bar__item--large{% endif %} logo-item-margin " {{ block.shopify_attributes }}>
             {% if block.settings.link != blank %}
               <a href="{{ block.settings.link }}" class="logo-bar__link">
             {% endif %}
