@@ -189,9 +189,11 @@ $( document ).ready(function() {
                   <div class="price-item-carousel carousel-price-margin">
                   {{product.price |  money_with_currency}}
                   </div>
+                  {%if section.settings.check_vendor == true%}
                   <div class="vendor-item-carousel carousel-margin-price">
                    {{product.vendor}}
                   </div>
+                  {%endif%}
                 </a>
                 </div>
           {%endfor%}

@@ -5732,6 +5732,12 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
 margin-left:20px;
 }
 
+.carousel__nav{ //featured carousel
+  display: block;
+@media(max-width: 750px){
+display:none;
+}
+}
 
 .slideshow__text-content {
   @include media-query($medium-up) {
