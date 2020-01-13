@@ -1,312 +1,299 @@
 
-
 <script>
+  function center_buttons(){
+    var container_items_slide = $('#carousel-list-items');
+    var left_button = $('#fc_carousel_left_button');
+    var right_button = $('#fc_carousel_right_button');
 
-
-function change_active_button(button)
-{
-
- var slide_num =  $('#carousel-list-items').data('current-slide');
-  
- var total_slide = $("#slick-group li").size();
-  $( "#slick-group li" ).each(function(  ) {
- $(this).removeClass( "new-slick-active" );
-});
-if (button == 0) 
-{
-  
- if (slide_num > 1){
-  slide_num--;
-
- }
-}
-else if (button == 1)
-{
-   
-if (slide_num < total_slide)
-{
-
-slide_num= slide_num + 1;
-}
-
-}
-
-
- $('#carousel-list-items').data('current-slide', slide_num)
- $( "#slick-group li" ).eq(slide_num - 1).addClass("new-slick-active");
-}
-function change_active(slide_active)
-{
-  $(this).data('current-slide');
-  $( "#slick-group li" ).each(function(  ) {
- $(this).removeClass( "new-slick-active" );
-});
- $(slide_active).addClass("new-slick-active");
-}
-function change_slide(event)
-{
-  var current_slide = $(event.currentTarget).data('slide');
- 
-
-   change_active(event.currentTarget);
-    var total_width =  $('.carousel__list').width();
-   var displayed_width =  $('.carousel__container').width();
-  var item_number = 1 + (3 * (current_slide - 1) );
-    if (item_number != 1){
-        diff_absolute = $("#carousel-item-"+item_number).offset().left - $("#carousel-item-1").offset().left;
-      }
-      else
-      {
-       diff_absolute = 0;
-      }
+    var height = $(container_items_slide).height();
+    var new_position = (height / 2) - 25;
+    console.log('new_position='+ new_position);
+    console.log('height='+ height);
+    $(left_button).css({top: new_position+'px'});
+    $(right_button).css({top: new_position+'px'});
+    console.log('left_button.top'+    $(left_button).position().top);
+  }
+  function change_active_button(button)
+  {
+   var slide_num =  $('#carousel-list-items').data('current-slide');
+    
+   var total_slide = $("#slick-group li").size();
+    $( "#slick-group li" ).each(function(  ) {
+   $(this).removeClass( "new-slick-active" );
+  });
+  if (button == 0) 
+  {
+    
+   if (slide_num > 1){
+    slide_num--;
+   }
+  }
+  else if (button == 1)
+  {
      
-    var containerPos =  $('#carousel-list-items').offset().left;
-     var carousel_item =  $("#carousel-item-"+item_number).offset().left;
-
-     var slide = $(event.currentTarget).data('slide');
-     var new_left =   displayed_width * (slide - 1)  ; //cambiar * -1
-     if (new_left > (total_width - displayed_width))
-     {
-         new_left = total_width - displayed_width;
-     }
-     new_left = new_left * -1;
-
-    $('#carousel-list-items').data('current-slide', current_slide);
-    //$("#carousel-list-items").css('left', -new_left );
-      
-     $('#carousel-list-items').animate({
-      left: new_left
-  }, 300);
-
-  //$("#carousel-container").animate({"left":new_left + "px"}, "slow");
-
-}
-function create_bullets(){
- 
-  
-  var old_dots_num = $('#slick-group li').length;
-
-
-  var total_width =  $('.carousel__list').width();
-  
-
-   var displayed_width =  $('.carousel__container').width();
-
-
-  var dots_container = $('#slick-group');
-
-  var width_window = $(window).width();
-
-
-
-
-   var dots_num;
-
-  if (width_window >= 1110)
+  if (slide_num < total_slide)
   {
-   dots_num = 2;
+  slide_num= slide_num + 1;
   }
-  else if(width_window >= 860 && width_window < 1110)
+  }
+   $('#carousel-list-items').data('current-slide', slide_num)
+   $( "#slick-group li" ).eq(slide_num - 1).addClass("new-slick-active");
+  }
+  function change_active(slide_active)
   {
-       dots_num = 3;
+    $(this).data('current-slide');
+    $( "#slick-group li" ).each(function(  ) {
+   $(this).removeClass( "new-slick-active" );
+  });
+   $(slide_active).addClass("new-slick-active");
   }
-  else
+  function change_slide(event)
   {
-    dots_num = 4;
-  }
-
- 
-
-  if (old_dots_num != dots_num)
-  {
-  $( "#slick-group li" ).each(function(  ) {
- $(this).remove( );
-});
-   for (i=1 ; i<= dots_num; i++){
-     if (i == 1){
-        dots_container.append('<li class="new-slick-active" onclick=change_slide(event) ' +' data-slide= \"'+i +'\">  </li>');
-     }
-     else{
-      dots_container.append('<li onclick=change_slide(event) ' +' data-slide= \"'+i +'\">  </li>');
-     }
-  
-  }
-  }
- 
-}
-
-window.onresize = create_bullets;
-$( document ).ready(function() {
-   create_bullets();
-});
-</script>
-
-<div class="page-width carousel-section-margin">
-<div data-section-id="{{ section.id }}" data-section-type="featured-collection-carousel" class="featured-collection-corousel-section">
-    <div class="flex-group-personalizado header-custom-collection-list">
-     <div class="flex-item-personalizado ">
-        <h2 class="heading-custom-collection-list"> {{section.settings.title}} </h2> 
-     </div>
-     <div class="flex-item-personalizado section-subtitle margin-subtitle">
-        <p>  {{section.settings.subtitle}}  </p>  
-     </div>
- </div>
-
-
-
- <div id="myCarousel" class="carousel js-carousel"  >
-   {%assign total_items = 8%}
-    {%if collection.size < 8%}
-    {%assign total_items = collection.size%}
-  {%endif%}
-    <div id="carousel-container"  class="carousel__container js-carousel-container"  >
-      <div id="carousel-list-items"  class="carousel__list  js-carousel-list"  data-current-slide="1">
-          {%assign collection=collections[section.settings.c_id].products%}
-          {%for product in collection limit:8 %}
-    
+    var current_slide = $(event.currentTarget).data('slide');
+   
+     change_active(event.currentTarget);
+      var total_width =  $('.carousel__list').width();
+     var displayed_width =  $('.carousel__container').width();
+    var item_number = 1 + (3 * (current_slide - 1) );
+      if (item_number != 1){
+          diff_absolute = $("#carousel-item-"+item_number).offset().left - $("#carousel-item-1").offset().left;
+        }
+        else
+        {
+         diff_absolute = 0;
+        }
        
-    
-              <div id="carousel-item-{{forloop.index}}" class=" carousel__item js-carousel-item  product_carrousel_item flex-group-personalizado">
-                <a href="{{product.url}}">
-                {%assign image_url = product.featured_image  %}
-              
-               
-                <div class="carrousel_product_image">
-                    <img id="{{ img_id }}"
-                    class=" lazyload"
-                    src="{{ image_url| img_url: 'master' }}"
-                    data-src="{{ img_url }}"
-                    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                    data-aspectratio="{{ image_url.aspect_ratio }}"
-                    data-sizes="cover"
-                    alt="{{ image_url.alt | escape }}">
-                </div>
-                
-               
-                  <div class="title-item-carousel carousel-title-margin">
-                  {{product.title}}
-                  </div>
-                  <div class="price-item-carousel carousel-price-margin">
-                  {{product.price |  money_with_currency}}
-                  </div>
-                  {%if section.settings.check_vendor == true%}
-                  <div class="vendor-item-carousel carousel-margin-price">
-                   {{product.vendor}}
-                  </div>
-                  {%endif%}
-                </a>
-                </div>
-          {%endfor%}
-    
+      var containerPos =  $('#carousel-list-items').offset().left;
+       var carousel_item =  $("#carousel-item-"+item_number).offset().left;
+       var slide = $(event.currentTarget).data('slide');
+       var new_left =   displayed_width * (slide - 1)  ; //cambiar * -1
+       if (new_left > (total_width - displayed_width))
+       {
+           new_left = total_width - displayed_width;
+       }
+       new_left = new_left * -1;
+      $('#carousel-list-items').data('current-slide', current_slide);
+      //$("#carousel-list-items").css('left', -new_left );
+        
+       $('#carousel-list-items').animate({
+        left: new_left
+    }, 300);
+    //$("#carousel-container").animate({"left":new_left + "px"}, "slow");
+  }
+  function create_bullets(){
    
     
-      </div>
-    </div>
-    <div class="carousel__nav small-hide">
-        <button onclick="change_active_button(0)" class="carousel__button--prev js-carousel-button btn-left-position carousel_position_button new_slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item arrow-color no-borders" data-dir="prev" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
-            {%assign logo_arrow_right= 'arrow-right-white_2x.png'  | asset_img_url: '32X32'  %}
-       
-            <div  class=" arrow-size">
-                {%include 'svg-arrow-left'%}
-              </div>
-          </button>
+    var old_dots_num = $('#slick-group li').length;
+    var total_width =  $('.carousel__list').width();
+    
+     var displayed_width =  $('.carousel__container').width();
+    var dots_container = $('#slick-group');
+    var width_window = $(window).width();
+     var dots_num;
+    if (width_window >= 1110)
+    {
+     dots_num = 2;
+    }
+    else if(width_window >= 860 && width_window < 1110)
+    {
+         dots_num = 3;
+    }
+    else
+    {
+      dots_num = 4;
+    }
+   
+    if (old_dots_num != dots_num)
+    {
+    $( "#slick-group li" ).each(function(  ) {
+   $(this).remove( );
+  });
+     for (i=1 ; i<= dots_num; i++){
+       if (i == 1){
+          dots_container.append('<li class="new-slick-active" onclick=change_slide(event) ' +' data-slide= \"'+i +'\">  </li>');
+       }
+       else{
+        dots_container.append('<li onclick=change_slide(event) ' +' data-slide= \"'+i +'\">  </li>');
+       }
+    
+    }
+    }
+   
+  }
+  window.onresize = create_bullets;
+  window.onresize = center_buttons;
+  $( document ).ready(function() {
+     create_bullets();
+     center_buttons();
+  });
+  </script>
+  
+  <div class="page-width carousel-section-margin">
+  <div data-section-id="{{ section.id }}" data-section-type="featured-collection-carousel" class="featured-collection-corousel-section">
+      <div class="flex-group-personalizado header-custom-collection-list">
+       <div class="flex-item-personalizado ">
+          <h2 class="heading-custom-collection-list"> {{section.settings.title}} </h2> 
+       </div>
+       <div class="flex-item-personalizado section-subtitle margin-subtitle">
+          <p>  {{section.settings.subtitle}}  </p>  
+       </div>
+   </div>
+  
+  
+  
+   <div id="myCarousel" class="carousel js-carousel"  >
+     {%assign total_items = 8%}
+      {%if collection.size < 8%}
+      {%assign total_items = collection.size%}
+    {%endif%}
+      <div id="carousel-container"  class="carousel__container js-carousel-container"  >
+        <div id="carousel-list-items"  class="carousel__list  js-carousel-list"  data-current-slide="1">
+            {%assign collection=collections[section.settings.c_id].products%}
+            {%for product in collection limit:8 %}
+      
          
-          <button  onclick="change_active_button(1)" class="  carousel__button--next js-carousel-button   btn-right-position-carousel carousel_position_button new_slideshow__arrow-right button-arrow-size button-arrow arrow-item arrow-color no-borders" data-dir="next" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
-               
-            
+      
+                <div id="carousel-item-{{forloop.index}}" class=" carousel__item js-carousel-item  product_carrousel_item flex-group-personalizado">
+                  <a href="{{product.url}}">
+                  {%assign image_url = product.featured_image  %}
+                
+                 
+                  <div class="carrousel_product_image">
+                      <img id="{{ img_id }}"
+                      class=" lazyload"
+                      src="{{ image_url| img_url: 'master' }}"
+                      data-src="{{ img_url }}"
+                      data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                      data-aspectratio="{{ image_url.aspect_ratio }}"
+                      data-sizes="cover"
+                      alt="{{ image_url.alt | escape }}">
+                  </div>
+                  
+                 
+                    <div class="title-item-carousel carousel-title-margin">
+                    {{product.title}}
+                    </div>
+                    <div class="price-item-carousel carousel-price-margin">
+                    {{product.price |  money_with_currency}}
+                    </div>
+                    {%if section.settings.check_vendor == true%}
+                    <div class="vendor-item-carousel carousel-margin-price">
+                     {{product.vendor}}
+                    </div>
+                    {%endif%}
+                  </a>
+                  </div>
+            {%endfor%}
+      
+     
+      
+        </div>
+      </div>
+      <div class="carousel__nav small-hide">
+          <button id="fc_carousel_left_button" onclick="change_active_button(0)" class="carousel__button--prev js-carousel-button btn-left-position carousel_position_button new_slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item arrow-color no-borders" data-dir="prev" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
+              {%assign logo_arrow_right= 'arrow-right-white_2x.png'  | asset_img_url: '32X32'  %}
+         
               <div  class=" arrow-size">
-                 {%include 'svg-arrow-right'%}
+                  {%include 'svg-arrow-left'%}
                 </div>
             </button>
-
-    </div>
-    <div class="carousel-bullets  display-dots" >
-    <ol id="slick-group" class="  new-slick-dots ">
-   
-    </ol>
+           
+            <button  id="fc_carousel_right_button" onclick="change_active_button(1)" class="  carousel__button--next js-carousel-button   btn-right-position-carousel carousel_position_button new_slideshow__arrow-right button-arrow-size button-arrow arrow-item arrow-color no-borders" data-dir="next" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
+                 
+              
+                <div  class=" arrow-size">
+                   {%include 'svg-arrow-right'%}
+                  </div>
+              </button>
+  
+      </div>
+      <div class="carousel-bullets  display-dots" >
+      <ol id="slick-group" class="  new-slick-dots ">
+     
+      </ol>
+      </div>
     </div>
   </div>
-</div>
-</div>
-
-
-{% schema %}
-{
-"name": {
-
-"en": "Collection-carousel",
-"es": "Carrusel de colecciones"
-
-},
-"settings" : [
-{
-"type": "text",
-"id": "title",
-"label": {
-"de": "Titel",
-"en": "Heading",
-"es": "Título",
-"fr": "En-tête",
-"it": "Heading",
-"ja": "見出し",
-"pt-BR": "Título"
-},
-"default": {
-
-"en": "Title",
-"es": "Título"
-
-}
-},
-{
-"type": "text",
-"id": "subtitle",
-"label": {
-"de": "Untertitel",
-"en": "Subheading",
-"es": "Subtítulo",
-"fr": "Sous-titre",
-"it": "Sottotitolo",
-"ja": "小見出し",
-"pt-BR": "Subtítulo"
-},
-"default": {
-
-"en": "Subtitle",
-"es": "Subtítulo"
-
-}
-},
-{ 
-"type": "collection",
-"id" : "c_id",
-"label" : {
-"en": "select collection",
-"es": "seleccione colección"
-}
-},
-{
-"type": "checkbox",
-"id": "check_vendor",
-"label" : {
-"en":"Show product vendors",
-"es": "Mostrar marcas de producto"
-},
-"default": true
-}
-
-],
-"presets" : [
-{
-"name": {
-"en": "featured-collection-carousel",
-"es": "Colección carrusel" 
-},
-"category": {
-"en": "Collections",
-"es": "Collecciones"
-}
-}
-]
-}
-{% endschema %}
+  </div>
+  
+  
+  {% schema %}
+  {
+  "name": {
+  
+  "en": "Collection-carousel",
+  "es": "Carrusel de colecciones"
+  
+  },
+  "settings" : [
+  {
+  "type": "text",
+  "id": "title",
+  "label": {
+  "de": "Titel",
+  "en": "Heading",
+  "es": "Título",
+  "fr": "En-tête",
+  "it": "Heading",
+  "ja": "見出し",
+  "pt-BR": "Título"
+  },
+  "default": {
+  
+  "en": "Title",
+  "es": "Título"
+  
+  }
+  },
+  {
+  "type": "text",
+  "id": "subtitle",
+  "label": {
+  "de": "Untertitel",
+  "en": "Subheading",
+  "es": "Subtítulo",
+  "fr": "Sous-titre",
+  "it": "Sottotitolo",
+  "ja": "小見出し",
+  "pt-BR": "Subtítulo"
+  },
+  "default": {
+  
+  "en": "Subtitle",
+  "es": "Subtítulo"
+  
+  }
+  },
+  { 
+  "type": "collection",
+  "id" : "c_id",
+  "label" : {
+  "en": "select collection",
+  "es": "seleccione colección"
+  }
+  },
+  {
+  "type": "checkbox",
+  "id": "check_vendor",
+  "label" : {
+  "en":"Show product vendors",
+  "es": "Mostrar marcas de producto"
+  },
+  "default": true
+  }
+  
+  ],
+  "presets" : [
+  {
+  "name": {
+  "en": "featured-collection-carousel",
+  "es": "Colección carrusel" 
+  },
+  "category": {
+  "en": "Collections",
+  "es": "Collecciones"
+  }
+  }
+  ]
+  }
+  {% endschema %}

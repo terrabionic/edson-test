@@ -5223,10 +5223,6 @@ theme.init = function() {
 
 $(theme.init);
 
-
-
-
-//alternative carousel
 $(".js-carousel").each(function() {
     var $carousel = $(this),
         $carouselContainer = $carousel.find(".js-carousel-container"),
@@ -5265,6 +5261,7 @@ $(".js-carousel").each(function() {
 
     $carouselButton.on("click", slide);
 });
+
 
 //carrousel vertical
 $('.carousel .vertical .item').each(function() {

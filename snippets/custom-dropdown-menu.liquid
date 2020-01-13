@@ -2,8 +2,12 @@
     {% for link_list_lv1 in linklist.links %}
     <li class="drop-menu-item-header click_hover">
             <div class="dropdown" id="dropdown{{forloop.index}}" onmouseenter="change_position_overflow_menu(event)">
+
+            {%assign menu_collection = link_list_lv1.object%}
               
-             <h3 class="drop-menu-item-title">{{link_list_lv1.title}}</h3> 
+             <h3 class="drop-menu-item-title">{{menu_collection.title}}</h3> 
+
+
                   
                     {%assign menu_handler = link_list_lv1.title | handleize%}
 
@@ -11,12 +15,14 @@
 
                     {%assign collection = link_list_lv1.object%}
 
-
                     {%assign collection_image = collection.image | img_url: '300X290'%}
 
                 
 
                   {%if link_list_lv2.links.size != 0%}
+
+                  {%if collection.image != nil %}
+                  
                   <div class=" dropdown-content" id="drop-content{{forloop.index}}">
                  
 
@@ -63,6 +69,27 @@
                       </div>
 
                     </div>
+                    {%else%}
+                    <div class=" dropdown-content" id="drop-content{{forloop.index}}">
+                 
+
+                      <div class="collection-info-drop">
+                     
+
+                      <div class="collection-nested-items no-image-menu-background">
+                     
+                          {%for link in link_list_lv2.links%}
+
+                          <div class="dropdown-link-item no-image-menu-margin">
+                            <a href="{{link.url}}">{{link.title | capitalize}}</a>
+                          </div>
+                          {%endfor%}
+
+                      </div>
+
+                    </div>
+                     {%endif%}
+
                   {%endif%}
                
                   </div>
