@@ -25,22 +25,21 @@
                   {%assign image = block.settings.collection_image%}
    
                   {%if forloop.index == 1 or forloop.index == 6%}
-                  {%assign size_img = '585X250'%}
+                  {%assign size_img = '585X320'%}
                   {%assign size_contain = 'custom-collection-image-585'%}
                   {%else%}
-                  {%assign size_img = '250X250'%}
+                  {%assign size_img = '277X320'%}
                   {%assign size_contain = 'custom-collection-image-250'%}
                   {%endif%}
               
                   <div class="">
                        
                         <img id="{{ img_id }}"
-                             class="feature-row__image  {{size_contain}} lazyload"
+                             class="feature-row__image  {{size_contain}} fit-image-custom-collection-list lazyload"
                              src="{{ image | img_url: size_img }}"
                              data-src="{{ img_url }}"
                              data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
                              data-aspectratio="{{ image.aspect_ratio }}"
-                             data-sizes="fit"
                              alt="{{ image.alt | escape }}">
                              
                       </div>

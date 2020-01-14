@@ -3109,7 +3109,7 @@ $slick-dot-size-small: 10px;
 
 /*================ Slick dots and prev/next pagination ================*/
 .slideshow__arrows .slick-dots {
-  margin: 0 0.75rem;
+  margin: 0 0;
 
   li {
     // sass-lint:disable SelectorDepth
@@ -5715,7 +5715,8 @@ $transition-controls-slideshow: color 0.2s $ease-transition, background-color 0.
   display: none;
 
   @include media-query($small) {
-    display: block;
+    display: flex;
+    justify-content: center;
     position: absolute;
     top: 0;
     left: calc(50% -50px);
@@ -5804,6 +5805,9 @@ display:none;
 
   .slideshow__arrows--mobile ~ & {
     padding-top: 1.7rem;
+      //position:absolute!important;
+      //bottom:0!important;
+      //left: calc(50% - 22px)!important;
     @include media-query($medium-up) {
       display:block;
       padding-top: 0;
@@ -5909,6 +5913,14 @@ display:none;
 .slideshow__arrows {
   //position:absolute;
   //z-index:200!important;
+      position:absolute!important;
+      bottom:20px!important;
+      //left: calc(50% - 22px)!important;
+  width:100%;
+  display:flex;
+  justify-content:center;
+
+
   height: $slideshow-control-size;
   padding: 5px;
   background-clip: content-box;
@@ -5973,6 +5985,9 @@ display:none;
       height: $slideshow-dot-size;
       margin-left: $slideshow-dot-size;
     }
+   li:first-of-type{
+   margin-left: 0;
+   }
     // sass-lint:disable SelectorDepth
     li button::before,
     li a::before {

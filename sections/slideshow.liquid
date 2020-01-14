@@ -3,6 +3,12 @@
    
     
   }
+
+  function center_bullets(){
+
+  }
+
+
   window.onresize = change_ratio;
   $( document ).ready(function() {
       change_ratio();
@@ -172,10 +178,16 @@
             </div>
         </button>
         {%endif%}
-        <div class="slideshow__arrows new-position-bullets "
+        
+        <div class="slideshow__arrows "
         style="width: {{- arrows_width -}}px">
 
+       
+
+          
+       
         <div class="slideshow__controls ">
+            
           {%- if section.blocks.size > 1 -%}
             {%- assign arrows_width = section.blocks.size | times: 18 | plus: 115 -%}
      
@@ -184,14 +196,20 @@
             {%- endif -%}
           {%- endif -%}
         </div>
+
+        
     
    </div>
+ 
+
       
      
         <div class="slideshow__text-wrap slideshow__text-wrap--mobile">
-        {% if section.blocks.size > 1 %}
+        {% if section.blocks.size != 1 %}
           <div class="slideshow__arrows slideshow__arrows--mobile">
-          
+          <div class="align-bullets">
+
+          </div>
           </div>
         {% endif %}
         {%- for block in section.blocks -%}
@@ -199,6 +217,7 @@
        
         {%- endfor -%}
       </div>
+   
     {%- endif -%}
   
    
