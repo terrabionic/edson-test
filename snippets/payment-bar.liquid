@@ -32,7 +32,7 @@
           {%endfor%}
            {%endcomment%}
           {%for payment in shop.enabled_payment_types%}
-           {{payment | payment_type_svg_tag , class: 'payment-logo-item'}}
+           {{payment | payment_type_svg_tag , class: 'payment-logo-item '}}
           {%endfor%}
         </div>
   

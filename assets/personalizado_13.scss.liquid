@@ -238,6 +238,14 @@ width: calc(50%);
 position: absolute;
 left: 50%;
 top:50%;
+@media(max-width: 749px){
+width: 100%;
+position:relative;
+left: 0;
+top: 0;
+display:flex;
+justify-content: center;
+}
 }
 
 .slideshow__mobile{
@@ -292,6 +300,12 @@ height:18px;
   z-index: 1;
 display:none;
 background-color: white;
+}
+.desktop-show{
+display:block;
+@media(max-width: 750px){
+display:none;
+}
 }
 
 .dropdown:hover{
@@ -572,6 +586,19 @@ width:100%;
 .image-logo-size{
   width:82px!important;
   height:82px;
+  
+  @media(max-width: 505px){
+  width: 50px!important;
+  height: 50px;
+  }
+}
+
+.margin-announcement-bar-button{
+  @media(max-width:377px){
+    margin-bottom: 10px;
+  }
+
+  
 }
 
 .image-logo-header-container{
@@ -582,6 +609,10 @@ align-items: center;
 .image-logo-header{
 min-width: 92px;
 min-height: 82px;
+@media(max-width: 505px){
+  min-width: 62px;
+  min-height: 52px;
+}
 }
 .image-logo-border-right{
 
@@ -882,8 +913,8 @@ margin: 0 7.5px 20px!important;
 
 .subheading-custom-collection-list{
     //margin: 20px 0px 20px 0px;
-  
-    width: 715px;
+    position:relative;
+    width: 100%;
    
     font-family: 'Asap';
     font-size: 17px;
@@ -949,8 +980,8 @@ overflow: hidden;
  // margin: 20px 0px 20px 0px;
   //margin-top: 14px;
   //margin-bottom:26px;
-  width: 715px;
-  height: 22px;
+  width: 100%;
+  height: auto;
   font-family: 'Asap';
   font-size: 17px;
   font-weight: normal;
@@ -1178,6 +1209,9 @@ height:100%;
   position: relative;
   display: inline-block;
   vertical-align: middle;
+  @media(max-width: 413px){
+    max-width:120px;
+  }
   max-width:170px;
   margin:0.1rem;
 }
@@ -1278,7 +1312,7 @@ width:15%;
 display:flex;
 align-items:center;
 box-sizing: border-box;
-padding: 0 2.1rem;
+padding: 0 0;
 @media(max-width: 575px){
   flex-direction:column;
   justify-content: flex-start;
@@ -2081,8 +2115,11 @@ margin-top:20px;
   }
 }
 
+
+
 .menu-item-custom-footer-mobile{
-  margin: 1.625rem;
+  margin: 1.625rem 0 1.1625rem 0;
+
   position:relative;
   width: 100%;
 }
@@ -2113,6 +2150,10 @@ margin-top:20px;
  }
 }
 
+.newsletter-margin{
+  margin-right: 2.1rem;
+}
+
 
 .menu-title-mobile{
   position:relative;
@@ -2120,7 +2161,7 @@ margin-top:20px;
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
-  border-bottom: 2px solid #dfe3e9;
+  border-bottom: 1px solid #dfe3e9;
   
 
 }
@@ -2177,6 +2218,7 @@ display:block;
   width:80%;
   @media(max-width:1050px){
   flex-direction:column;
+  padding-bottom: 10px;
   }
  
   }
@@ -2203,6 +2245,7 @@ display:block;
   .payment-logos{
     display: flex;
     max-width: 470px;
+    //margin-bottom: 14px;
     min-height:40px;
     flex-wrap: nowrap;
   }
@@ -2210,6 +2253,7 @@ display:block;
     width:56px;
     height:36px;
     margin-right:8px;
+    
   }
   
   .payment-logo-size{

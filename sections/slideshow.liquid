@@ -124,20 +124,22 @@
                                 </span>
                               </li>
                         </div>
+
+                        {%- assign show_link_button = false -%}
+                        {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
+                          {%- assign show_link_button = true -%}
+                        {%- endif -%}
+                        {%- if show_link_button -%}
+                 
+                            <a href="{{ block.settings.button_link }}" class="btn slideshow__btn slide-button-text btn-slide-size btn-slide-padding btn-slide-margin-section slide-text-items-margin">
+                          {{ block.settings.button_label | escape }}
+                            </a>
+                        
+                        {%- endif -%}
                           
                         {%- endunless -%}
   
-                                       {%- assign show_link_button = false -%}
-                    {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
-                      {%- assign show_link_button = true -%}
-                    {%- endif -%}
-                    {%- if show_link_button -%}
              
-                        <a href="{{ block.settings.button_link }}" class="btn slideshow__btn slide-button-text btn-slide-size btn-slide-padding btn-slide-margin-section slide-text-items-margin">
-                      {{ block.settings.button_label | escape }}
-                        </a>
-                    
-                    {%- endif -%}
                       </ul>
                     {% endunless %}
   
@@ -153,15 +155,16 @@
               
         </div>
 
-        {%if section.blocks > 1 %}
-        <button class=" btn-left-position slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item arrow-color no-borders arrows-position" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
+        {%if section.blocks.size != 1  %}
+      
+        <button class=" btn-left-position slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item arrow-color no-borders arrows-position desktop-show" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
      
      
           <div  class="arrow-size ">
              {%include 'svg-arrow-left'%}
             </div>
         </button>
-        <button class=" btn-right-position slideshow__arrow-right button-arrow-size button-arrow arrow-item arrow-color no-borders arrows-position" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
+        <button class=" btn-right-position slideshow__arrow-right button-arrow-size button-arrow arrow-item arrow-color no-borders arrows-position desktop-show" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
         
      
           <div  class="arrow-size">

@@ -131,26 +131,14 @@
               {%assign logo_menos = 'menos-active_2x.png'  | asset_img_url: '30X30'  %}
 
               <div id="{{menu_name}}-mas" class="img-logo-footer-margin" >
-                  <img id="{{ img_id }}"
-                       class="lazyload"
-                       src="{{ logo_mas}}"
-                       data-src="{{ img_url }}"
-                       data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                       data-aspectratio="{{ logo_mas.aspect_ratio }}"
-                       data-sizes="auto"
-                       alt="{{ logo_mas.alt | escape }}">
-                </div>
+                {%include 'icon-plus-svg'%}
+              </div>
 
-                <div id="{{menu_name}}-menos" class="img-logo-footer-margin  menu-links-mobile-inactive" >
-                    <img id="{{ img_id }}"
-                         class="lazyload"
-                         src="{{ logo_menos }}"
-                         data-src="{{ img_url }}"
-                         data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                         data-aspectratio="{{ logo_mas.aspect_ratio }}"
-                         data-sizes="auto"
-                         alt="{{ logo_mas.alt | escape }}">
-                  </div>
+              <div id="{{menu_name}}-menos" class="img-logo-footer-margin  menu-links-mobile-inactive">
+                {%include 'icon-minus-svg'%}
+              </div>
+
+                
 
           </div>
           <div id="{{menu_name}}" class="menu-content menu-links-mobile-inactive">
@@ -248,7 +236,7 @@
            {%else%}
            {%assign newsletter_visibility = 'newsletter-hidden'%}
            {% endif %}
-           <div class="{{newsletter_visibility}}"> 
+           <div class="{{newsletter_visibility}} newsletter-margin"> 
             {%- assign formId = 'ContactFooter' -%}
                   {% form 'customer', id: formId, novalidate: 'novalidate' %}
                     {%- if form.posted_successfully? -%}

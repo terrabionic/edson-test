@@ -5263,6 +5263,7 @@ $(".js-carousel").each(function() {
 });
 
 
+
 //carrousel vertical
 $('.carousel .vertical .item').each(function() {
     var next = $(this).next();
