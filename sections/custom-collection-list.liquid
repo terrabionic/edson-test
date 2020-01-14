@@ -23,16 +23,31 @@
                    {%endif%}
                   {%assign class = "zx"%}
                   {%assign image = block.settings.collection_image%}
+
+                 
+                  {%if block.settings.collection_image_small%}
+               
+                  {%assign image_small = block.settings.collection_image_small%}
+                  {%else%}
+              
+                  {%assign image_small = block.settings.collection_image%}
+                  {%endif%}
    
                   {%if forloop.index == 1 or forloop.index == 6%}
+             
                   {%assign size_img = '585X320'%}
                   {%assign size_contain = 'custom-collection-image-585'%}
+                  {%assign small_dislay = 'small_collection_display'%}
+                  {%assign large_display = 'large_collection_display'%}
                   {%else%}
+              
                   {%assign size_img = '277X320'%}
+                  {%assign small_display = ''%}
                   {%assign size_contain = 'custom-collection-image-250'%}
+                  {%assign large_display = ''%}
                   {%endif%}
               
-                  <div class="">
+                  <div class="{{large_display}}">
                        
                         <img id="{{ img_id }}"
                              class="feature-row__image  {{size_contain}} fit-image-custom-collection-list lazyload"
@@ -43,6 +58,26 @@
                              alt="{{ image.alt | escape }}">
                              
                       </div>
+                      
+                    {%if forloop.index == 1 or forloop.index == 6%} {%comment%}cambios solo aplican a image small mobile{%endcomment%}
+                      {%assign size_img = '277X320'%}
+
+                      <div class="small_collection_display">
+                       
+                           <img id="{{ img_id }}"
+                                class="feature-row__image  {{size_contain}} fit-image-custom-collection-list lazyload"
+                                src="{{ image_small | img_url: size_img }}"
+                                data-src="{{ img_url }}"
+                                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                                data-aspectratio="{{ image_small.aspect_ratio }}"
+                                alt="{{ image_small.alt | escape }}">
+                                
+                         </div>
+                        
+                      {%endif%}
+                      
+
+
                                <div class="custom-collection-title" >
                                   {{block.settings.collection_id | capitalize | replace: "-", " " }}
                               </div> 
@@ -120,10 +155,18 @@
            "type": "image_picker",
            "id": "collection_image",
            "label": {
-           "en": "collection image",
-           "es": "Imagen de colección"
+           "en": "Collection image",
+           "es": "Imagen de colección grande"
            } 
         },
+        {
+         "type": "image_picker",
+         "id": "collection_image_small",
+         "label": {
+         "en": "Collection image small",
+         "es": "Imagen de colección pequeña "
+         } 
+      },
         {
            "type": "collection",
            "id": "collection_id",
