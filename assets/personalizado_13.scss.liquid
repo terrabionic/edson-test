@@ -1308,7 +1308,7 @@ padding-bottom:50px;
 /*================Debut Text columns with text================*/
 .title-column {
   font-family: 'Asap';
-  font-size: 19px;
+  //font-size: 19px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -2101,6 +2101,13 @@ width:50%;
 }
 }
 
+.grid-large-hide{
+  display:none;
+ @media(max-width: 990px){
+//display:block;
+}
+}
+
 .price__sku{
 //padding-top:0.3rem;
 }
@@ -2577,6 +2584,16 @@ display: block;
   width: 85%;
   margin-left: 7.5%;
   margin-right:7.5%;
+  @media(max-width:505px){
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  }
+}
+.btn-text-mobile{
+  @media(max-width: 749px){
+  font-size: 16px;
+  }
 }
   
 

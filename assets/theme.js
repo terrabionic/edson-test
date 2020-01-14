@@ -1225,6 +1225,7 @@ theme.MobileNav = (function() {
     var menuLevel = 1;
     // Breakpoints from src/stylesheets/global/variables.scss.liquid
     var mediaQuerySmall = 'screen and (max-width: 749px)';
+    var mediaQueryMenuMobile= 'screen and (max-width: 990px)';
 
     function init() {
         cacheSelectors();
@@ -1233,9 +1234,10 @@ theme.MobileNav = (function() {
         cache.$subNavToggleBtn.on('click.subNav', toggleSubNav);
 
         // Close mobile nav when unmatching mobile breakpoint
-        enquire.register(mediaQuerySmall, {
+        enquire.register(mediaQueryMenuMobile, {
             unmatch: function() {
                 if (cache.$mobileNavContainer.hasClass(classes.navOpen)) {
+                    console.log('close nav');
                     closeMobileNav();
                 }
             }
@@ -1295,6 +1297,7 @@ theme.MobileNav = (function() {
     }
 
     function closeMobileNav() {
+        
         cache.$mobileNavContainer.prepareTransition().removeClass(classes.navOpen);
 
         cache.$mobileNavContainer.css({
@@ -1354,7 +1357,9 @@ theme.MobileNav = (function() {
         $activeTrigger = $toggleBtn;
 
         goToSubnav($toggleBtn.data('target'));
+          
     }
+  
 
     function goToSubnav(target) {
         /*eslint-disable shopify/jquery-dollar-sign-reference */

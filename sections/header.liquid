@@ -1,4 +1,20 @@
 <script>
+  function hide_hamburguer_icon(evt){
+   var list = String(evt.currentTarget.classList);
+  
+   var icon_hamburguer = $('.icon-hamburguer');
+   
+   if (list.includes('mobile-nav--close')){
+    console.log('hide');
+    $(icon_hamburguer).show();
+
+   }
+   else{
+    console.log('show');
+    $(icon_hamburguer).hide();
+   }
+
+  }
  function change_position_overflow_menu(evt)
  {
  
@@ -209,7 +225,7 @@
                   {% endif %}
         
                   {% unless linklists[section.settings.main_linklist] == blank %}
-                    <button type="button" class="btn--link site-header__icon site-header__menu menu-burguer-display js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
+                    <button type="button" class="btn--link site-header__icon site-header__menu menu-burguer-display js-mobile-nav-toggle mobile-nav--open no-borders"  onclick="hide_hamburguer_icon(event)" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
                       {% include 'icon-hamburger' %}
                       {% include 'icon-close' %}
                     </button>
@@ -227,7 +243,7 @@
     
     </div>
 
-    <nav class="mobile-nav-wrapper medium-up--hide" role="navigation">
+    <nav class="mobile-nav-wrapper grid-large-hide" role="navigation">
 
    
     
