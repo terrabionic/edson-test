@@ -12,11 +12,11 @@
       
      
       
-      console.log('new_position='+ new_position);
-      console.log('height='+ height);
+     // console.log('new_position='+ new_position);
+      //console.log('height='+ height);
       $(left_button).css({top: new_position+'px'});
       $(right_button).css({top: new_position+'px'});
-      console.log('left_button.top'+    $(left_button).position().top);
+     // console.log('left_button.top'+    $(left_button).position().top);
     }
     function change_active_button(button)
     {
@@ -26,11 +26,14 @@
       $( "#slick-group li" ).each(function(  ) {
      $(this).removeClass( "new-slick-active" );
     });
-    if (button == 0) 
+    if (button == 0)  // button cero
     {
       
      if (slide_num > 1){
       slide_num--;
+     }
+     else{
+       slide_num = total_slide;
      }
     }
     else if (button == 1)
@@ -39,6 +42,9 @@
     if (slide_num < total_slide)
     {
     slide_num= slide_num + 1;
+    }
+    else{
+      slide_num = 1;
     }
     }
      $('#carousel-list-items').data('current-slide', slide_num)

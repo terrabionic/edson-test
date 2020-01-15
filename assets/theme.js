@@ -5248,16 +5248,37 @@ $(".js-carousel").each(function() {
                 listWidth = $carouselList.outerWidth(),
                 before = (curPos + containerWidth),
                 after = listWidth + (curPos - containerWidth);
+                console.log('old curPos='+ curPos);
+                if (dir == 'prev'){
+                    (before >= 0) ? console.log('cero') : console.log('curpos + container');
+                }
+                console.log('listWidth='+ listWidth);
+                console.log('containerwidth='+ containerWidth);
+
+               
+                
             if (dir == "next") {
                 moveto = (after < containerWidth) ? curPos - after : curPos - containerWidth;
             } else {
                 moveto = (before >= 0) ? 0 : curPos + containerWidth;
             }
+             console.log('moveto='+ moveto);
 
+             if ((dir == "next")&& (moveto == curPos) ){
+              moveto = 0;
+             }
+             console.log('dir='+ dir);
+             if ((dir == "prev")&& (moveto == curPos) ){
+                moveto = -(listWidth - containerWidth);
+               }
+         
 
             $carouselList.animate({
                 left: moveto
             });
+            curPos = parseInt($carouselList.css("left")) || 0;
+            console.log('new curPos='+ curPos);
+            console.log('________________________');
         };
     $(window).resize(function() {
         setItemWidth();
