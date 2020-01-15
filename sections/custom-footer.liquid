@@ -32,88 +32,80 @@
 
       <div  class="page-width">
       
-<nav class="desktop-custom-footer">
-    <div class="footer-custom flex-footer flex-nowrap footer-top-margin">
-
- 
-        {% for block in section.blocks %}
-      
-           {%assign menu_name = block.settings.selected_menu%}
-           {%assign menu = linklists[menu_name]%}
-           {%if forloop.index < section.blocks.size%}
-           {%if block%}
+          <nav class="desktop-custom-footer">
+              <div class="footer-custom flex-footer flex-nowrap footer-top-margin">
         
-           <div class="menu-item-custom-footer site-footer__item--one-quarter ">
-              {%if block.settings.menu_title and block.settings.menu_title != ''%}
-              <h3 class="custom-menu-title">{{block.settings.menu_title}}</h3>
-              {%endif%}
-            <ul>
-            {%for link in menu.links%}
-            <li class="custom-menu-link capitalize-text margin-top-link-item">
-              <a href="{{link.url}}">{{link.title}}</a></li>
-            {% endfor %}
-            </ul>
-          </div>
-          {%endif%}
-           {%else%}
-         
-           <div class="menu-item-custom-footer site-footer__item--one-quarter">
-
-    
-              <h3 class="custom-menu-title no-margin-titles">{{block.settings.contact_title}}</h3>
-
-              {%if block.settings.phone_number and block.settings.phone_number != ''%}
-             
-             
-              <div class="contact-phone flex-footer contact-block-margin">
-        
-                  <div class=" logo-container-size">
-                      {%include 'icon-phone'%}
-                  </div>
+                  {% for block in section.blocks %}
+                  {%if block.type == 'menu'%}
+                  <div class="menu-item-custom-footer site-footer__item--one-quarter">
               
-                 <div class="contact-info-footer custom-menu-link text-container-size">
-                   {{block.settings.phone_number}}
-              </div>
-              </div>
-              {%endif%}
-
-              {%if block.settings.email and block.settings.email != ''%}
-             
-              <div class="contact-email flex-footer margin-contact-item" >
-                  <div class=" logo-container-size">
-                      {%include 'icon-email'%}
+                  {%assign menu_name = block.settings.selected_menu%}
+                  {%assign menu = linklists[menu_name]%}
+                  {%if block.settings.menu_title != ''%}
+                   <h3 class="custom-menu-title">{{block.settings.menu_title}}</h3>
+                   {%endif%}
+                   <ul>
+                      {%for link in menu.links%}
+                      <li class="custom-menu-link capitalize-text margin-top-link-item">
+                        <a href="{{link.url}}">{{link.title}}</a></li>
+                      {% endfor %}
+                      </ul>
+                </div>
+                {%elsif block.type == 'contact_info'%}
+                <div class="menu-item-custom-footer site-footer__item--one-quarter">
+      
+          
+                    <h3 class="custom-menu-title no-margin-titles">{{block.settings.contact_title}}</h3>
+      
+                    {%if block.settings.phone_number and block.settings.phone_number != ''%}
+                   
+                   
+                    <div class="contact-phone flex-footer contact-block-margin">
+              
+                        <div class=" logo-container-size">
+                            {%include 'icon-phone'%}
+                        </div>
+                    
+                       <div class="contact-info-footer custom-menu-link text-container-size">
+                         {{block.settings.phone_number}}
                     </div>
-                        
-                    <div class="contact-info-footer custom-menu-link text-container-size">
-                        {{block.settings.email}}
-                     </div>
-              </div>
-              {%endif%}
+                    </div>
+                    {%endif%}
       
-             {%if block.settings.address and block.settings.address != ''%}
+                    {%if block.settings.email and block.settings.email != ''%}
+                   
+                    <div class="contact-email flex-footer margin-contact-item" >
+                        <div class=" logo-container-size">
+                            {%include 'icon-email'%}
+                          </div>
+                              
+                          <div class="contact-info-footer custom-menu-link text-container-size">
+                              {{block.settings.email}}
+                           </div>
+                    </div>
+                    {%endif%}
+            
+                   {%if block.settings.address and block.settings.address != ''%}
+            
+                    <div class="contact-address flex-footer margin-contact-item">
+                    <div  class=" logo-container-size">
+                            {%include 'icon-marcador'%}
+                           </div>
+             
+                           <div class="contact-info-footer custom-menu-link text-container-size">
+                               {{block.settings.address}}
+                            </div>
+                   </div>
+                   {%endif%}
       
-              <div class="contact-address flex-footer margin-contact-item">
-              <div  class=" logo-container-size">
-                      {%include 'icon-marcador'%}
-                     </div>
-       
-                     <div class="contact-info-footer custom-menu-link text-container-size">
-                         {{block.settings.address}}
-                      </div>
-             </div>
-             {%endif%}
-
-
-          </div>
       
+                </div>
+                {%endif%}
       
-           {%endif%}
-         {% endfor %}
-      
-        </div>
-      
-       
-</nav>
+                 {%endfor%}
+                  
+                </div>
+          </nav>
 
 
 
@@ -342,7 +334,7 @@
   ],
   "blocks": [
   {
-    "type": "link_list",
+    "type": "menu",
     "name": {
         "en": "Menu",
         "es": "Menú"
@@ -369,7 +361,7 @@
     ]
   },
   {
-    "type": "text",
+    "type": "contact_info",
     "name": {
       "en": "Contact info",
       "es": "Información de contacto"
