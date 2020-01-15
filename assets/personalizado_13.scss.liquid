@@ -1111,11 +1111,31 @@ margin: 0 7.5px 20px!important;
 
 }
 
-.small-hide{
+.arrow-hide{
+  display:block;
   @media(max-width:750px){
     display:none;
   }
+  
 }
+.arrow-mobile-display{
+  display:none;
+  @media(max-width:620px){
+    //display:block;
+  display:flex;
+  justify-content: center;
+  }
+}
+.arrow-mobile-left-margin{
+
+margin-right: 25px;
+}
+.arrow-mobile-right-margin{
+margin-left:25px;
+
+}
+
+
 
 
 .list-collections-custom{
@@ -1547,6 +1567,7 @@ width:15%;
 .contact-info-footer{
   position: relative;
   width:85%; 
+  word-break: break-all;
 }
 .flex-nowrap{
   flex-wrap: nowrap;
@@ -3158,6 +3179,7 @@ clear:both;
      }
   
 }
+
 
 .carousel-bullets{
   margin-top:40px;

@@ -1,10 +1,17 @@
 <script>
     function center_buttons(){
+
+     
+
+      
       var container_items_slide = $('#carousel-list-items');
       var left_button = $('#fc_carousel_left_button');
       var right_button = $('#fc_carousel_right_button');
       var height = $(container_items_slide).height();
-      var new_position = (height / 2) - 25;
+        var new_position = (height / 2) - 25;
+      
+     
+      
       console.log('new_position='+ new_position);
       console.log('height='+ height);
       $(left_button).css({top: new_position+'px'});
@@ -189,7 +196,7 @@
         
           </div>
         </div>
-        <div class="carousel__nav small-hide">
+        <div class="carousel__nav arrow-hide">
             <button id="fc_carousel_left_button" onclick="change_active_button(0)" class="carousel__button--prev js-carousel-button btn-left-position carousel_position_button new_slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item arrow-color no-borders" data-dir="prev" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
                 {%assign logo_arrow_right= 'arrow-right-white_2x.png'  | asset_img_url: '32X32'  %}
            
@@ -211,6 +218,24 @@
         <ol id="slick-group" class="  new-slick-dots ">
        
         </ol>
+        </div>
+        <div class="carousel__nav arrow-mobile-display">
+            <button id="fc_carousel_left_button_mobile"  class="arrow-mobile-left-margin js-carousel-button  new_slideshow__arrow-left button-arrow-size button-arrow arrow-left arrow-item arrow-color no-borders" data-dir="prev" aria-label="{{ 'sections.slideshow.previous_slide' | t }}">
+                {%assign logo_arrow_right= 'arrow-right-white_2x.png'  | asset_img_url: '32X32'  %}
+           
+                <div  class=" arrow-size">
+                    {%include 'svg-arrow-left'%}
+                  </div>
+              </button>
+             
+              <button  id="fc_carousel_right_button_mobile"  class="arrow-mobile-right-margin  js-carousel-button    new_slideshow__arrow-right button-arrow-size button-arrow arrow-item arrow-color no-borders" data-dir="next" aria-label="{{ 'sections.slideshow.next_slide' | t }}">
+                   
+                
+                  <div  class=" arrow-size">
+                     {%include 'svg-arrow-right'%}
+                    </div>
+                </button>
+    
         </div>
       </div>
     </div>
