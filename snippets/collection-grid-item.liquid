@@ -55,13 +55,19 @@
               
               {%if template !='list-collections'%} 
               {%if template == 'index'%}
+              {%if btn_label != blank%}
               <div class="btn btn-13 btn-13-label button-collection-margin btn-width-collection-list btn-text-mobile">
                 {{btn_label}}
               </div>
+              {%endif%}
               {%else%}
+              {%if btn_label != blank %}
               <div class="btn btn-13 btn-13-label button-collection-margin">
+             
                 {{btn_label}}
+                
               </div>
+              {%endif%}
               {%endif%}
 
              
