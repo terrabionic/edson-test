@@ -110,7 +110,7 @@
                 <div class="slideshow__text-content slideshow__text-content--vertical-{{ text_vertical_alignment }} text-{{ text_horizontal_alignment }}">
                
                     {% unless block.settings.slide_title == blank and block.settings.subheading == blank %}
-                      <ul class="slideshow__text-content-list align-text-items-slide">
+                      <ul class="slideshow__text-content-list align-text-items-slide hide-text-slide-mobile">
                         {%- unless block.settings.slide_title == blank -%}
                         <div class="slide-text-items-margin">
                             <li>
@@ -137,7 +137,7 @@
                         {%- endif -%}
                         {%- if show_link_button -%}
                  
-                            <a href="{{ block.settings.button_link }}" class="btn slideshow__btn slide-button-text btn-slide-size btn-slide-padding btn-slide-margin-section slide-text-items-margin">
+                            <a href="{{ block.settings.button_link }}" class="btn slideshow__btn slide-button-text btn-slide-size btn-slide-padding btn-slide-margin-section slide-text-items-margin no-borders">
                           {{ block.settings.button_label | escape }}
                             </a>
                         
@@ -147,6 +147,46 @@
   
              
                       </ul>
+
+
+
+                      <ul class=" show-text-slide-mobile">
+                          {%- unless block.settings.slide_title == blank -%}
+                          <div class="slide-text-items-margin">
+                              <li>
+                            
+                                  <h2 class=" slide-text slide-desktop-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">
+                                    {{ block.settings.slide_title | escape }}
+                                  </h2>
+                                </li>
+                            </div>
+                        
+                          {%- endunless -%}
+                          {%- unless block.settings.subheading == blank -%}
+                          <div class="slide-text-items-margin">
+                              <li>
+                                  <span class="slide-text slide-desktop-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">
+                                    {{ block.settings.subheading | escape }}
+                                  </span>
+                                </li>
+                          </div>
+  
+                          {%- assign show_link_button = false -%}
+                          {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
+                            {%- assign show_link_button = true -%}
+                          {%- endif -%}
+                          {%- if show_link_button -%}
+                   
+                              <a href="{{ block.settings.button_link }}" class="btn slideshow__btn slide-button-text btn-slide-size btn-slide-padding btn-slide-margin-section slide-text-items-margin no-borders">
+                            {{ block.settings.button_label | escape }}
+                              </a>
+                          
+                          {%- endif -%}
+                            
+                          {%- endunless -%}
+    
+               
+                        </ul>
                     {% endunless %}
   
      
@@ -196,6 +236,15 @@
             {%- endif -%}
           {%- endif -%}
         </div>
+      {%comment%}
+        {% if section.blocks.size != 1 %}
+        <div class="slideshow__arrows slideshow__arrows--mobile">
+        <div class="align-bullets">
+
+        </div>
+        </div>
+      {% endif %}
+      {%endcomment%}
 
         
     
@@ -203,7 +252,7 @@
  
 
       
-     
+     {%comment%}
         <div class="slideshow__text-wrap slideshow__text-wrap--mobile">
         {% if section.blocks.size != 1 %}
           <div class="slideshow__arrows slideshow__arrows--mobile">
@@ -217,6 +266,7 @@
        
         {%- endfor -%}
       </div>
+      {%endcomment%}
    
     {%- endif -%}
   
