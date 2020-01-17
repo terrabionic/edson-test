@@ -157,10 +157,11 @@
 {% endif %}
 {% endif %}  
 
-{%include 'contact-info'%}
-     
+
+{%include 'contact-info'%} 
 
   <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %} " role="banner">
+
     <div class="grid grid--no-gutters grid--table  site-header__mobile-nav">
   
 
@@ -258,13 +259,14 @@
           {%- assign outerLoopIndex = forloop.index -%}
 
 
-          <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
+          <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %} ">
           
            
             {% if link.links != blank %}
               {% capture child_list_handle %}{{ link.handle }}-{{ outerLoopIndex }}{% endcapture %}
             
-              <button  type="button" class="btn--link js-toggle-submenu mobile-nav__link{% if link.child_active %} mobile-nav__link--active{% endif %} " data-target="{{ child_list_handle }}" data-level="1" aria-expanded="false">
+            
+              <button  type="button" class="btn--link js-toggle-submenu mobile-nav__link{% if link.child_active %} mobile-nav__link--active{% endif %} " data-target="{{ child_list_handle }} no-borders" data-level="1" aria-expanded="false">
                 <span class="mobile-nav__label drop-menu-item-title "> {{ link.title | escape }}</span>
                 <div class="mobile-nav__icon">
                     <div class="btn-right btn-margin btn-right-top-margin">
@@ -279,15 +281,16 @@
                     </div>  
                 </div>
               </button>
+         
             
               <ul class="mobile-nav__dropdown" data-parent="{{ child_list_handle }}" data-level="2">
                 <li class="visually-hidden" tabindex="-1" data-menu-title="2">
                  {{- link.title }} {{ 'layout.navigation.menu' | t -}}
                 </li>
-                <li class="mobile-nav__item border-bottom">
+                <li class=" border-bottom no-borders">
                   <div class="mobile-nav__table">
                     <div class="mobile-nav__table-cell mobile-nav__return border-right-button-menu">
-                      <button class="btn--link js-toggle-submenu mobile-nav__return-btn btn-padding" type="button" aria-expanded="true" aria-label="{{ link.title }}">
+                      <button class="btn--link js-toggle-submenu mobile-nav__return-btn btn-padding no-box-outline" type="button" aria-expanded="true" aria-label="{{ link.title }}">
                           <div class="btn-right btn-margin">
                               <img id="{{ img_id }}"
                               class="feature-row__image lazyload"
@@ -322,7 +325,7 @@
                         <li class="visually-hidden" tabindex="-1" data-menu-title="3">
                           {{- childlink.title }} {{ 'layout.navigation.menu' | t -}}
                         </li>
-                        <li class="mobile-nav__item border-bottom">
+                        <li class="mobile-nav__item border-bottom no-box-outline">
                           <div class="mobile-nav__table">
                             <div class="mobile-nav__table-cell mobile-nav__return border-right-button-menu">
                               <button type="button" class="btn--link js-toggle-submenu mobile-nav__return-btn" data-target="{{ child_list_handle }}" aria-expanded="true" aria-label="{{ childlink.title }}">

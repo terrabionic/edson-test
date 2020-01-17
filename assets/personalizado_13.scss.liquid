@@ -639,6 +639,10 @@ margin: 0 15px;
   box-shadow: none!important;
   outline: none!important;
 }
+.no-box-outline{
+  box-shadow: none!important;
+  outline: none!important;
+}
 
 .collection-nested-items{
   width:342px;
@@ -900,7 +904,14 @@ display:block;
 }
 
 .z-index-bar{
+  position:relative;
   z-index: 200000;
+}
+
+.site-header{
+  @media(max-width: 990px){
+ padding: 0;
+  }
 }
 
 .information-bar{
@@ -2781,7 +2792,9 @@ height:100%;
   @media(max-width:990px){
   position:absolute;
   top:13px;
+  left:0px;
   }
+ 
 }
 
 .contact-info-inline{
@@ -2797,6 +2810,10 @@ height:100%;
   left:150px;
 
   }
+  @media(max-width:505px){
+  top: 15px;
+  }
+  
 }
 
 .margin-button-search{
