@@ -5229,6 +5229,9 @@ theme.init = function() {
 $(theme.init);
 
 $(".js-carousel").each(function() {
+  
+
+    
     var $carousel = $(this),
         $carouselContainer = $carousel.find(".js-carousel-container"),
         $carouselList = $carousel.find(".js-carousel-list"),
@@ -5240,6 +5243,7 @@ $(".js-carousel").each(function() {
             $carouselList.css("width", curWidth);
         },
         slide = function() {
+         
             var $button = $(this),
                 dir = $button.data("dir"),
                 curPos = parseInt($carouselList.css("left")) || 0,
@@ -5248,12 +5252,12 @@ $(".js-carousel").each(function() {
                 listWidth = $carouselList.outerWidth(),
                 before = (curPos + containerWidth),
                 after = listWidth + (curPos - containerWidth);
-                console.log('old curPos='+ curPos);
+                //console.log('old curPos='+ curPos);
                 if (dir == 'prev'){
                     (before >= 0) ? console.log('cero') : console.log('curpos + container');
                 }
-                console.log('listWidth='+ listWidth);
-                console.log('containerwidth='+ containerWidth);
+                //console.log('listWidth='+ listWidth);
+               // console.log('containerwidth='+ containerWidth);
 
                
                 
@@ -5262,23 +5266,28 @@ $(".js-carousel").each(function() {
             } else {
                 moveto = (before >= 0) ? 0 : curPos + containerWidth;
             }
-             console.log('moveto='+ moveto);
+            // console.log('moveto='+ moveto);
 
              if ((dir == "next")&& (moveto == curPos) ){
               moveto = 0;
              }
-             console.log('dir='+ dir);
+             //console.log('dir='+ dir);
              if ((dir == "prev")&& (moveto == curPos) ){
                 moveto = -(listWidth - containerWidth);
                }
          
-
-            $carouselList.animate({
+             
+               $carouselList.animate({
                 left: moveto
             });
+        
+
+        
+
+
             curPos = parseInt($carouselList.css("left")) || 0;
-            console.log('new curPos='+ curPos);
-            console.log('________________________');
+            //console.log('new curPos='+ curPos);
+            //console.log('________________________');
         };
     $(window).resize(function() {
         setItemWidth();

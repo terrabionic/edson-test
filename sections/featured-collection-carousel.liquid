@@ -232,7 +232,10 @@
                     
                    
                       <div class="title-item-carousel carousel-title-margin">
-                      {{product.title}}
+                      <div class="carousel-title-overflow">
+                         <h3 class="carousel-title"> {{product.title}}</h3> 
+                      </div>
+                     
                       </div>
                       <div class="price-item-carousel carousel-price-margin">
                       {{product.price |  money_with_currency}}
