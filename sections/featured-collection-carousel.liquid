@@ -91,35 +91,63 @@
       }, 300);
       //$("#carousel-container").animate({"left":new_left + "px"}, "slow");
     }
+    function items_displayed(){
+      //var total_width =  $('.carousel__list').width();
+      /*
+      var item_carousel = $('.carousel__item');
+      var width_item = $(item_carousel).outerWidth(true);
+      console.log('item-width-no-border'+ $(item_carousel).outerWidth(true));
+   
+      var container = $('.carousel__container');
+      var width_container = $(container).outerWidth(true);
+      console.log('carousel-container='+ $(container).outerWidth(true));
+      var items_displayed = width_container / width_item;
+      console.log('items-displayed='+ items_displayed);
+
+      var total_items = $('.carousel__item').length;
+      console.log('total_items='+ total_items);
+      var new_bullets = Math.ceil(total_items / items_displayed);
+      console.log('new_bullets='+ new_bullets);
+      console.log('__________________________________');
+      */
+      
+    }
     function create_bullets(){
      
-      
+      var item_carousel = $('.carousel__item');
+      var width_item = $(item_carousel).outerWidth(true);
+      console.log('item-width-no-border'+ $(item_carousel).outerWidth(true));
+   
+      var container = $('.carousel__container');
+      var width_container = $(container).outerWidth(true);
+      console.log('carousel-container='+ $(container).outerWidth(true));
+      var items_displayed =  Math.round(width_container / width_item) ;
+      console.log('items-displayed='+ items_displayed);
+
       var old_dots_num = $('#slick-group li').length;
+      console.log('old-dots='+ old_dots_num);
+      console.log('__________________________________');
+      
+      var total_items = $('.carousel__item').length;
+      console.log('total_items='+ total_items);
+      var new_bullets = Math.ceil(total_items / items_displayed);
+      console.log('new_bullets='+ new_bullets);
+      
+  
       var total_width =  $('.carousel__list').width();
       
        var displayed_width =  $('.carousel__container').width();
       var dots_container = $('#slick-group');
       var width_window = $(window).width();
-       var dots_num;
-      if (width_window >= 1110)
-      {
-       dots_num = 2;
-      }
-      else if(width_window >= 860 && width_window < 1110)
-      {
-           dots_num = 3;
-      }
-      else
-      {
-        dots_num = 4;
-      }
+      
+  
      
-      if (old_dots_num != dots_num)
+      if (old_dots_num != new_bullets)
       {
       $( "#slick-group li" ).each(function(  ) {
      $(this).remove( );
     });
-       for (i=1 ; i<= dots_num; i++){
+       for (i=1 ; i<= new_bullets; i++){
          if (i == 1){
             dots_container.append('<li class="new-slick-active" onclick=change_slide(event) ' +' data-slide= \"'+i +'\">  </li>');
          }
@@ -135,9 +163,12 @@
     window.addEventListener('resize', create_bullets, true); 
     //window.onresize = center_buttons;
     window.addEventListener('resize', center_buttons, true); 
+
+    window.addEventListener('resize',  items_displayed, true); 
     $( document ).ready(function() {
        create_bullets();
        center_buttons();
+       items_displayed();
     });
     </script>
     
